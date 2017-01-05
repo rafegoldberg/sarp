@@ -1,0 +1,10 @@
+%ui-small {
+	font: inherit;
+	font-size: ms(-2);
+	line-height: inherit;
+	color: inherit;
+	}
+
+small[is='ui-small'] {
+	@extend %ui-small;
+	}

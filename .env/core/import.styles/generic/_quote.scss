@@ -1,0 +1,53 @@
+//@section[base]
+// 
+%ui-quote {
+	& {
+		all: initial;
+		position: relative;
+		display: block;
+		font: inherit;
+		text-transform: inherit;
+		line-height: 1;
+		color: inherit;
+		}
+	&:before,
+	&:after {
+		position: absolute;
+		top: 57.5%;
+		font-size: ms(7);
+		font-family: Ui(fonts,serif);
+		font-weight: 900;
+		font-style: normal;
+		line-height: .6;
+		opacity: .175;
+		letter-spacing: -.2em;
+		vertical-align: middle;
+		}
+	&__left {
+		text-align: left;
+		&:before {
+			content: '‘‘';
+			left: -.375em;
+			}
+		}
+	&__right {
+		text-align: right;
+		&:before { display: none; }
+		&:after {
+			content: '’’';
+			right: -.2em;
+			}
+		}
+	}
+
+//@usage[class]
+.ui-quote {
+	@extend %ui-quote, %ui-quote__left;
+	&__right { @extend %ui-quote__right }
+	}
+
+//@usage[attr]
+[is="ui-quote"] {
+	@extend %ui-quote, %ui-quote__left;
+	&.ui-quote__right { @extend %ui-quote__right }
+	}

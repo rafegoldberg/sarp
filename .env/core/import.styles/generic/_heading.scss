@@ -1,0 +1,33 @@
+%ui-heading {
+	//=Root
+	// 
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		white-space: nowrap;
+		margin: ms(-1) 0;
+		font-family: Ui(fonts,serif);
+		color: Ui(colors,dark);
+	&:before,
+	&:after {
+		content: " ";
+		flex: 1 50%;
+		height: 1px;
+		max-width: 50%;
+		background-color: transparent;
+		background-size: 100% 1px;
+		background-position: center;
+		}
+	&:before {
+		margin-right: ms(-2);
+		background-image: Ui(grades,xfade,ledge);
+		}
+	&:after {
+		margin-left: ms(-2);
+		background-image: Ui(grades,xfade,redge);
+		}
+	}
+
+[is='ui-heading'] {
+	@extend %ui-heading;
+	}

@@ -1,0 +1,66 @@
+{"folders":[
+	{ "name": "root/",
+		"path": ".",
+		"file_exclude_patterns":[
+			".DS_Store",
+			// "*.sublime*",
+			".yo-rc.json",
+			".bowerrc"
+			],
+		"folder_exclude_patterns": [
+			"node_modules",
+			".web",
+			"icons",
+			".env",
+			".build",
+			"ui",
+			"dist"
+			],
+		},
+	{ "name": "/dist",
+		"path": "dist",
+		"file_exclude_patterns":[
+			".DS_Store"
+			],
+		},
+	{ "name": "/UI ——————",
+		"path": "ui",
+		"file_exclude_patterns":[
+			".DS_Store"
+			],
+		},
+	{ "name": "/icons",
+		"path": "icons",
+		"file_exclude_patterns":[
+			".DS_Store"
+			],
+		},
+	{ "name": "/web –————",
+		"path": ".web",
+		"file_exclude_patterns":[
+			".DS_Store"
+			],
+		},
+	{ "name": "/env ––————",
+		"path": ".env",
+		"file_exclude_patterns":[
+			".DS_Store"
+			],
+		"folder_exclude_patterns": [
+			"conf",
+			"core"
+			],
+		},
+	{ "name": "//conf",
+		"path": ".env/conf",
+		"file_exclude_patterns":[
+			".DS_Store"
+			],
+		},
+	{ "name": "//core",
+		"path": ".env/core",
+		"file_exclude_patterns":[
+			".DS_Store"
+			],
+		}
+	]}

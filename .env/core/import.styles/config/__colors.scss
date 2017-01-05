@@ -1,0 +1,34 @@
+$ds-colors: Ui-add(colors,(
+  //->branding
+  blue:   #079CB4,//brand
+  deep:   #003B4C,//dark
+  orange: #F9701F,//pop
+  //->interface
+  green:  #07B4A7,
+  red:    #F0433F,
+  gold:   #F8A60A,
+  //->grayscale
+  dark:   #373737,
+  gray:   #AAAAAA,
+  edge:   #DBDBDB,
+  lite:   #EEEEEE,
+  faint:  #FAFAFC,
+  bg:     #FEFEFE
+  ));
+
+//=@todo implement $ds-theme (or $ds-color aliases)
+  // 	brand: blue,
+  //  rust: red,
+  // 	grey: gray,
+  // 	border: edge,
+  //  bdr: edge,
+  // 	background: bg,
+
+@function switchText($color) {
+  @if( lightness($color) > 62.5 ){
+    @return Ui(colors,dark); //=return dark
+    }
+  @else {
+    @return Ui(colors,bg); //=return lite
+    }
+  }

@@ -1,0 +1,15 @@
+{
+  "name": "dsui",
+  "description": "build modular UI components",
+  "version": "0.0.2",
+  "main": "dist/dsUi.js",
+  "authors": [
+    "Rafe Goldberg"
+  ],
+  "private": true,
+  "devDependencies": {
+    "modular-scale": "^2.1.3",
+    "breakpoint-sass": "^2.7.0",
+    "ui.sass.util": "https://github.com/rafegoldberg/ui.sass.util.git#master"
+  }
+}

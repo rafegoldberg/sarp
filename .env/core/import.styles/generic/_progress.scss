@@ -1,0 +1,55 @@
+//=Mixins
+// 
+  @mixin ui-progress-bar($color:Ui(colors,blue),$radius:2px) {
+    background: white;
+    background-image: linear-gradient(
+      to left,
+      rgba(Ui(colors,faint),.625),
+      Ui(colors,bg)
+      );
+    border-radius: $radius;
+    border: 1px solid rgba($color,.375);
+    }
+  @mixin ui-progress-value($color:Ui(colors,blue),$radius:2px) {
+    background-image:
+      linear-gradient(
+        to right,
+        90deg,rgba($color,.125),
+        rgba($color,.15) 25%,
+        rgba($color,.3) 87.5%
+        );
+    background: rgba($color,.25);
+    border-radius: ($radius - 1);
+    margin: -1px 0 -1px -1px;
+    padding: 1px 1px 1px 0;
+    box-sizing: content-box;
+    }
+
+//=Extension
+// 
+%ui-progress {
+  //=Vars 
+    $color: Ui(colors,blue);
+    $radius: 2px;
+  //=Root 
+    appearance: none;
+    border: none;
+    background: rgba($color,.375);
+    box-shadow: 3px 4px 8px -4px rgba(Ui(colors,dark),.0875);
+    radius: 2px;
+  &::progres-bar   { @include ui-progress-bar;   }
+  &::progres-value { @include ui-progress-value; }
+  }
+
+//=Usage
+// 
+progress[is='ui-progress'] {
+  @extend
+    %ui-progress;
+  //=prefix
+  // 
+  @each $vendor in Ui(vendors) {
+    &::-#{$vendor}-progress-bar   { @include ui-progress-bar;   }
+    &::-#{$vendor}-progress-value { @include ui-progress-value; }
+    }
+  }

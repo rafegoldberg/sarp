@@ -1,0 +1,12 @@
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+::-moz-selection {
+	color: Ui(colors,blue);
+	background: rgba(Ui(colors,blue),.25);
+	}
+::selection {
+	color: Ui(colors,blue);
+	background: rgba(Ui(colors,blue),.25);
+	}

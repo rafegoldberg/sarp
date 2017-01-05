@@ -1,0 +1,67 @@
+#=Project
+#
+
+# .env/conf
+# .env/data
+.env/data/user*.json
+.bin/
+.build/
+# .web/
+dist/
+.web/lib/dsUi
+.env/lib
+node_modules
+# *.sublime-project
+*.sublime-workspace
+.yo-rc.json
+.DS_Store
+
+
+#=Kirby
+#
+#-account
+.web/site/accounts/*
+.web/!site/accounts/index.html
+.web/assets/avatars/*
+.web/!assets/avatars/.gitkeep
+.web/
+#-thumbnails
+.web/thumbs/*
+.web/!thumbs/index.html
+#-cache
+.web/site/cache/*
+.web/!site/cache/index.html
+
+#=Miscellaneous
+#
+.sass-cache/
+*.css.map
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
+bh_unicode_properties.cache
+logs
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage
+.nyc_output
+.lock-wscript
+build/Release
+.npm
+*.tgz
+jspm_packages
+*.orig
+.bower-cache
+.bower-registry
+.bower-tmp

@@ -1,0 +1,11 @@
+%ui-label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+	font-size: ms(-1);
+  font-weight: initial;
+  margin-right: .6em;
+	}
+
+label[is="ui-label"] {
+	@extend %ui-label }

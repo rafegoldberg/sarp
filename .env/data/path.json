@@ -1,0 +1,35 @@
+{ "app": ".env",
+
+  "core": "<%=ƒ.app%>/core",
+  "dist": "dist",
+  "temp": ".build",
+  "serv": ".web",
+
+  "bundl": "<%=ƒ.serv%>/assets/ui",
+  "packs": "node_modules",
+  "bower": "<%=ƒ.app%>/lib",
+
+  "atoms": "ui",
+  "icons": "icons",
+
+  "deploy": {
+    "from": "<%=ƒ.serv%>",
+    "dest": "/rgd2.co/clients/sarp/"
+    },
+  "sass":  {
+    "main": "<%=ƒ.core%>/core.scss",
+    "core": "<%=ƒ.core%>/import.styles",
+    "atom": "<%=ƒ.atoms%>/**/*.scss",
+    "temp": "<%=ƒ.temp%>/ui.scss",
+    "dist": "<%=ƒ.dist%>/ui.css",
+    "mini": "<%=ƒ.dist%>/ui.min.css"
+    },
+  "js":    {
+    "main": "<%=ƒ.core%>/core.js",
+    "core": "<%=ƒ.core%>/import.scripts",
+    "atom": "<%=ƒ.atoms%>/**/*.js",
+    "temp": "<%=ƒ.temp%>/ui.js",
+    "dist": "<%=ƒ.dist%>/ui.js",
+    "mini": "<%=ƒ.dist%>/ui.min.js"
+    }
+  }

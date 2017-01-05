@@ -1,0 +1,44 @@
+.ui-button {
+  //=root
+  // 
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    margin-bottom: 0;
+    padding: ms(-1) ms(0);
+    
+    font-family: Ui(fonts,sans);
+    font-size: ms(0);
+    font-weight: 200;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+
+    background-image: none;
+    box-shadow: 1px 4px 6px -3px rgba(Ui(colors,dark),.2);
+
+    cursor: pointer;
+    user-select: none;
+    user-drag: element;
+  //=mods/color
+  // 
+    @each $key,$color in Ui(colors) {
+      &__#{$key} {
+        $bxsh: ;
+        background-color: $color;
+        color: switchText($color) !important;
+        text-decoration: none !important;
+        transition: all .175s ease;
+        &:hover {
+          background-color: mix(Ui(colors,lite),$color,15%);
+          box-shadow: 4px 4px 0 -1px rgba(Ui(colors,dark),.1);
+        }
+        &:active {
+          color: rgba(switchText($color),.75) !important;
+          box-shadow:
+            inset 4px 4px 0 -2px rgba(mix($color,Ui(colors,dark)),.175),
+            4px 4px 0 -4px rgba(Ui(colors,dark),0);
+          }
+        }
+      }
+  }

@@ -1,0 +1,41 @@
+@mixin icon-fill($color){
+	svg .svg-fill {
+		fill: $color;
+		}
+	svg .svg-stroke {
+		stroke: $color;
+		}
+	svg .svg-stop {
+		stop-color: $color;
+		}
+	}
+
+%ui-icon {
+	&__bgimg {
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		}
+	&__sizing {
+		width: ms(0);
+		height: ms(0);
+		display: inline-block;
+		vertical-align: text-top;
+		line-height: inherit;
+		}
+	}
+	
+.ui-icon {
+	@extend
+		%ui-icon__bgimg,
+		%ui-icon__sizing;
+	&:empty,
+	svg {
+		@extend %ui-icon__sizing !optional;
+		}
+	@each $key,$color in Ui(colors) {
+		&__color\=#{$key} {
+			@include icon-fill($color);
+			}
+		}
+	}
