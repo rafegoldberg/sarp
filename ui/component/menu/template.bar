@@ -1,0 +1,5 @@
+<nav class="menu" role="navigation">
+	{{#each pages}}
+		<a class="menu--item" href="{{url}}">{{title}}</a>
+	{{/each}}
+</nav>

@@ -6,53 +6,47 @@
 /*=Libraries
  */
   var 
-  // $= require('jquery');
   $= window.$ =require('jquery'),
   ø= window.ø =require('underscore');
 
 /*=Ui Core
  */
 
-  //=modernizr
-    require('mdnzr.js');
-  //=xtag 
-    var Dom= window.Dom =require('x-tag');
-  //=bars 
-    var Bar= window.Bar =require('hbsfy/runtime');
-    require('bars.js');
+  require('mdnzr.js');
+  var
+  Dom= window.Dom =require('x-tag'),
+  Bar= window.Bar =require('hbsfy/runtime');
+  require('bars.js');
+  require('modularscale-js');
 
-  //=ui style 
-    require('modularscale-js');
-  //=ui core  
-    var
-    Log= window.Log =require('Log.js'),
-    Url= window.Url =require('Url.js'),
-    Tag= window.Tag =require('Tag.js');
+  var
+  Log = window.Log  =require('Log.js'),
+  Url = window.Url  =require('Url.js'),
+  Tag = window.Tag  =require('Tag.js');
+
 
 /*=Ui Modules
  */
-  Ui= window.Ui =require('../../ui/*/*/*.js',{
+  UiModules= window.UiModules =require('../../ui/*/*/*.js',{
     mode:'hash',
     resolve:['reduce']
     });
-  Ui= Object.keys(Ui).reduce((map,key,i)=>{
-    var val= Ui[key],
+  UiModules= Object.keys(UiModules).reduce((map,key,i)=>{
+    var val= UiModules[key],
         key= key.split('/').slice(0,2).join('/');
     map[key]= val;
     return map;
     },{});
 
-/*=Ds App
+/*=Ui App
  */
-  Ds= window.Ds ={
-    opts: {
-      ajaxBase: './ajax/'
-      },
+  UiApp= window.UiApp ={
+    // opts: { ajaxBase:'./ajax/' },
     init: function(opts={}){
 
       $.extend( true, this.opts, opts );
 
-      Log.grp('Ds.init()','initializing the UI...');
+      Log.grp('Ui','initializing the UI...');
       ø.each(this.queue,function(qƒn,key){
         Log.grp('queue',`-> ${key}()`);
           qƒn();
@@ -61,8 +55,8 @@
       Log.end();
       },
     queue: {
-      register: function(){
-        ø.each(Ui,function(val,key){
+      registerTags: function(){
+        ø.each(UiModules,function(val,key){
           if( !(val instanceof Tag) )
             return;
           Log.txt(key);

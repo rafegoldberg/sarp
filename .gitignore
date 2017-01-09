@@ -19,6 +19,9 @@ node_modules
 
 #=Kirby
 #
+#-core
+.web/panel/
+.web/kirby/
 #-account
 .web/site/accounts/*
 .web/!site/accounts/index.html

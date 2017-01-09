@@ -1,0 +1,42 @@
+.corner {
+	//=SETTINGS  
+		$offset: 1.5em;
+		$width: .45em;
+		$color: Ui(colors,edge);
+	//=LAYOUT    
+		display: inline-block;
+		width: 12.5vmin;
+		height: 12.5vmin;
+	//=THEME     
+		color: $color;
+		border: 1px solid transparent;
+		opacity: .375;
+	//=MODIFIERS 
+		&{//=edge orientations
+			position: fixed;
+			&__edge\=topLeft  {
+				top: $offset;
+				left: $offset;
+				border-left-color: $color;
+				border-top-color: $color;
+				}
+			&__edge\=topRight {
+				top: $offset;
+				right: $offset;
+				border-right-color: $color;
+				border-top-color: $color;
+				}
+			&__edge\=btmLeft  {
+				bottom: $offset;
+				left: $offset;
+				border-left-color: $color;
+				border-bottom-color: $color;
+				}
+			&__edge\=btmRight {
+				bottom: $offset;
+				right: $offset;
+				border-right-color: $color;
+				border-bottom-color: $color;
+				}
+			}
+	}

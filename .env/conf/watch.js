@@ -19,7 +19,7 @@ module.exports = {
       'notify:js',
       'ui.js'
       ],
-    // options: {interrupt:true}
+    options: {interrupt:true}
     },
   css: {
     files: [
