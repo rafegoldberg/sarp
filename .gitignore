@@ -1,40 +1,34 @@
+#
 #=Project
 #
-
-# .env/conf
-# .env/data
 .env/data/user*.json
 .bin/
 .build/
-# .web/
 dist/
 .web/lib/dsUi
 .env/lib
 node_modules
-# *.sublime-project
 *.sublime-workspace
 .yo-rc.json
 .DS_Store
-
-
+#
 #=Kirby
 #
-#-core
-.web/panel/
-.web/kirby/
 #-account
 .web/site/accounts/*
 .web/!site/accounts/index.html
 .web/assets/avatars/*
 .web/!assets/avatars/.gitkeep
-.web/
 #-thumbnails
 .web/thumbs/*
 .web/!thumbs/index.html
 #-cache
 .web/site/cache/*
 .web/!site/cache/index.html
-
+#-core
+.web/panel/
+.web/kirby/
+#
 #=Miscellaneous
 #
 .sass-cache/

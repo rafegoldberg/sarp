@@ -1,0 +1,20 @@
+title: Home
+
+icon: crosshairs
+icon: sitemap
+icon: home
+
+pages: false
+
+fields:
+  title:
+    label: Title
+    type:  text
+
+  intro:
+    label: Intro
+    type:  textarea
+
+  text:
+    label: Text
+    type:  textarea
