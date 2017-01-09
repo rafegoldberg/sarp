@@ -10,4 +10,4 @@ Description:
 
 ----
 
-Copyright: © 2009–(date: Year)
+Copyright: ©2009–(date: Year)
