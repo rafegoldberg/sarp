@@ -435,6 +435,9 @@ small[is='ui-small'] {
 .menu--item + .menu--item:before {
   content: ' / '; }
 
+.menu--item__active {
+  font-weight: bold; }
+
 .corner {
   display: inline-block;
   width: 12.5vmin;

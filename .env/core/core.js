@@ -41,7 +41,7 @@
 /*=Ui App
  */
   UiApp= window.UiApp ={
-    // opts: { ajaxBase:'./ajax/' },
+    opts: { ajaxBase:'./api' },
     init: function(opts={}){
 
       $.extend( true, this.opts, opts );

@@ -1,5 +1,8 @@
 <nav class="menu" role="navigation">
 	{{#each pages}}
-		<a class="menu--item" href="{{url}}">{{title}}</a>
+		<a class="menu--item" href="{{url}}">
+			{{title}}
+			{{log this}}
+		</a>
 	{{/each}}
 </nav>

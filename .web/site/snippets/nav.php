@@ -1,3 +1,4 @@
-<?$pages= $pages->visible()->toArray();
+
+<?$pages= $pages->visible();
 	?>
-<ui-menu data-pages="<?=Ui::att($pages)?>"></ui-menu>
+<ui-menu data-pages="<?=Ui::att($pages->toArray())?>"></ui-menu>

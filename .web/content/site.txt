@@ -6,7 +6,7 @@ Author: Rafe Goldberg
 
 ----
 
-Description: 
+Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem ipsum deserunt at et, porro sed sapiente blanditiis eveniet ad saepe, quaerat obcaecati officia modi odit provident delectus neque alias aspernatur reprehenderit, vero consectetur temporibus. Cupiditate.
 
 ----
 

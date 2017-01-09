@@ -1,10 +1,24 @@
 var
 tpl= require('./template.bar'),
 def= {
-	lifecycle: {
+	methods: {
 		created: function(){
-			this.bem= {base:'menu'};
-			$(this).addClass(this.bem.base);
+			this.model.khtm= this.strip(this.model.khtm,'htmlbody');
+			}
+		},
+	methods: {
+		strip: function(htm,key,rpl=''){
+			var
+			rgx= {
+				htmlbody: /^[\s\S]*<body.*?>|<\/body>[\s\S]*$/ig //=strip html>body wrap
+				},
+			key= typeof(use)==='string' ? rgx[use]||use : ' ';
+			return htm.replace(key,rpl);
+			},
+		grab: function(select){
+			var
+			$el= $(this.model.khtm);
+			return $el.find(select);
 			}
 		}
 	};

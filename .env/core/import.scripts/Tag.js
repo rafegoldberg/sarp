@@ -15,7 +15,7 @@ module.exports= Tag;
     var
     url= Url.valid(url)
       ? url
-      : Url.resolve(Ds.opts.ajaxBase||window.location.href,url),
+      : Url.resolve(UiApp.opts.ajaxBase||window.location.href,url),
     cƒn= typeof(cƒn)==='function'
       ? cƒn
       : false,
@@ -32,6 +32,8 @@ module.exports= Tag;
   base= {
     lifecycle: {
       created:  function(){
+        this.model.load
+          && ( this.model=this.model.load );
         this.render();
         },
       inserted: function(){},
@@ -67,8 +69,6 @@ module.exports= Tag;
           return model;
           },
         set: function( use ){
-
-          console.log( Object.keys($(this).attr()) );
           //=async get json from url 
             if( Url.isPath(use) )
               return this.load( use, json=>this.render() );

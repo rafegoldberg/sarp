@@ -2,14 +2,7 @@
   ?>
 
 <?snippet('header')?>
-<main class="main" role="main">
-  <header>
-    <h3><?= $page->title()->html() ?></h3>
-  </header>
-  <div class="text wrap">
-    <?= $page->text()->kirbytext() ?>
-  </div>
-</main>
+<ui-page data-model="./api/projects/masallah"></ui-page>
 <?snippet('footer')?>
 
 <?snippet('app/btm')

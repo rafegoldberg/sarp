@@ -122,7 +122,7 @@
 					}
 				private static function uiScript(){
 					if( !self::wasrun(__FUNCTION__) ):
-						$url= self::envurl('ui.'.'min.'.'js');
+						$url= self::envurl('ui.'/*.'min.'*/.'js');
 						?>
 						<script id="ui@script" src="<?=$url?>"></script>
 						<?endif;

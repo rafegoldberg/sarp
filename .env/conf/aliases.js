@@ -48,7 +48,7 @@ tasks= {
       ],
     'ui.js': [
       'browserify:ui.js',
-      'uglify:ui.js',
+      // 'uglify:ui.js',
       ],
     'ui.icn': [
       'clean:ui.icn',

@@ -3,5 +3,8 @@
 		& + &:before {
 			content: ' / '
 			}
+		&__active {
+			font-weight: bold;
+			}
 		}
 	}

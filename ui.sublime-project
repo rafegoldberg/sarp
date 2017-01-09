@@ -4,25 +4,6 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store",
-				".yo-rc.json",
-				".bowerrc"
-			],
-			"folder_exclude_patterns":
-			[
-				"node_modules",
-				".web",
-				"icons",
-				".env",
-				".build",
-				"ui"
-			],
-			"name": "ROOT/",
-			"path": "."
-		},
-		{
-			"file_exclude_patterns":
-			[
 				".DS_Store"
 			],
 			"name": "★ UI Modules",
@@ -39,13 +20,59 @@
 		{
 			"file_exclude_patterns":
 			[
+				".DS_Store",
+				".yo-rc.json",
+				".bowerrc"
+			],
+			"folder_exclude_patterns":
+			[
+				"node_modules",
+				".web",
+				"icons",
+				".env",
+				".build",
+				"ui"
+			],
+			"name": "@root/",
+			"path": "."
+		},
+		{
+			"file_exclude_patterns":
+			[
 				".DS_Store"
 			],
 			"folder_exclude_patterns":
 			[
-				"site/blueprints",
-				"site/templates",
-				"site/snippets",
+				"conf",
+				"core"
+			],
+			"name": "/env",
+			"path": ".env"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": " ├ conf",
+			"path": ".env/conf"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": " └ core",
+			"path": ".env/core"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"folder_exclude_patterns":
+			[
+				"site",
 				"assets"
 			],
 			"name": "/web",
@@ -76,7 +103,31 @@
 			[
 				".DS_Store"
 			],
-			"name": " ├ site/bluprint",
+			"folder_exclude_patterns":
+			[
+				"site/controllers",
+				"site/blueprints",
+				"site/templates",
+				"site/snippets",
+				"site/cache"
+			],
+			"name": " └ site",
+			"path": ".web/site"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "    ├ control",
+			"path": ".web/site/controllers"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "    ├ bluprint",
 			"path": ".web/site/blueprints"
 		},
 		{
@@ -84,7 +135,7 @@
 			[
 				".DS_Store"
 			],
-			"name": " ├ site/templates",
+			"name": "    ├ template",
 			"path": ".web/site/templates"
 		},
 		{
@@ -92,37 +143,8 @@
 			[
 				".DS_Store"
 			],
-			"name": " └ site/snippets",
+			"name": "    └ snippet",
 			"path": ".web/site/snippets"
-		},
-		{
-			"file_exclude_patterns":
-			[
-				".DS_Store"
-			],
-			"folder_exclude_patterns":
-			[
-				"conf",
-				"core"
-			],
-			"name": "/env",
-			"path": ".env"
-		},
-		{
-			"file_exclude_patterns":
-			[
-				".DS_Store"
-			],
-			"name": " ├ conf",
-			"path": ".env/conf"
-		},
-		{
-			"file_exclude_patterns":
-			[
-				".DS_Store"
-			],
-			"name": " └ core",
-			"path": ".env/core"
 		}
 	]
 }

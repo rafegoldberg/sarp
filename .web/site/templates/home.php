@@ -4,7 +4,7 @@
 <?snippet('header')?>
 <main class="main" role="main">
   <div class="text wrap">
-    <?= $page->text()->kirbytext() ?>
+    <?=$page->text()->kirbytext()?>
   </div>
   <section class="projects-section">
     <?snippet('showcase',['limit'=>3])?>
@@ -20,6 +20,8 @@
   </section>
 </main>
 <?snippet('footer')?>
+
+<script>console.log(<?=json_encode($test)?>)</script>
 
 <?snippet('app/btm')
   ?>
