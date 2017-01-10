@@ -11,3 +11,7 @@ Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem ip
 ----
 
 Copyright: ©2009–(date: Year)
+
+----
+
+Shorttitle: sarp/pics

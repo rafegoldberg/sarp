@@ -1,11 +1,11 @@
 <?return function( $site, $pages, $page ){
-	/*=this controller contains logic for the
-	 | home page template, as a function that
-	 | returns an assoc array of variables to
-	 | pass to the template/home.php file
+  /*=this controller returns extra data as an
+   | assoc array which is extracted to the
+   | global scope of the PHP template
 	 |
 	 @learnmore: getkirby.com/docs/developer-guide/advanced/controllers
 	 |
 	\*/
-  return array( test=>[a=>1,b=>2] );
+  $list= [a=>1,b=>2];
+  return compact('list');
 	};

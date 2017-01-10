@@ -1,4 +1,5 @@
-module.exports= {
+var
+tasks= {
 	sass_globbing: {
     files: {
       '<%=ƒ.sass.temp%>': [
@@ -45,3 +46,4 @@ module.exports= {
 		src: ['**/*.css{,.map}']
 		},
 	};
+module.exports= tasks;

@@ -1,26 +1,26 @@
 var
 tpl= require('./template.bar'),
 def= {
-	methods: {
-		created: function(){
-			this.model.khtm= this.strip(this.model.khtm,'htmlbody');
-			}
+	lifecycle: {
+		created: function(){}
 		},
 	methods: {
-		strip: function(htm,key,rpl=''){
+		htmstr: function(htm,key,rpl=''){
+			if( typeof(htm)!=='string' )
+				return htm;
 			var
 			rgx= {
 				htmlbody: /^[\s\S]*<body.*?>|<\/body>[\s\S]*$/ig //=strip html>body wrap
 				},
-			key= typeof(use)==='string' ? rgx[use]||use : ' ';
-			return htm.replace(key,rpl);
+			key= typeof(key)==='string' ? rgx[key]||key : '';
+			return htm.replace(rpl,key);
 			},
-		grab: function(select){
-			var
-			$el= $(this.model.khtm);
-			return $el.find(select);
-			}
 		}
+	// accessors: {
+	// 	model: {
+	// 		get:function(){
+	// 			}
+	// 		}
+	// 	}
 	};
-
 module.exports= new Tag(tpl,def);

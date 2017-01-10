@@ -1,19 +1,24 @@
-module.exports= Tag;
-//=requires
-// 
-  var//libraries
-  Lo=  require('lodash'),
-  Url= require('Url.js');
 
-  var//quickies
-  strJSON= require('is-json');
-//=dev area
+  
+module.exports= Tag;
+//=require
+// 
+  var//env  
+    Dom= window.Dom =require('x-tag'),
+    Bar= window.Bar =require('hbsfy/runtime');
+    require('bars.js');
+  var//util 
+    Lo=  require('lodash');
+  var//libs 
+    Url= require('Url.js'),
+    strJSON= require('is-json');
+//=staging
 // 
   var
   UiTagLoad= function(url,cƒn){
-    var self= this; //=alias this
     var
-    url= Url.valid(url)
+    self= this,//alias
+    url= typeof(url)==='string' && Url.valid(url)
       ? url
       : Url.resolve(UiApp.opts.ajaxBase||window.location.href,url),
     cƒn= typeof(cƒn)==='function'
@@ -21,20 +26,21 @@ module.exports= Tag;
       : false,
     xhr= $.getJSON(url,json=>{
       self.model= json;
-      cƒn && cƒn.call(self,json); //=exec w/ explicit this context
+      cƒn && cƒn.call(self,json); //exec w/ explicit this context
+      $(this).trigger('loaded.ui',this.model);//@hook:event
       });
-
     return xhr;
     }
-//=tag opts
+//=options
 // 
   var
   base= {
     lifecycle: {
       created:  function(){
+        this.htm= $(this).html();
         this.model.load
           && ( this.model=this.model.load );
-        this.render();
+        // this.render();
         },
       inserted: function(){},
       removed:  function(){},
@@ -45,9 +51,10 @@ module.exports= Tag;
       },
     methods: {
       load: UiTagLoad,
-      render: function( use ){
+      render: function( use, silent ){
+        silent || $(this).trigger('rendering.ui',this.model);//@hook:event
         if( Url.valid(use) || Url.isPath(use) )
-          return this.load( use, json=>this.render() );
+          return this.load( use, json=>this.render(undefined,true) );
         if( Dom.typeOf(use)=='object' )
           this.model= use;
         return this;
@@ -56,7 +63,7 @@ module.exports= Tag;
         var $$= $(this);
         $$.data(...arguments);
         return $$.data();
-        }
+        },
       },
     accessors: {
       model: {
@@ -70,13 +77,15 @@ module.exports= Tag;
           },
         set: function( use ){
           //=async get json from url 
-            if( Url.isPath(use) )
-              return this.load( use, json=>this.render() );
+          if( Url.isPath(use) ) 
+            return this.load(use,json=>{
+              this.render(undefined,true);
+              });
           //=parse json from att str 
-            if( strJSON(use) )
-              this.model= JSON.parse(use);
-            else
-              this.data(...arguments);
+          if( strJSON(use) ) 
+            this.model= JSON.parse(use);
+          else 
+            this.data(...arguments);
           return this.model;
           }
         }
@@ -100,8 +109,9 @@ module.exports= Tag;
       if( typeof tpl==='function' )
         def.methods= {
           template: tpl,
-          render: function( use ){
+          render: function( use, silent ){
             $(this).html( this.template(this.model) );
+            silent || $(this).trigger('rendered.ui',this.model);//@hook:event
             return this;
             },
           };

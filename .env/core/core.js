@@ -1,30 +1,20 @@
-/*=Polyfill
- */  
-  require('babel-polyfill');
-  require('webcomponents.js');
-
-/*=Libraries
+/*=Ui Env
  */
-  var 
-  $= window.$ =require('jquery'),
-  ø= window.ø =require('underscore');
-
+  //=polyfill
+    require('babel-polyfill');
+    require('webcomponents.js');
+  var//=utilities
+    $= window.$ =require('jquery'),
+    ø= window.ø =require('underscore');
+  //=plugins
+    require('mdnzr.js');
+    require('modularscale-js');
 /*=Ui Core
  */
-
-  require('mdnzr.js');
-  var
-  Dom= window.Dom =require('x-tag'),
-  Bar= window.Bar =require('hbsfy/runtime');
-  require('bars.js');
-  require('modularscale-js');
-
   var
   Log = window.Log  =require('Log.js'),
   Url = window.Url  =require('Url.js'),
-  Tag = window.Tag  =require('Tag.js');
-
-
+  Tag = window.Tag  =require('Tag.js');//@window[handlebars,xtag,]
 /*=Ui Modules
  */
   UiModules= window.UiModules =require('../../ui/*/*/*.js',{
@@ -37,7 +27,6 @@
     map[key]= val;
     return map;
     },{});
-
 /*=Ui App
  */
   UiApp= window.UiApp ={

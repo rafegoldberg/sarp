@@ -1,20 +1,20 @@
 title: Site
-
 pages: default
-
 fields:
   title:
     label: Title
     type:  text
-
+    width: 3/4
+  shortTitle:
+    label: Short Title
+    type:  text
+    width: 1/4
   author:
     label: Author
     type:  text
-
   description:
     label: Description
     type:  textarea
-    
   copyright:
     label: Copyright
     type:  textarea

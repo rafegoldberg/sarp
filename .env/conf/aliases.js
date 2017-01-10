@@ -1,16 +1,8 @@
 var
 tasks= {
-
   default: ['env.start'],
-
   /*=
-  βeta
-   Testing
-   */
-
-  /*=
-  dsUi
-   Environment
+  Ui Env
    */
     'env.setup': [
       'notify:credentials',
@@ -32,14 +24,13 @@ tasks= {
       // 'gitadd:env.git',
       // 'gitcommit:env.git',
       // 'gitpush:env.git',
-      'ftp-deploy:env.ftp', //=or via githooks
+      'ftp-deploy:env.ftp',
       ],
     'env.push': [
       'env.ftp',
       ],
   /*=
-  dsUi
-   Build
+  Ui Build
    */
     'ui.css': [
       'sass_globbing:ui.css',
@@ -48,7 +39,6 @@ tasks= {
       ],
     'ui.js': [
       'browserify:ui.js',
-      // 'uglify:ui.js',
       ],
     'ui.icn': [
       'clean:ui.icn',
@@ -66,22 +56,22 @@ module.exports= function( grunt, options ){
 
   var Ck= require('chalk');
 
-  /*=w/o cleanup
+  /*rebuild ui on env.start
    */
   if( grunt.option('rebuild') ){
     console.log(Ck.bold.green('rebuilding...'))
     tasks['env.start'].unshift('ui.build');
     }
 
-  /*=w/o cleanup
+  /*dont clean before builds
    */
   if( !grunt.option('no-clean') )
     tasks['ui.css'].unshift('clean:ui.css') &&
     tasks['ui.js'].unshift('clean:ui.js');
 
-  /*=w/o web copy
+  /*no web/ builds generated
    */
-  if( !grunt.option('no-serv') )
+  if( !grunt.option('no-web') )
     tasks['ui.css'].push('copy:ui.css') &&
     tasks['ui.js' ].push('copy:ui.js' ) &&
     tasks['ui.icn'].push('copy:ui.icn');

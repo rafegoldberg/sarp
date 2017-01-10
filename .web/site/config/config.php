@@ -7,13 +7,6 @@
 		c::set('panel.install',true);
 	#-routes  
 		c::set('routes',[
-			// [ pattern=>'api/work/(:any)(:all)',
-			// 	action=>  function(){
-			// 		$path= func_get_args();
-			// 		$page= page("projects/{$path[0]}");
-			// 		$page= $page ? $page : page('error');
-			// 		return response::json($page->toArray());
-			// 		}],
 			[ pattern=>'api/site',
 				action=>  function(){
 					$site= site();
