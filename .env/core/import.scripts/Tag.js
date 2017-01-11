@@ -16,8 +16,9 @@ module.exports= Tag;
 // 
   var
   UiTagLoad= function(url,cƒn){
+    var self= this;//alias
+    $(self).addClass('ui=load');
     var
-    self= this,//alias
     url= typeof(url)==='string' && Url.valid(url)
       ? url
       : Url.resolve(UiApp.opts.ajaxBase||window.location.href,url),
@@ -26,9 +27,13 @@ module.exports= Tag;
       : false,
     xhr= $.getJSON(url,json=>{
       self.model= json;
-      cƒn && cƒn.call(self,json); //exec w/ explicit this context
-      $(this).trigger('loaded.ui',this.model);//@hook:event
+      cƒn && cƒn.call(self,json); //run callback w/explicit this
+      $(self)
+      .trigger('loaded.ui',self.model)//@hook:event
+      .removeClass('ui=load');
       });
+
+    this.modelSrc= url;//store model urls
     return xhr;
     }
 //=options
@@ -38,9 +43,6 @@ module.exports= Tag;
     lifecycle: {
       created:  function(){
         this.htm= $(this).html();
-        this.model.load
-          && ( this.model=this.model.load );
-        // this.render();
         },
       inserted: function(){},
       removed:  function(){},
@@ -51,10 +53,11 @@ module.exports= Tag;
       },
     methods: {
       load: UiTagLoad,
-      render: function( use, silent ){
-        silent || $(this).trigger('rendering.ui',this.model);//@hook:event
+      render: function(use,silent){
+        silent || $(this).trigger('loading.ui');//@hook:event
         if( Url.valid(use) || Url.isPath(use) )
           return this.load( use, json=>this.render(undefined,true) );
+        silent || $(this).trigger('rendering.ui');//@hook:event
         if( Dom.typeOf(use)=='object' )
           this.model= use;
         return this;
@@ -78,9 +81,7 @@ module.exports= Tag;
         set: function( use ){
           //=async get json from url 
           if( Url.isPath(use) ) 
-            return this.load(use,json=>{
-              this.render(undefined,true);
-              });
+            return this.load( use , json=>this.render(undefined,true) );
           //=parse json from att str 
           if( strJSON(use) ) 
             this.model= JSON.parse(use);
@@ -102,20 +103,17 @@ module.exports= Tag;
       tag= arguments[0];
       }
     else {
-      var
-      def= {};
-
+      var def= {};
       def.prototype= tag.prototype || !('extend' in tag) ? base.prototype : undefined;
       if( typeof tpl==='function' )
         def.methods= {
           template: tpl,
-          render: function( use, silent ){
+          render: function(use,silent){
             $(this).html( this.template(this.model) );
-            silent || $(this).trigger('rendered.ui',this.model);//@hook:event
+            silent && $(this).trigger('rendered.ui',this.model);//@hook:event
             return this;
             },
           };
-
       tag= $.extend(true,def,tag);
       }
     Object.assign(this,tag);

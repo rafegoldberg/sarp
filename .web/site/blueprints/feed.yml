@@ -1,0 +1,16 @@
+title:   Feed
+icon:    television
+files:   false
+pages:   post
+options: 
+  files: false
+  template: false
+  #status: false
+  #delete: false
+fields:  
+  title:
+    label: Title
+    type:  text
+  feed:
+    label: Posts
+    type:  subpagelist

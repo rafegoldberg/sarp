@@ -10,17 +10,20 @@ def= {
 				return htm;
 			var
 			rgx= {
-				htmlbody: /^[\s\S]*<body.*?>|<\/body>[\s\S]*$/ig //=strip html>body wrap
+				'#page': /^[\s\S]*<ui-page.*?>|<\/ui-page>[\s\S]*$/ig //=strip html>body wrap
 				},
 			key= typeof(key)==='string' ? rgx[key]||key : '';
-			return htm.replace(rpl,key);
+			return htm.replace(key,rpl);
 			},
+		render: function(use){
+			this.uiLast= $(this).html();
+			var self= this;
+			$('html,body').animate({scrollTop:0},375,function(){
+				self.model.khtm= self.htmstr(self.model.khtm,'#page');
+				$(self).html( self.template(self.model) );
+				});
+			return this;
+			}
 		}
-	// accessors: {
-	// 	model: {
-	// 		get:function(){
-	// 			}
-	// 		}
-	// 	}
 	};
 module.exports= new Tag(tpl,def);

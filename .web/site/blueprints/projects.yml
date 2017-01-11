@@ -4,9 +4,10 @@ files: false
 pages:
   template: project
 options: 
-  template: false  
-  status: false  
-  url: false  
+  files: false
+  template: false
+  #status: false
+  #delete: falses
 fields:
   title:
     label: Title

@@ -39,6 +39,7 @@ tasks= {
       ],
     'ui.js': [
       'browserify:ui.js',
+      'uglify:ui.js',
       ],
     'ui.icn': [
       'clean:ui.icn',
@@ -62,6 +63,11 @@ module.exports= function( grunt, options ){
     console.log(Ck.bold.green('rebuilding...'))
     tasks['env.start'].unshift('ui.build');
     }
+
+  /*dont minify js build
+   */
+  if( grunt.option('no-min') )
+    tasks['ui.js'].pop();
 
   /*dont clean before builds
    */

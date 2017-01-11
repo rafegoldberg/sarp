@@ -35,9 +35,9 @@
 
       $.extend( true, this.opts, opts );
 
-      Log.grp('Ui','initializing the UI...');
+      Log.gpo('Ui','initializing the UI...');
       ø.each(this.queue,function(qƒn,key){
-        Log.grp('queue',`-> ${key}()`);
+        Log.gpc('queue',`-> ${key}()`);
           qƒn();
           Log.end();
         });

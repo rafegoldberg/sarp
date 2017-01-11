@@ -13,10 +13,6 @@
 					$data= $site->content();
 					return response::json($data->toArray());
 					}],
-			[ pattern=> ['api','api/home'],
-				action=>  function(){
-					return response::json(page('home')->toArray());
-					}],
 			[ pattern=> ['api/(:all)','(:all)'],
 				action=>  function(){
 					$path= join(func_get_args());

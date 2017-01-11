@@ -1,8 +1,6 @@
 <nav class="menu" role="navigation">
 	{{#each pages}}
-		<a class="menu--item" href="{{url}}">
-			{{title}}
-			{{log this}}
-		</a>
+		<a is="ui-link" class="menu--item" href="{{url}}">
+			{{title}}</a>
 	{{/each}}
 </nav>

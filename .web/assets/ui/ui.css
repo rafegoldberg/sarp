@@ -438,6 +438,9 @@ small[is='ui-small'] {
 .menu--item__active {
   font-weight: bold; }
 
+ui-page {
+  text-align: center; }
+
 .corner {
   display: inline-block;
   width: 12.5vmin;

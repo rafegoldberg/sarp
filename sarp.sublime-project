@@ -1,0 +1,151 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "★ UI Modules",
+			"path": "ui"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "★ UI Icons",
+			"path": "icons"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store",
+				".yo-rc.json",
+				".bowerrc"
+			],
+			"folder_exclude_patterns":
+			[
+				"node_modules",
+				".web",
+				"icons",
+				".env",
+				".build",
+				"data/.*",
+				"ui"
+			],
+			"name": "@root/",
+			"path": "."
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"folder_exclude_patterns":
+			[
+				"conf",
+				"core"
+			],
+			"name": "/env",
+			"path": ".env"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": " ├ conf",
+			"path": ".env/conf"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": " └ core",
+			"path": ".env/core"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"folder_exclude_patterns":
+			[
+				"site",
+				"assets"
+			],
+			"name": "/web",
+			"path": ".web"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"folder_exclude_patterns":
+			[
+				"ui"
+			],
+			"name": " ├ assets",
+			"path": ".web/assets"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": " │└ ui",
+			"path": ".web/assets/ui"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"folder_exclude_patterns":
+			[
+				"site/controllers",
+				"site/blueprints",
+				"site/templates",
+				"site/snippets",
+				"site/cache"
+			],
+			"name": " └ site",
+			"path": ".web/site"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "    ├ control",
+			"path": ".web/site/controllers"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "    ├ bluprint",
+			"path": ".web/site/blueprints"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "    ├ template",
+			"path": ".web/site/templates"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store"
+			],
+			"name": "    └ snippet",
+			"path": ".web/site/snippets"
+		}
+	]
+}

@@ -1,5 +1,8 @@
 title: Site
-pages: default
+pages:
+  template:
+    - default
+    - feed
 fields:
   title:
     label: Title

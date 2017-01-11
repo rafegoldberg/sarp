@@ -1,4 +1,1 @@
-<div>
-	<b>Render:</b>
-</div>
-<code>\{{{model.khtm}}}</code>
+<app-page>{{{khtm}}}</app-page>

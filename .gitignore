@@ -26,6 +26,8 @@ node_modules
 .web/site/cache/*
 .web/!site/cache/index.html
 #-core
+.web/index.php
+.web/.htaccess
 .web/panel/
 .web/kirby/
 #
