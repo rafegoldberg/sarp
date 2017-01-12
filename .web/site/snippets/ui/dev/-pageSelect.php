@@ -1,8 +1,8 @@
 <app-dev>
 	<form class="getPage">
 		<select name="getPage" class="getPage=page">
-		<?$prj= $pages->find('projects')->children()->visible();
-			$pgs= $pages->visible()->merge($prj);
+			<option disabled selected>projects</option>
+		<?$pgs= $pages->find('projects')->children()->visible();
 			foreach( $pgs as $pg ):
 			?>
 			<option value="./api/<?=$pg->id()?>"><?=$pg->id()?></option>
@@ -10,7 +10,7 @@
 		</select>
 	</form>
 	<script>
-		addLoadEvent(n=>{
+		addLoadEvent(function(){
 			$('form.getPage').change(function(){
 				var
 				api= $(this).children('.getPage\\=page').val();

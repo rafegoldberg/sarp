@@ -4,7 +4,5 @@
 			<?=$site->title()->html()?>
 		</a></h1>
 	</header>
-	<?$pages= $pages->visible();
-		?>
-	<ui-menu data-pages="<?=Ui::att($pages->toArray())?>"></ui-menu>
+	<small><?snippet('nav')?></small>
 </app-header>

@@ -1,9 +1,19 @@
+
 var
 tpl= require('./template.bar'),
 def= {
 	lifecycle: {
-		created: function(){}
+		created: function(){
+			this.bem= {base:'page'};
+			$(this)
+				.addClass(this.bem.base);
+	    // History.Adapter.bind(window,'statechange',function(){
+	    //   var State= History.getState();
+	    //   console.log('%O',{History,State,args:arguments,self:this});
+		  //  });
+			},
 		},
+	mixins:['dataAttRender'],
 	methods: {
 		htmstr: function(htm,key,rpl=''){
 			if( typeof(htm)!=='string' )
@@ -16,13 +26,23 @@ def= {
 			return htm.replace(key,rpl);
 			},
 		render: function(use){
-			this.uiLast= $(this).html();
-			var self= this;
-			$('html,body').animate({scrollTop:0},375,function(){
+			var
+			self= this,
+			anim= 325;
+
+	    $(self).addClass(`${self.bem.base}=loading`).removeClass(`${self.bem.base}=loaded`);
+			$('ui-page').animate({opacity:0},anim);
+			$('html,body').animate({scrollTop:0},anim*1.25,function(){
+				self.uiLast= $(self).children('app-page').detach();
+
 				self.model.khtm= self.htmstr(self.model.khtm,'#page');
+
 				$(self).html( self.template(self.model) );
+				
+				$('ui-page').animate({opacity:1},anim);
+		    $(self).addClass(`${self.bem.base}=loaded`).removeClass(`${self.bem.base}=loading`);
 				});
-			return this;
+			return self;
 			}
 		}
 	};

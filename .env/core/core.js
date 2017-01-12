@@ -6,15 +6,18 @@
   var//=utilities
     $= window.$ =require('jquery'),
     ø= window.ø =require('underscore');
+    window.jQuery=$;
   //=plugins
+    require('jquery-lazyload');
     require('mdnzr.js');
     require('modularscale-js');
 /*=Ui Core
  */
   var
-  Log = window.Log  =require('Log.js'),
-  Url = window.Url  =require('Url.js'),
-  Tag = window.Tag  =require('Tag.js');//@window[handlebars,xtag,]
+  Hst=window.Hst= require('History.js'),
+  Log=window.Log= require('Log.js'),
+  Url=window.Url= require('Url.js'),
+  Tag=window.Tag= require('Tag.js');//@window[handlebars,xtag,]
 /*=Ui Modules
  */
   UiModules= window.UiModules =require('../../ui/*/*/*.js',{
@@ -31,7 +34,7 @@
  */
   UiApp= window.UiApp ={
     opts: { ajaxBase:'./api' },
-    init: function(opts={}){
+    init: function(opts={},cƒ=false){
 
       $.extend( true, this.opts, opts );
 
@@ -42,16 +45,25 @@
           Log.end();
         });
       Log.end();
+      if( typeof(cƒ)=='function' ){
+        Log.gpc('User Callback');
+          cƒ($('ui-page')[0]);
+          Log.end();
+        }
       },
     queue: {
       registerTags: function(){
-        ø.each(UiModules,function(val,key){
-          if( !(val instanceof Tag) )
+        ø.each(UiModules,function(tag,key){
+          //arg[tag module exports object
+          //arg[key module kind/name path
+          if( !(tag instanceof Tag) )
             return;
           Log.txt(key);
-
-          var tag= key.split('/')[1];
-          Dom.register( `ui-${tag}`, val );
+          //=parse ui-tag name from module path
+          var
+          tagKind= key.split('/')[0],
+          tagName= key.split('/')[1];
+          Dom.register( `ui-${tagName}`, tag );
           });
         }
       }

@@ -17,7 +17,6 @@ module.exports= Tag;
   var
   UiTagLoad= function(url,cƒn){
     var self= this;//alias
-    $(self).addClass('ui=load');
     var
     url= typeof(url)==='string' && Url.valid(url)
       ? url
@@ -28,14 +27,20 @@ module.exports= Tag;
     xhr= $.getJSON(url,json=>{
       self.model= json;
       cƒn && cƒn.call(self,json); //run callback w/explicit this
-      $(self)
-      .trigger('loaded.ui',self.model)//@hook:event
-      .removeClass('ui=load');
+      $(self).trigger('loaded.ui',self.model);//@hook:event
       });
-
+    console.log(url);
     this.modelSrc= url;//store model urls
     return xhr;
     }
+  Dom.mixins.dataAttRender= {
+    lifecycle: {
+      attributeChanged: function(att,pre,set){
+        if( att.indexOf('data-')==0 )
+          this.render();
+        }
+      }
+    };
 //=options
 // 
   var
@@ -46,17 +51,13 @@ module.exports= Tag;
         },
       inserted: function(){},
       removed:  function(){},
-      attributeChanged: function(att,pre,set){
-        if( att.indexOf('data-')==0 )
-          this.render();
-        }
       },
     methods: {
       load: UiTagLoad,
       render: function(use,silent){
         silent || $(this).trigger('loading.ui');//@hook:event
         if( Url.valid(use) || Url.isPath(use) )
-          return this.load( use, json=>this.render(undefined,true) );
+          return this.load(use);
         silent || $(this).trigger('rendering.ui');//@hook:event
         if( Dom.typeOf(use)=='object' )
           this.model= use;
@@ -81,7 +82,7 @@ module.exports= Tag;
         set: function( use ){
           //=async get json from url 
           if( Url.isPath(use) ) 
-            return this.load( use , json=>this.render(undefined,true) );
+            return this.load( use );
           //=parse json from att str 
           if( strJSON(use) ) 
             this.model= JSON.parse(use);

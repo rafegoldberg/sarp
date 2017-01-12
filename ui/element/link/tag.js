@@ -7,7 +7,7 @@ tag= {
 	events: {
     click: function(){
     	event.preventDefault();
-    	$('ui-page').get(0).render('./api/'+$(this).attr('href'));
+    	$('ui-page').get(0).load('./api/'+$(this).attr('href'));
     	$(this).trigger('navigate.ui');
 	    },
 		}

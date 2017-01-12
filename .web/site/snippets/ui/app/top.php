@@ -1,5 +1,6 @@
-<?#=UiApp:top->
-	//htm/head/body/header
-	snippet('ui/app/.ini');
-	snippet('ui/bit/head');
+<?#=UiApp:ini
+	snippet('ui/app/.ini')
 	?>
+<app-main>
+	<?snippet('ui/bit/head')
+		#closed in ui/app/btm?>

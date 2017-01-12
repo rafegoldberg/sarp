@@ -1,7 +1,7 @@
 <?#=UiApp:top->
 	snippet('ui/app/top');
 	?>
-<ui-page data-model="./api/projects">
+<ui-page>
 	<article>
 		<h2><?=$page->title()->html()?></h2>
 		<br><hr><br>

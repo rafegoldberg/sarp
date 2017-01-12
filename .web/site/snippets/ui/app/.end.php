@@ -1,4 +1,3 @@
-</app-main><?#~>app/top?>
 </body>
 </html>
 <?#=Ui->end

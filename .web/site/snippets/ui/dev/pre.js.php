@@ -13,6 +13,3 @@
     }
   }
   </script>
-<script id="app@js=api-ajax-urls">
-  console.log(<?=json_encode($kirby->urls()->index())?>)
-  </script>

@@ -17,12 +17,16 @@
 				action=>  function(){
 					$path= join(func_get_args());
 					$page= page($path);
-					$page= $page ? $page : page('error');
-					$data= [khtm=>kirby::render($page)];
+					$page= page($path) ? $page : page('error');
+					$data= [
+						path=>  $path,
+						page=>  array_merge($page->toArray(),[khtm=>kirby::render($page)]),
+						pages=> site()->pages()
+						];
 
 					if( kirby::request()->ajax() )
-						return response::json(array_merge($page->toArray(),$data));
+						return response::json($data['page']);
 					else 
-						return array($path,$data);
+						return array($path,[]);
 					}],
 			]);
