@@ -4,7 +4,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": "★ UI Modules",
 			"path": "ui"
@@ -12,7 +13,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": "★ UI Icons",
 			"path": "icons"
@@ -21,6 +23,7 @@
 			"file_exclude_patterns":
 			[
 				".DS_Store",
+				".htaccess",
 				".yo-rc.json",
 				".bowerrc"
 			],
@@ -40,7 +43,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"folder_exclude_patterns":
 			[
@@ -53,7 +57,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": " ├ conf",
 			"path": ".env/conf"
@@ -61,7 +66,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": " └ core",
 			"path": ".env/core"
@@ -69,12 +75,18 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess",
+				"kirby/*",
+				"panel/*",
+				"thumbs/*"
 			],
 			"folder_exclude_patterns":
 			[
 				"site",
-				"assets"
+				"kirby/*",
+				"panel/*",
+				"thumbs/*"
 			],
 			"name": "/web",
 			"path": ".web"
@@ -82,27 +94,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
-			],
-			"folder_exclude_patterns":
-			[
-				"ui"
-			],
-			"name": " ├ assets",
-			"path": ".web/assets"
-		},
-		{
-			"file_exclude_patterns":
-			[
-				".DS_Store"
-			],
-			"name": " │└ ui",
-			"path": ".web/assets/ui"
-		},
-		{
-			"file_exclude_patterns":
-			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"folder_exclude_patterns":
 			[
@@ -118,7 +111,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": "    ├ control",
 			"path": ".web/site/controllers"
@@ -126,7 +120,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": "    ├ bluprint",
 			"path": ".web/site/blueprints"
@@ -134,7 +129,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": "    ├ template",
 			"path": ".web/site/templates"
@@ -142,7 +138,8 @@
 		{
 			"file_exclude_patterns":
 			[
-				".DS_Store"
+				".DS_Store",
+				".htaccess"
 			],
 			"name": "    └ snippet",
 			"path": ".web/site/snippets"

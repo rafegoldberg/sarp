@@ -40,25 +40,26 @@ DEBUG
 TASKS
  */
   grunt.registerTask('log', 'pass key to log a conf entry, else all', function( K=null ){
-    function sfKey(str){
-      return !str||str.replace('\\',''); }
+
+    if( !K ) 
+      return grunt.log.writeln() && grunt.log.writeln(Ck.red.bold('SEARCH TERM REQUIRED'));
+
     var
-    def= {//=conf key shortcuts->
-      f:'ƒ',
+    def= {//=aliases->
       pkg:'package',
+      paths:'ƒ',
       tasks:'aliases',
       },
     key= def[K] || K;
     Object.keys(def).forEach(function(alias){
       key= key.replace(alias,def[alias]);
       });
-    
+
     var
     log= grunt.config.get(key||null);
 
-
     grunt.log.writeln();
-    key= sfKey(key);
+    key= !key || key.replace('\\','');
     grunt.log.writeln( Ck.yellow('[['+Ck.bold('G')+'.config]]->') + Ck.blue.bold(key||'') );
 
     var res= JSON.stringify(log,null,2);

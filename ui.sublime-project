@@ -1,0 +1,41 @@
+{
+	"folders":
+	[
+		{
+			"path": "ui"
+		},
+		{
+			"path": "icons"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": ".env"
+		},
+		{
+			"path": ".env/conf"
+		},
+		{
+			"path": ".env/core"
+		},
+		{
+			"path": ".web"
+		},
+		{
+			"path": ".web/site"
+		},
+		{
+			"path": ".web/site/controllers"
+		},
+		{
+			"path": ".web/site/blueprints"
+		},
+		{
+			"path": ".web/site/templates"
+		},
+		{
+			"path": ".web/site/snippets"
+		}
+	]
+}

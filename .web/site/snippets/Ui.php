@@ -1,18 +1,18 @@
 <?class Ui {
-
 /*=PROPERTIES
  */
 	private static $uiOpts= array(
 		ajaxBase=> './ajax/',
 		iconBase=> 'icons',
-		minified=> array(js=>true,css=>false),
+		minified=> array(
+			js=> true,
+			css=>true,
+			),
 		localUrl=> array(
 			uiBase=> 'http://localhost:9000/lib/dsUi',
 			reload=> 'http://localhost:35729',
 			)
 		);
-	private static $param= 'dsui';
-
 /*=INSTANTIATE
  */
 	static function ini( $user=array() ){
@@ -32,29 +32,27 @@
 		self::uiStyle();
 		self::uiIcons();
 		}
-	static function uiJs(){
+	static function  uiJs(){
 		self::uiScript();
 		self::uiReload();
 		}
-
 /*=UTILITIES
  */
 	static function link($path){
 		$base= self::$uiOpts['localUrl']['uiBase'];
 		return "$base/$path";
 		}
-	static function dattr( $data ){
+	static function dattr($data){
 		return htmlentities( json_encode($data), ENT_QUOTES, 'UTF-8' );
 		}
-	static function att($data){
+	static function   att($data){
 		#^alias of dattr() 
 		return htmlentities( json_encode($data), ENT_QUOTES, 'UTF-8' );
 		}
-
 /*=PRIVUTIL
  */
 	private static $_fnRan= array();
-	private static function wasRun( $fn ){
+	private static function wasRun($fn){
 		if( in_array( $fn, self::$_fnRan ) )
 			return true;
 		else{
@@ -62,7 +60,6 @@
 			return false;
 			}
 		}
-
 /*=DEPENDENCIES
  */
 	private static function  uiStyle(){
@@ -108,4 +105,4 @@
 			</script>
 			<?endif;
 		}
-}#class::ui?>
+}#class:ui?>

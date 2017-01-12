@@ -2,15 +2,16 @@
 	//=SETTINGS  
 		$offset: 1.5em;
 		$width: .45em;
-		$color: Ui(colors,edge);
+		$rule: .5em;
+		$color: Ui(colors,mark);
 	//=LAYOUT    
 		display: inline-block;
 		width: 12.5vmin;
 		height: 12.5vmin;
 	//=THEME     
 		color: $color;
-		border: 1px solid transparent;
-		opacity: .375;
+		border: $rule solid transparent;
+		opacity: .625;
 	//=MODIFIERS 
 		&{//=edge orientations
 			position: fixed;

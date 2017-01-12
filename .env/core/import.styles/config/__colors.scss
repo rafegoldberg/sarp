@@ -1,34 +1,28 @@
 $ds-colors: Ui-add(colors,(
-  //->branding
-  blue:   #079CB4,//brand
-  deep:   #003B4C,//dark
-  orange: #F9701F,//pop
-  //->interface
-  green:  #07B4A7,
-  red:    #F0433F,
-  gold:   #F8A60A,
-  //->grayscale
-  dark:   #373737,
-  gray:   #AAAAAA,
-  edge:   #DBDBDB,
-  lite:   #EEEEEE,
-  faint:  #FAFAFC,
-  bg:     #FEFEFE
-  ));
+  //->Theme
+    text:black,
+    pop: magenta,
+    mark:#FFCD07,
+  //->Status
+    good:#07B4A7,success:#07B4A7,
+    uhoh:#F8A60A,warn:#F8A60A,
+    errr:#F0433F,error:#F0433F,
+  //->Grays
+    black:#1F1F1F,
+    dark: #373737,
+    gray: #AAAAAA,
+    edge: #DBDBDB,
+    lite: #EEEEEE,
+    faint:#FAFAFC,
+    white:#FFFFFF
+));
 
-//=@todo implement $ds-theme (or $ds-color aliases)
-  // 	brand: blue,
-  //  rust: red,
-  // 	grey: gray,
-  // 	border: edge,
-  //  bdr: edge,
-  // 	background: bg,
 
 @function switchText($color) {
   @if( lightness($color) > 62.5 ){
-    @return Ui(colors,dark); //=return dark
+    @return Ui(colors,black);
     }
   @else {
-    @return Ui(colors,bg); //=return lite
+    @return Ui(colors,white);
     }
   }

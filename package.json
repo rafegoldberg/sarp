@@ -29,6 +29,7 @@
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ftp-deploy": "^0.1.10",
+    "grunt-ftp-sync": "^0.2.0",
     "grunt-git": "^1.0.3",
     "grunt-githooks": "^0.6.0",
     "grunt-grunticon": "^2.3.1",

@@ -14,7 +14,7 @@
 
   "deploy": {
     "from": "<%=ƒ.serv%>",
-    "dest": "/rgd2.co/clients/sarp/"
+    "dest": "/rgd2.co/clients/sarp"
     },
   "sass":  {
     "main": "<%=ƒ.core%>/core.scss",

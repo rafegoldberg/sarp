@@ -27,7 +27,7 @@ module.exports= function(grunt,options){
     var DEBUG= false;
 
     var//=build prompt
-      key= 'rgco',
+      key= 'ftp',
       obj= options.usr[key],
       qst= Object.keys(obj).map(n=>{
         var q=
