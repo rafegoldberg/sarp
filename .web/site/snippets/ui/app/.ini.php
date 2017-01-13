@@ -4,7 +4,7 @@
   <?#=Ui->ini
     snippet('Ui');
     Ui::ini(array(
-      ajaxBase=> './api',
+      ajaxBase=> '/api/',
       localUrl=> [
         uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',
         reload=> false,
