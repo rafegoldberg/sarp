@@ -14,10 +14,9 @@
 /*=Ui Core
  */
   var
-  Hst=window.Hst= require('History.js'),//@refactor
-  Log=window.Log= require('Log.js'),
-  Url=window.Url= require('Url.js'),
-  Tag=window.Tag= require('Tag.js');//@window[handlebars,xtag,]
+  Log= window.Log= require('Log.js'),
+  Url= window.Url= require('Url.js'),
+  Tag= window.Tag= require('Tag.js');//@window[handlebars,xtag,]
 /*=Ui Modules
  */
   UiModules= window.UiModules =require('../../ui/*/*/*.js',{
