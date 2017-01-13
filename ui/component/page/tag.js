@@ -5,15 +5,10 @@ def= {
 	lifecycle: {
 		created: function(){
 			this.bem= {base:'page'};
-			$(this)
-				.addClass(this.bem.base);
-	    // History.Adapter.bind(window,'statechange',function(){
-	    //   var State= History.getState();
-	    //   console.log('%O',{History,State,args:arguments,self:this});
-		  //  });
+			$(this).addClass(this.bem.base);
 			},
 		},
-	mixins:['dataAttRender'],
+	mixins: ['dataAttRender'],
 	methods: {
 		htmstr: function(htm,key,rpl=''){
 			if( typeof(htm)!=='string' )

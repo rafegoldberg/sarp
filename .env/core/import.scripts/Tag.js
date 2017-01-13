@@ -18,16 +18,11 @@ module.exports= Tag;
   UiTagLoad= function(url,cƒn){
     var self= this;//alias
     var
-    url= typeof(url)==='string' && Url.valid(url)
-      ? url
-      : Url.resolve(UiApp.opts.ajaxBase||window.location.href,url),
-    cƒn= typeof(cƒn)==='function'
-      ? cƒn
-      : false,
+    url= UiApp.api.isPath(url)? UiApp.api.path(url) : url,
+    cƒn= typeof(cƒn)==='function'? cƒn:false,
     xhr= $.getJSON(url,json=>{
       self.model= json;
       cƒn && cƒn.call(self,json); //run callback w/explicit this
-      $(self).trigger('loaded.ui',self.model);//@hook:event
       });
     console.log(url);
     this.modelSrc= url;//store model urls
@@ -54,11 +49,9 @@ module.exports= Tag;
       },
     methods: {
       load: UiTagLoad,
-      render: function(use,silent){
-        silent || $(this).trigger('loading.ui');//@hook:event
-        if( Url.valid(use) || Url.isPath(use) )
-          return this.load(use);
-        silent || $(this).trigger('rendering.ui');//@hook:event
+      render: function(use){
+        if( Url.valid(use) || UiApp.api.isPath(use) )
+          return this.load(use,model=>this.render());
         if( Dom.typeOf(use)=='object' )
           this.model= use;
         return this;
@@ -81,7 +74,7 @@ module.exports= Tag;
           },
         set: function( use ){
           //=async get json from url 
-          if( Url.isPath(use) ) 
+          if( Url.valid(use) || UiApp.api.isPath(use) ) 
             return this.load( use );
           //=parse json from att str 
           if( strJSON(use) ) 

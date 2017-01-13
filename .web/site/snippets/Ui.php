@@ -15,16 +15,14 @@
 		);
 /*=INSTANTIATE
  */
-	static function ini( $user=array() ){
+	static function ini($user=[]){
 		//=merge default, user opts
 		self::$uiOpts= array_merge(self::$uiOpts,$user);
 		//=link main ui stylesheet
 		self::uiCss();
 		}
-	static function end( $init=true ){
+	static function end(){
 		self::uiJs();
-		if( $init )
-			self::uiInit();
 		}
 
 	static function uiCss(){
@@ -34,6 +32,7 @@
 		}
 	static function  uiJs(){
 		self::uiScript();
+		self::uiInit();
 		self::uiReload();
 		}
 /*=UTILITIES
@@ -78,7 +77,10 @@
 		}
 	private static function uiScript(){
 		if( !self::wasRun(__FUNCTION__) ):
-			$url= self::link('ui.'/*.'min.'*/.'js');
+			$f= ['ui','min','js'];
+			if( !self::$uiOpts[minified][js] )
+				unset($f[1]);
+			$url= self::link(implode('.',$f));
 			?>
 			<script id="ui@script" src="<?=$url?>"></script>
 			<?endif;
@@ -100,8 +102,10 @@
 				));
 			?>
 			<script id="ui@init">
-			UiApp.init(<?=json_encode(self::$uiOpts)?>);
-			grunticon(<?=json_encode($icns)?>,grunticon.svgLoadedCORSCallback);
+			(function(){
+				UiApp.init(<?=json_encode(self::$uiOpts)?>);
+				grunticon(<?=json_encode($icns)?>,grunticon.svgLoadedCORSCallback);
+				})()
 			</script>
 			<?endif;
 		}

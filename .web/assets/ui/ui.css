@@ -13,11 +13,12 @@
   display: flex;
   justify-content: center; }
 
-.menu--item + .menu--item:before {
-  content: ' / '; }
-
-.menu--item__active {
-  font-weight: bold; }
+.menu--item {
+  display: inline; }
+  .menu--item + .menu--item:before {
+    content: ' / '; }
+  .menu--item__active {
+    font-weight: bold; }
 
 .corner {
   display: inline-block;
@@ -54,7 +55,7 @@
 
 [is="ui-link"] {
   box-shadow: 0 0 0 0em #FFCD07, inset 0 0 0 0.625em rgba(255,255,255,0);
-  transition: all .2s ease; }
+  transition: all .2s .0625s ease; }
   [is="ui-link"]:active {
     box-shadow: 0 0 0 0.25em #FFCD07, inset 0 0 0 0.875em #FFCD07; }
 

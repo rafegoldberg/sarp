@@ -2,7 +2,7 @@
 </app-main>
 
 <small id="bottomBranding">
-	<em>thanks for reading</em>
+	<em><?=html::decode($site->copyright()->kirbytext())?></em>
 </small>
 
 <?#=UiApp:end

@@ -4,12 +4,15 @@
   <?#=Ui->ini
     snippet('Ui');
     Ui::ini(array(
-      ajaxBase=> '/api',
+      ajaxBase=> './api',
       localUrl=> [
         uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',
         reload=> false,
         ],
-      minified=> null
+      minified=> array(
+        js=> !(url::host()=='0.0.0.0'||url::host()=='localhost'),
+        css=>true
+        )
       ))?>
   <?#=Misc
     snippet('ui/dev/pre.css');

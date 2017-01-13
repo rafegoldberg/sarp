@@ -14,7 +14,7 @@
 /*=Ui Core
  */
   var
-  Hst=window.Hst= require('History.js'),
+  Hst=window.Hst= require('History.js'),//@refactor
   Log=window.Log= require('Log.js'),
   Url=window.Url= require('Url.js'),
   Tag=window.Tag= require('Tag.js');//@window[handlebars,xtag,]
@@ -33,10 +33,9 @@
 /*=Ui App
  */
   UiApp= window.UiApp ={
-    opts: { ajaxBase:'./api' },
     init: function(opts={},cƒ=false){
 
-      $.extend( true, this.opts, opts );
+      this.opts= $.extend( true, this.opts, opts );
 
       Log.gpo('Ui','initializing the UI...');
       ø.each(this.queue,function(qƒn,key){
@@ -54,8 +53,8 @@
     queue: {
       registerTags: function(){
         ø.each(UiModules,function(tag,key){
-          //arg[tag module exports object
-          //arg[key module kind/name path
+          //tag module exports object
+          //key module kind/name path
           if( !(tag instanceof Tag) )
             return;
           Log.txt(key);
@@ -66,5 +65,7 @@
           Dom.register( `ui-${tagName}`, tag );
           });
         }
-      }
+      },
+    //@refactor:⬆FROM/TO⬇
+    api:require('./UiApp/api.js')
     };

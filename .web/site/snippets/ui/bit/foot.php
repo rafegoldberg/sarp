@@ -3,6 +3,6 @@
 		<ui-corner data-edge="btmLeft"></ui-corner>
 	</div>
 	<footer role="contentinfo">
-	  <?=html::decode($site->copyright()->kirbytext())?>
+		<?snippet('nav')?>
 	</footer>
 </app-footer>

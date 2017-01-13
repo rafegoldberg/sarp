@@ -1,3 +1,20 @@
+// Api= {
+// 	path(strpath){
+// 		return `./api/${strpath}`
+// 		},
+// 	get state(){
+// 		History.getState();
+// 		},
+// 	set state(path,title){
+// 		var
+// 		title= $('head>title').text().split('::')
+// 		state= {
+
+// 			};
+// 		History.pushState(state, "State 1", "?state=2");
+// 		},
+// 	};
+
 var
 tag= {
 	extends: 'a',
@@ -7,8 +24,7 @@ tag= {
 	events: {
     click: function(){
     	event.preventDefault();
-    	$('ui-page').get(0).load('./api/'+$(this).attr('href'));
-    	$(this).trigger('navigate.ui');
+    	UiApp.api.go($(this).attr('href'));
 	    },
 		}
 	};

@@ -4,5 +4,5 @@
 			<?=$site->title()->html()?>
 		</a></h1>
 	</header>
-	<small><?snippet('nav')?></small>
+	<ui-corner data-edge="topRight"></ui-corner>
 </app-header>

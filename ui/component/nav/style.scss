@@ -1,7 +1,8 @@
 .menu {
 	&--item { 
+		display: inline;
 		& + &:before {
-			content: ' / '
+			content: ' / ';
 			}
 		&__active {
 			font-weight: bold;
