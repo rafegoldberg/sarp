@@ -24,10 +24,10 @@ tasks= {
       // 'gitadd:env.git',
       // 'gitcommit:env.git',
       // 'gitpush:env.git',
-      'ftp-deploy:env.ftp',
+      'ftp-sync:env.ftp',
       ],
     'env.push': [
-      'env.ftp',
+      'ftp-sync:env.ftp',
       ],
   /*=
   Ui Build
@@ -68,6 +68,11 @@ module.exports= function( grunt, options ){
    */
   if( grunt.option('no-min') )
     tasks['ui.js'].pop();
+
+  /*dont generate icons
+   */
+  if( grunt.option('no-icn') )
+    tasks['ui.build'].pop();
 
   /*dont clean before builds
    */
