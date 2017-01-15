@@ -4,6 +4,7 @@
   <?#=Ui->ini
     snippet('Ui');
     Ui::ini(array(
+      // ajaxBase=> '/'.url::path( $kirby->urls()->index() ).'/api/',
       ajaxBase=> '/api/',
       localUrl=> [
         uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',

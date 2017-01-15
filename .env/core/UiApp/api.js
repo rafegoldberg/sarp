@@ -1,24 +1,17 @@
 require('History.js');
 
-History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
-  console.groupCollapsed('state changed');
-    console.log(History.getState());
-    console.groupEnd();
-  });
-
 module.exports= {
   go(path){
-    // console.log({naked:path,parsed:this.path(path)})
     var
     page= $('ui-page')[0],
-    path= this.path(path);
-    page
-    .load(path)
-    .then(function(){
+    path= this.path(path),
+    call= function(){
       var state= $.extend(false,{api:path},page.model);
+      console.log('navigate:trigger',$('ui-page')[0].model);
       History.pushState(state,state.title,'/'+state.uri);
       page.render();
-      });
+      };
+    page.load(path).then(call)
     },
   get base(){
     return UiApp.opts.ajaxBase;
@@ -32,10 +25,26 @@ module.exports= {
     // return Url.parse( uri ).path;
     return this.isPath(path)
       ? path.replace('//',this.base).replace('./',this.base)
-      : path;
+      : !Url.valid(path)
+        && `//${path}`
+        || path;
     },
   isPath(path){
     if( typeof path==='string' )
       return !Url.valid(path)&&path.indexOf('/')==0||path.indexOf('./')==0||path.indexOf('../')==0||false;
     }
   }
+
+History.Adapter.bind(window,'statechange',function(){
+  console.log('navigate:event');
+  // var
+  // page= $('ui-page')[0],
+  // uris= {
+  //   hist: History.getState().data.api.replace(UiApp.opts.ajaxBase,''),
+  //   page: UiApp.api.path(page.model.uri)
+  //   };
+  // if( uris.page !== uris.hist ){
+  //   UiApp.api.go('//'+uris.hist,true).then(page.render);
+  //   }
+  // else page.render();
+  });
