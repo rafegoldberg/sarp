@@ -1,9 +1,9 @@
 <?#=UiApp:top->
-	snippet('ui/app/top');
+	snippet('app.top');
 	?>
 <ui-page>
-	<?=snippet('ui/dev/-pageList')?>
+	<?=snippet('pages')?>
 </ui-page>
 <?#=UiApp:btm->
-	snippet('ui/app/btm');
+	snippet('app.btm');
 	?>
