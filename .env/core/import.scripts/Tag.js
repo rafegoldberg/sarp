@@ -16,15 +16,14 @@ module.exports= Tag;
 // 
   var
   UiTagLoad= function(url,cƒn){
-    var self= this;//alias
+    var//@alias[this]
+      self= this;
     var
-    url= UiApp.api.isPath(url)? UiApp.api.path(url) : url,
     cƒn= typeof(cƒn)==='function'? cƒn:false,
     xhr= $.getJSON(url,json=>{
       self.model= json;
       cƒn && cƒn.call(self,json); //run callback w/explicit this
       });
-    console.log(url);
     this.modelSrc= url;//store model urls
     return xhr;
     }

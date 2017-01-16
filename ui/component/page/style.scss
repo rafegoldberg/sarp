@@ -1,4 +1,17 @@
 .page {
+	transform-origin: top;
+	transition: opacity .2s ease, transform .2s ease;
+	display: block;
+	&\=loading {
+		transform: scale(.875);
+		opacity: 0;
+		transition-delay: .125s;
+		}
+	&\=loaded {
+		transform: scale(1);
+		opacity: 1;
+		transition-delay: 0s;
+		}
 	}
 .page app-page {
 	}

@@ -16,16 +16,18 @@
 			[ pattern=> ['api/(:all)','(:all)'],
 				action=>  function(){
 					$path= join(func_get_args());
+
 					$page= page($path);
-					$page= page($path) ? $page : page('error');
-					$data= [
-						path=>  $path,
-						page=>  array_merge($page->toArray(),[khtm=>kirby::render($page)]),
-						pages=> site()->pages()
-						];
+					$page= page ? $page : page('error');
+					
+					$khtm= kirby::render($page);
 
 					if( kirby::request()->ajax() )
-						return response::json($data['page']);
+						return response::json([
+							mdl=> array_merge($page->toArray(),[khtm=>$khtm]),
+							ttl=> $page->title()->value(),
+							url=> $page->url(),
+							]);
 					else 
 						return array($path,[]);
 					}],

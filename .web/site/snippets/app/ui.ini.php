@@ -4,7 +4,7 @@
   <?#=Ui->ini
     snippet('app/Ui');
     Ui::ini(array(
-      ajaxBase=> '/api/',
+      ajaxBase=> url::path( $kirby->urls()->index() ).'/api',
       localUrl=> [
         uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',
         reload=> false,
@@ -18,6 +18,9 @@
    ENV
    |-->
   <!--fonts-->
+  <!--external-->
+  <?=css('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')?>
+  <?=js('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')?>
   <!--|
    META
    |-->

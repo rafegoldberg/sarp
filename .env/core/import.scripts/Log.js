@@ -83,6 +83,16 @@ module.exports= {
     var args= this.Format(...arguments);
     this._text( ...args );
     },
+  plain(ttl,obj){
+    if( obj && ttl ){
+      var
+      css= 'font-weight:bold;text-decoration:underline',
+      ttl= ttl.split(' ').map(str=>str.replace(str[0],str[0].toUpperCase())).join(' ');
+      console.log(`%c${ttl}\n%O`,css,obj);
+      }
+    else
+      console.log(arguments[0]);
+    },
 //=aliases
 // 
   clr:  function(){ this.clear(...arguments) },
@@ -96,24 +106,5 @@ module.exports= {
   obj:  function(){ this.data( ...arguments) },
   txt:  function(){ this.text( ...arguments) },
   ln:   function(){ this.text( ...arguments) },
-intro: function(){
-  var
-  aliases= {'Log Methods':{
-    'grp()': ['title','label'],
-    'end()': [null],
-    'clr()': [null],
-    'ttl()': ['title','[...]'],
-    'lbl()': ['label','[...]'],
-    'dom()': ['ttl','elem','lbl'],
-    'obj()': ['ttl','data','lbl'],
-    'txt()': ['[...]'],
-    }};
-  this.clr();
-  this.group('Log.js','slick and simple console statements');
-    this.txt('Log.text()','auto-formatted logs make for a tres chique console');
-    this.obj('Log.data()',aliases,'spit out any JS object or variable');
-    this.dom('Log.data()',$('body')[0],'or a DOM snippet');
-    this.txt('Log.group()','you can even group multiple logs together!');
-    this.end('kthnxbye','👋');
-  }
+  log:  function(){ this.plain(...arguments) },
 }

@@ -1,9 +1,11 @@
 <?#=UiApp:top->
-	snippet('ui/app/top');
+	snippet('app.top');
 	?>
+
 <ui-page>
-	<h3 style="text-align:center;color:#F05B4B">error!</h3>
+	<b style="color:#D9534F">ERROR!</b>
 </ui-page>
+
 <?#=UiApp:btm->
-	snippet('ui/app/btm');
+	snippet('app.btm');
 	?>

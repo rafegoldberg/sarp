@@ -4,9 +4,8 @@
     require('babel-polyfill');
     require('webcomponents.js');
   var//=utilities
-    $= window.$ =require('jquery'),
     ø= window.ø =require('underscore');
-    window.jQuery=$;
+    $= window.jQuery =require('jquery');
   //=plugins
     require('jquery-lazyload');
     require('mdnzr.js');
@@ -32,8 +31,11 @@
 /*=Ui App
  */
   UiApp= window.UiApp ={
-    init: function(opts={},cƒ=false){
-
+    get page(){
+      return $('ui-page')[0]
+      },
+    init: function(opts={}){
+      //assign opts
       this.opts= $.extend( true, this.opts, opts );
 
       Log.gpo('Ui','initializing the UI...');
@@ -43,11 +45,6 @@
           Log.end();
         });
       Log.end();
-      if( typeof(cƒ)=='function' ){
-        Log.gpc('User Callback');
-          cƒ($('ui-page')[0]);
-          Log.end();
-        }
       },
     queue: {
       registerTags: function(){

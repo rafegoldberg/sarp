@@ -13,4 +13,17 @@
   display: flex;
   justify-content: center; }
 
+.page {
+  transform-origin: top;
+  transition: opacity .2s ease, transform .2s ease;
+  display: block; }
+  .page\=loading {
+    transform: scale(0.875);
+    opacity: 0;
+    transition-delay: .125s; }
+  .page\=loaded {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0s; }
+
 /*# sourceMappingURL=ui.css.map */

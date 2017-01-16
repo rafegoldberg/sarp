@@ -1,5 +1,4 @@
 <?#=UiApp:ini
 	snippet('app/ui.ini')
 	?>
-<app-main>
-	<?snippet('header')?>
+<app-main class="container" style="display:block">
