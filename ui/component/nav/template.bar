@@ -1,0 +1,3 @@
+{{#each pages as page}}
+	<a is=ui-link href="{{page.uri}}">{{page.title}}</a>
+{{/each}}

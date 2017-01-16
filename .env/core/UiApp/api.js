@@ -1,26 +1,29 @@
 require('History.js');
 
 module.exports= {
+  //utils
+  get page(){
+    return UiApp.page;
+    },
   get base(){
     return UiApp.opts.ajaxBase;
     },
   path(path){
-    var
-    path= [
-      this.base,
-      path
-      ]
-    .join('/')
-    .replace(/(\/)+/g,'/');
-    return path;
-    // return this.isPath(path)
-    //   ? path.replace('//',this.base).replace('./',this.base)
-    //   : !Url.valid(path)
-    //     && `//${path}`
-    //     || path;
+    return [this.base,path].join('/').replace(/(\/)+/g,'/');
     },
   isPath(path){
     if( typeof path==='string' )
       return !Url.valid(path)&&path.indexOf('/')==0||path.indexOf('./')==0||path.indexOf('../')==0||false;
-    }
+    },
+  //methods
+  go(path='/'){
+    event.preventDefault();
+    this.get(path,(mdl,ttl,url)=>{
+      console.log('%capi::%c%s\n%O','font-weight:bold;color:cyan','font-weight:normal;color:magenta',url,{mdl,ttl,url})
+      History.pushState(mdl,ttl,url);
+      });
+    },
+  get(path='/',ƒn=false){
+    $.getJSON( this.path(path), obj=>ƒn.call(UiApp.page,...Object.values(obj)) );
+    },
   }

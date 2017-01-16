@@ -2,8 +2,9 @@ var
 tag= {
 	lifecycle: {
 		created(){
-			var self=this;//@alias[this]
-			$(self).on('click',function(e){UiApp.page.go(self.href)});
+			var//@alias[this]
+				self= this;
+			$(self).on('click',function(e){ UiApp.api.go(self.href) });
 			}
 		},
 	extends: 'a',

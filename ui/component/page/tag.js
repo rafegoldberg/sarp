@@ -1,22 +1,3 @@
-Dom.mixins.api= {
-	methods:{
-		go(path='/'){
-		  event.preventDefault();
-		  UiApp.page.route(path,(mdl,ttl,url)=>{
-		  	console.log({mdl,ttl,url})
-		    History.pushState(mdl,ttl,url);
-		    });
-		  },
-		route(path='/',ƒn=false){
-			var//@alias[this]
-				self= this;
-			var
-			uri= UiApp.api.path(path);
-			$.getJSON( uri, obj=>ƒn.call(self,...Object.values(obj)) );
-			},
-		},
-	};
-
 var
 tpl= require('./template.bar'),
 def= {
@@ -26,7 +7,6 @@ def= {
 			$(this).addClass(this.bem.base);
 			},
 		},
-	mixins: ['api'],
 	methods: {
 		htmstr: function(htm,key,rpl=''){
 			if( typeof(htm)!=='string' )

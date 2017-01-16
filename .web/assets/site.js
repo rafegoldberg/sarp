@@ -1,7 +1,6 @@
 (function($){
 
   //set initial state
-    UiApp.page.model= { khtm:$(UiApp.page).html() };
     History.replaceState(
       UiApp.page.model,
       $('head>title').text(),
