@@ -1,0 +1,16 @@
+title: Video
+icon:  file-video-o
+files: 
+  sortable: true
+pages: false
+fields:
+  title:
+    label: Title
+    type:  text
+  vidurl:
+    label: Video URL <small style="padding:0 .375em;font-weight:100;float:right;opacity:.25;"><i class="fa fa-youtube-square"></i> / <i class="fa fa-vimeo-square"></i></small>
+    type: text
+    icon: link
+  text:
+    label: Post
+    type: textarea

@@ -1,7 +1,10 @@
 title:   Feed
-icon:    television
+icon:    list-ol
 files:   false
-pages:   post
+pages:   
+  template:
+    - post
+    - video
 options: 
   files: false
   template: false
