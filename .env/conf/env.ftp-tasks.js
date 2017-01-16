@@ -1,25 +1,18 @@
-module.exports= {
+var
+tasks={
   'ftp-deploy': {
     auth: {
       host: 'rafegoldberg.com',
       port: 21,
-      authPath: '<%=ƒ.app%>/data/user.json',
       authKey: 'ftp',
+      authPath: '<%=ƒ.app%>/data/user.json',
       },
-    src:  '<%=ƒ.deploy.from%>',
-    dest: '<%=ƒ.deploy.dest%>/test',
+    src:  '<%=ƒ.ftp.from%>',
+    dest: '<%=ƒ.ftp.dest%>',
     exclusions: [
-      //=system
-      '{,**/}.DS_Store',
-      //=kirby core
-      '{,**/}.htaccess',
-      '{,**/}index.php',
-      'kirby',
-      'panel',
-      'thumbs',
-      //=kirby theme
-      'assets',
-      'content',
+      '<%=ƒ.ftp.from%>/**/*',
+      '<%=ƒ.ftp.from%>/!templates/*',
+      '<%=ƒ.ftp.from%>/!snippets/*',
       ],
     forceVerbose: true
     },
@@ -30,26 +23,37 @@ module.exports= {
       authKey: 'ftp',
       authPath: '<%=ƒ.app%>/data/user.json',
       },
-    src:  '<%=ƒ.deploy.from%>',
-    dest: '<%=ƒ.deploy.dest%>',
+    src:  '<%=ƒ.ftp.from%>',
+    dest: '<%=ƒ.ftp.dest%>',
+    syncMode: false,
     forceVerbose: true,
     exclusions: [
       //=misc files
-        '<%=ƒ.deploy.from%>/{,**/}.DS_Store',
+        '<%=ƒ.ftp.from%>/{,**/}.DS_Store',
       //=Kirby core
-        '<%=ƒ.deploy.from%>/{,**/}.htaccess',
-        '<%=ƒ.deploy.from%>/{,**/}index.php',
-        '<%=ƒ.deploy.from%>/kirby',
-        '<%=ƒ.deploy.from%>/panel',
-        '<%=ƒ.deploy.from%>/thumbs',
+        // '<%=ƒ.ftp.from%>/{,**/}.htaccess',
+        // '<%=ƒ.ftp.from%>/{,**/}index.php',
+        '<%=ƒ.ftp.from%>/kirby',
+        '<%=ƒ.ftp.from%>/panel',
+        '<%=ƒ.ftp.from%>/thumbs',
       //=Kirby site
-        '<%=ƒ.deploy.from%>/content',
-        '<%=ƒ.deploy.from%>/site/accounts',
-        '<%=ƒ.deploy.from%>/assets/avatars',
+        '<%=ƒ.ftp.from%>/content',
+        '<%=ƒ.ftp.from%>/site/accounts',
+        '<%=ƒ.ftp.from%>/assets/avatars',
       //=Ui assets 
-        '<%=ƒ.deploy.from%>/assets/ui/icons',
-        '<%=ƒ.deploy.from%>/assets/ui/ui.js',
-        '<%=ƒ.deploy.from%>/assets/ui/ui.css{,.map}',
+        // '<%=ƒ.ftp.from%>/assets/ui/icons',
+        // '<%=ƒ.ftp.from%>/assets/ui/ui.js',
+        // '<%=ƒ.ftp.from%>/assets/ui/ui.css{,.map}',
       ],
     }
   };
+module.exports= function(grunt,options){
+  
+  /*=SYNC REMOTE->
+   deletes orphaned remote files
+   */
+  if( grunt.option('sync') )
+    tasks['ftp-sync'].syncMode=true;
+
+  return tasks
+  }//exports

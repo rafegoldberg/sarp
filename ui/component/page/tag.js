@@ -1,12 +1,13 @@
 Dom.mixins.api= {
 	methods:{
-		route(){
+		go(path='/'){
 		  event.preventDefault();
-		  UiApp.page.go(this.href,(mdl,ttl,url)=>{
+		  UiApp.page.route(path,(mdl,ttl,url)=>{
+		  	console.log({mdl,ttl,url})
 		    History.pushState(mdl,ttl,url);
 		    });
 		  },
-		go(path='/',ƒn=false){
+		route(path='/',ƒn=false){
 			var//@alias[this]
 				self= this;
 			var
@@ -38,25 +39,21 @@ def= {
 			return htm.replace(key,rpl);
 			},
 		render: function(use){
-			var
-			self= this,
-			anim= 325;
-
-	    $(self)
-	    .addClass(`${self.bem.base}=loading`)
-	    .removeClass(`${self.bem.base}=loaded`);
-			// $(UiApp.page).animate({opacity:0},anim/2);
-			$('html,body').animate({scrollTop:0},anim*1.25,function(){
-				// self.uiLast= $(self).children('app-page').detach();
+			var//@alias[this]
+				self=this;
+			//=UPDATE MODEL  
 				self.model.khtm= self.htmstr(self.model.khtm,'#page');
+			//=ANIMATE+SET
+	    $(self)//@class[loading]
+		    .addClass(`${self.bem.base}=loading`)
+		    .removeClass(`${self.bem.base}=loaded`);
+			$('html,body').animate({scrollTop:0},400,after=>{
 				$(self).html( self.template(self.model) );
-				window.setTimeout(function(){
-					$(self)
+				$(self)//@class[loaded]
 			    .addClass(`${self.bem.base}=loaded`)
 			    .removeClass(`${self.bem.base}=loading`);
-					},0);
-				// $(UiApp.page).animate({opacity:1},anim);
 				});
+
 			return self;
 			},
 		}

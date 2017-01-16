@@ -4,13 +4,13 @@
   <?#=Ui->ini
     snippet('app/Ui');
     Ui::ini(array(
-      ajaxBase=> url::path( $kirby->urls()->index() ).'/api',
+      ajaxBase=> r(url::host()!='0.0.0.0','/','').url::path( $kirby->urls()->index() ).'/api',
       localUrl=> [
         uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',
         reload=> false,
         ],
       minified=> array(
-        js=> !(url::host()=='0.0.0.0'||url::host()=='localhost'),
+        js=> url::host()!='0.0.0.0',
         css=>true
         )
       ))?>
@@ -20,7 +20,7 @@
   <!--fonts-->
   <!--external-->
   <?=css('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')?>
-  <?=js('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')?>
+  <?#=js('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')?>
   <!--|
    META
    |-->

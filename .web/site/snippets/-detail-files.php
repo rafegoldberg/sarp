@@ -3,7 +3,7 @@
 	<small>
 		<table class="table table-bordered text-center"><tbody>
 			<tr style="background:#FAFAFA"><th class=text-right colspan=2>Files</th></tr>
-			<?foreach($page->images()->limit(10) as $img):
+			<?foreach($page->images()->limit(50) as $img):
 				?>
 				<tr>
 					<th><?=$img->name()?></th>

@@ -4,10 +4,12 @@
     require('babel-polyfill');
     require('webcomponents.js');
   var//=utilities
-    ø= window.ø =require('underscore');
-    $= window.jQuery =require('jquery');
+    ø= window.ø =require('underscore'),
+    $= window.$ =require('jquery');
+    window.jQuery=$;
   //=plugins
     require('jquery-lazyload');
+    
     require('mdnzr.js');
     require('modularscale-js');
 /*=Ui Core

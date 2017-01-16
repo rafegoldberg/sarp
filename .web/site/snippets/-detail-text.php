@@ -1,8 +1,8 @@
-<?if( $page->content()->has('text') ):
+<?if( $page->text()->isNotEmpty() ):
 	?>
-	<small><blockquote>
-			<b>Text</b>
-			<hr>
-			<?=$page->text()->kirbytext()?>
-		</blockquote></small>
+	<blockquote>
+		<b>Text</b>
+		<hr>
+		<?=$page->text()->kirbytext()?>
+	</blockquote>
 <?endif#$files?>

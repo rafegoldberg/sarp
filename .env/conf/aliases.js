@@ -26,7 +26,7 @@ tasks= {
       // 'gitpush:env.git',
       'ftp-sync:env.ftp',
       ],
-    'env.push': [
+    'env.ftp': [
       'ftp-sync:env.ftp',
       ],
   /*=

@@ -13,7 +13,7 @@
 					$data= $site->content();
 					return response::json($data->toArray());
 					}],
-			[ pattern=> ['api/(:all)','(:all)'],
+			[ pattern=> 'api/(:all)',
 				action=>  function(){
 					$path= join(func_get_args());
 
@@ -26,7 +26,7 @@
 						return response::json([
 							mdl=> array_merge($page->toArray(),[khtm=>$khtm]),
 							ttl=> $page->title()->value(),
-							url=> $page->url(),
+							url=> '/'.$page->uri(),
 							]);
 					else 
 						return array($path,[]);
