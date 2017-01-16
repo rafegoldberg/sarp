@@ -6,11 +6,9 @@
 	<h3><?=$page->title()->html()?></h3>
 	<hr>
 	<section>
-		<?foreach($page->images()->limit(50) as $img):
+		<?foreach($page->images() as $img):
 			?>
-			<figure>
-				<?=$img->thumb([width=>100,quality=>75])->html()?>
-			</figure>
+			<figure is=ui-figure data-model="<?=Ui::att($img->toArray())?>"></figure>
 		<?endforeach#pages?>
 	</section>
 </ui-page>

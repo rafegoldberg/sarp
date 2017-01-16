@@ -8,7 +8,10 @@
       );
   //=statechange event
     History.Adapter.bind(window,'statechange',function(){
-      UiApp.page.render(History.getState().data);
+      UiApp.page.animateOut(function(){
+        UiApp.page.render( History.getState().data );
+        window.setTimeout(UiApp.page.animateIn.call(UiApp.page),0);
+        });
       // Log.log('History.getState().data',History.getState().data);
       });
 

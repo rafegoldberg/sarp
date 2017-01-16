@@ -3,8 +3,8 @@
 	transition: opacity .2s ease, transform .375s ease;
 	transition-delay: .125s;
 	&\=loading {
-		transform-origin: cennter left;
-		transform: scale(.875);
+		transform-origin: top left;
+		transform: scale(.75);
 		opacity: 0;
 		transition-delay: .125s;
 		}

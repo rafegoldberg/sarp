@@ -26,7 +26,8 @@
 						return response::json([
 							mdl=> array_merge($page->toArray(),[khtm=>$khtm]),
 							ttl=> $page->title()->value(),
-							url=> '/'.$page->uri(),
+							url=> $page->url(),
+							uri=> '/'.$page->uri(),
 							]);
 					else 
 						return array($path,[]);

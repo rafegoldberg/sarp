@@ -19,11 +19,13 @@ module.exports= {
   go(path='/'){
     event.preventDefault();
     this.get(path,(mdl,ttl,url)=>{
-      console.log('%capi::%c%s\n%O','font-weight:bold;color:cyan','font-weight:normal;color:magenta',url,{mdl,ttl,url})
       History.pushState(mdl,ttl,url);
       });
     },
   get(path='/',ƒn=false){
-    $.getJSON( this.path(path), obj=>ƒn.call(UiApp.page,...Object.values(obj)) );
+    $.getJSON( this.path(path), obj=>{
+      console.log('%capi::%c%s\n%O','font-weight:bold;color:cyan','font-weight:normal;color:magenta',obj.url,obj)
+      ƒn && ƒn.call(UiApp.page,...Object.values(obj));
+      } );
     },
   }

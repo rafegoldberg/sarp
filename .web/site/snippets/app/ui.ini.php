@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="<?=site()->language() ? site()->language()->code() : 'en'?>">
 <head>
-  <?#=Ui->ini
-    snippet('app/Ui');
-    Ui::ini(array(
-      ajaxBase=> r(url::host()!='0.0.0.0','/','').url::path( $kirby->urls()->index() ).'/api',
-      localUrl=> [
-        uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',
-        reload=> false,
-        ],
-      minified=> array(
-        js=> url::host()!='0.0.0.0',
-        css=>true
-        )
-      ))?>
-  <!--|
-   ENV
-   |-->
+<!--|
+ ENV
+ |-->
   <!--fonts-->
-  <!--external-->
-  <?=css('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')?>
-  <?#=js('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')?>
-  <!--|
-   META
-   |-->
+  <!--xtrnl-->
+   <?=css('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')?>
+<?#UI->INI
+  snippet('app/Ui');#import the Ui class
+  Ui::ini(array(    #set options + init
+    ajaxBase=> r(url::host()!='0.0.0.0','/','').url::path( $kirby->urls()->index() ).'/api',
+    localUrl=> [
+      uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',
+      reload=> false,
+      ],
+    minified=> array(
+      js=> url::host()!='0.0.0.0',
+      css=>true
+      )
+    ))?>
+<!--|
+ META
+ |-->
   <!--page-->
-    <meta charset="UTF-8">
-    <title><?=$site->shorttitle()->lower()->html()?></title>
-    <meta name="description" content="<?=$site->description()->html()?>">
+   <meta charset="UTF-8">
+   <title><?=$site->shorttitle()->lower()->html()?></title>
+   <meta name="description" content="<?=$site->description()->html()?>">
   <!--view-->
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=false">
+   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <!--icon-->
+   <link rel="apple-touch-icon" href="<?=url('assets/icn.png')?>">
+  <!--ios -->
+   <meta name="apple-mobile-web-app-capable" content="yes"/>
+   <meta name="apple-mobile-web-app-status-bar-style" content="light">
+   <meta name="apple-mobile-web-app-status-bar-style" content="white">
+   <meta name="apple-mobile-web-app-status-bar-style" content="lightContent">
 </head>
 <body>

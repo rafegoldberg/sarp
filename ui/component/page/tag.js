@@ -18,22 +18,23 @@ def= {
 			key= typeof(key)==='string' ? rgx[key]||key : '';
 			return htm.replace(key,rpl);
 			},
+		animateIn(){
+			$(this)//@class[loaded]
+		    .addClass(`${this.bem.base}=loaded`)
+		    .removeClass(`${this.bem.base}=loading`);
+			},
+		animateOut(ƒn=false){
+	    $(this)//@class[loading]
+		    .removeClass(`${this.bem.base}=loaded`)
+		    .addClass(`${this.bem.base}=loading`);
+			$('html,body').animate({scrollTop:0},400,ƒn||null);
+			},
 		render: function(use){
-			var//@alias[this]
-				self=this;
-			//=UPDATE MODEL  
+			var self=this;//@alias[this]
+			//=UPDATE MODEL 
 				self.model.khtm= self.htmstr(self.model.khtm,'#page');
-			//=ANIMATE+SET
-	    $(self)//@class[loading]
-		    .addClass(`${self.bem.base}=loading`)
-		    .removeClass(`${self.bem.base}=loaded`);
-			$('html,body').animate({scrollTop:0},400,after=>{
+			//=REPLACE HTML 
 				$(self).html( self.template(self.model) );
-				$(self)//@class[loaded]
-			    .addClass(`${self.bem.base}=loaded`)
-			    .removeClass(`${self.bem.base}=loading`);
-				});
-
 			return self;
 			},
 		}
