@@ -13,60 +13,19 @@ Handlebars
  */
 var Bar= require("hbsfy/runtime");
 
-//=Format JS 
-// formatjs.io
-// 
-  // var helpers= require('handlebars-intl/dist/handlebars-intl.min.js').HandlebarsIntl;
-  // helpers.registerWith(Bar);
-
-//=TemplateHelpers
+//=Assemble Helpers
 // github@assemble/handlebars-helpers
 // 
   var helpers= window.hlprDebug =require('handlebars-helpers')();
   Bar.registerHelper(helpers);
+  //Bar.registerHelper( 'moment', require('helper-moment') );
 
-  Bar.registerHelper( 'moment', require('helper-moment') );
-
-
-//=Numeric Comparison Operators
-// gist@tracend/7522125
+//=Ui Custom Helpers
 // 
-  /*
   Bar.registerHelper({
-    ge: function(a,b){
-      // 
-      // greater than or equal to
-      // 
-      var next= arguments[arguments.length-1];
-      return (a >= b) ? next.fn(this) : next.inverse(this);
-      },
-    gt: function(a,b){
-      // 
-      // greater than
-      // 
-      var next= arguments[arguments.length-1];
-      return (a > b) ? next.fn(this) : next.inverse(this);
-      },
-    le: function(a,b){
-      // 
-      // less than or equal to
-      // 
-      var next= arguments[arguments.length-1];
-      return (a <= b) ? next.fn(this) : next.inverse(this);
-      },
-    lt: function(a,b){
-      // 
-      // less than
-      // 
-      var next= arguments[arguments.length-1];
-      return (a < b) ? next.fn(this) : next.inverse(this);
-      },
-    ne: function(a,b){
-      // 
-      // not equal
-      // 
-      var next= arguments[arguments.length-1];
-      return (a !== b) ? next.fn(this) : next.inverse(this);
+    ifel: function(test,If,El=''){
+      if( arguments.length<2 )
+        console.warn('{{ifel}} requires at least two paramaters')
+      return test?If:El;
       },
     });
-   */

@@ -25,7 +25,8 @@
 				".DS_Store",
 				".htaccess",
 				".yo-rc.json",
-				".bowerrc"
+				".bowerrc",
+				"*.sublime*"
 			],
 			"folder_exclude_patterns":
 			[
@@ -67,7 +68,8 @@
 			"file_exclude_patterns":
 			[
 				".DS_Store",
-				".htaccess"
+				".htaccess",
+				"*.md",
 			],
 			"name": " └ core",
 			"path": ".env/core"

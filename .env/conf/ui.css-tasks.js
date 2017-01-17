@@ -6,7 +6,9 @@ tasks= {
 	      '<%=ƒ.sass.main%>',
 	      '<%=ƒ.sass.core%>/config/*.scss',
 	      '<%=ƒ.sass.core%>/{base,generic,layout}/*.scss',
-	      '<%=ƒ.sass.atom%>'
+	      '<%=ƒ.sass.core%>/extends/pre.*.scss',
+	      '<%=ƒ.sass.atom%>',
+	      '<%=ƒ.sass.core%>/extends/sup.*.scss',
 	      ]
       },
     options: {

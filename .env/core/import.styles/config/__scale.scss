@@ -1,10 +1,9 @@
 //=config options
 // 
-$ds-scale: Ui-add(scale,(
-	base: 14pt,
-	ratio: (1.618,1.25),
-	));
-
+	$ds-scale: Ui-add(scale,(
+		base: 14pt,
+		ratio: (1.618,1.25),
+		));
 //=plugin setup
 // 
 	$ms-base: Ui(scale,base);

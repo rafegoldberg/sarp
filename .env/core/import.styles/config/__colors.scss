@@ -1,28 +1,39 @@
-$ds-colors: Ui-add(colors,(
-  //->Theme
-    text:black,
-    pop: magenta,
-    mark:#FFCD07,
-  //->Status
-    good:#07B4A7,success:#07B4A7,
-    uhoh:#F8A60A,warn:#F8A60A,
-    errr:#F0433F,error:#F0433F,
-  //->Grays
+//=SCHEMES
+// color+shade configs 
+  $ui-colors: Ui-add(color,(
+    green: #07B4A7,
+    orange:#F8A60A,
+    red:   #F0433F,
+    yellow:#FFCD07,
+    ));
+  $ui-colors: Ui-add(grays,(
     black:#1F1F1F,
     dark: #373737,
     gray: #AAAAAA,
     edge: #DBDBDB,
     lite: #EEEEEE,
     faint:#FAFAFC,
-    white:#FFFFFF
-));
+    ));
 
+//=THEMES
+// color combo configs 
+  $ui-theme-default:(
+    matte: Ui(grays,faint),
+    edge:  Ui(grays,edge),
+    text:  Ui(grays,black),
+    mark:  Ui(color,yellow),
+    );
+  $ui-theme-invert: (
+    matte: Ui(grays,black),
+    edge:  invert(Ui(grays,edge)),
+    text:  Ui(grays,faint),
+    mark:  Ui(color,yellow),
+    );
+  ////Ui-add-themes->
+   $ui-colors: Ui-add(theme,(
+     default: $ui-theme-default,
+     invert:  $ui-theme-invert,
+     ));
 
-@function switchText($color) {
-  @if( lightness($color) > 62.5 ){
-    @return Ui(colors,black);
-    }
-  @else {
-    @return Ui(colors,white);
-    }
-  }
+//=DEFAULT
+$ui-theme: default !global;

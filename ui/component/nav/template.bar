@@ -1,3 +1,8 @@
-{{#each pages as page}}
-	<a is=ui-link href="{{page.uri}}">{{page.title}}</a>
-{{/each}}
+<nav class=nav>
+{{#iterate this}}
+	<a
+	 is="ui-link"
+	 class="nav--link {{ifel this.isActive 'nav--link=active' ''}}"
+	href="{{this.uri}}">{{this.title}}</a>
+{{/iterate}}
+</nav>

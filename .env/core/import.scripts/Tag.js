@@ -72,15 +72,16 @@ module.exports= Tag;
           return model;
           },
         set: function( use ){
+          var self=this;//@alias[this]
           //=async get json from url 
           if( Url.valid(use) || UiApp.api.isPath(use) ) 
-            return this.load( use );
+            return self.load( use, json=>self.render() );
           //=parse json from att str 
           if( strJSON(use) ) 
-            this.model= JSON.parse(use);
+            ( self.model=JSON.parse(use) ) && self.render(); //self.model= JSON.parse(use);
           else 
-            this.data(...arguments);
-          return this.model;
+            self.data(...arguments);
+          return self.model;
           }
         }
       },
@@ -101,9 +102,9 @@ module.exports= Tag;
       if( typeof tpl==='function' )
         def.methods= {
           template: tpl,
-          render: function(use,silent){
+          render: function(use){
             $(this).html( this.template(this.model) );
-            silent && $(this).trigger('rendered.ui',this.model);//@hook:event
+            //$(this).trigger('rendered.ui',this.model);//@hook:event
             return this;
             },
           };

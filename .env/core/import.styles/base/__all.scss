@@ -3,10 +3,10 @@
 }
 
 ::-moz-selection {
-	color: Ui(colors,mark);
-	background: rgba(Ui(colors,mark),.25);
+	color: Ui(theme,$ui-theme,mark);
+	background: rgba(Ui(theme,$ui-theme,mark),.25);
 	}
 ::selection {
-	color: Ui(colors,mark);
-	background: rgba(Ui(colors,mark),.25);
+	color: Ui(theme,$ui-theme,mark);
+	background: rgba(Ui(theme,$ui-theme,mark),.25);
 	}

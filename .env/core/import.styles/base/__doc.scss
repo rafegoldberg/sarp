@@ -1,7 +1,7 @@
 html {
 	font: normal normal 14px/1;
-	background-color: Ui(colors,bg);
-	color: Ui(colors,dark);
+	background-color: Ui(theme,$ui-theme,matte);
+	color: Ui(theme,$ui-theme,text);
 	}
 body {
 	font-size: 100%;
