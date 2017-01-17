@@ -17,7 +17,7 @@ module.exports= {
     },
   //methods
   go(path='/'){
-    event.preventDefault();
+    event && event.preventDefault();
     this.get(path,(mdl,ttl,url)=>{
       History.pushState(mdl,ttl,url);
       });

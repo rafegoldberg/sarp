@@ -50,7 +50,7 @@ module.exports= Tag;
       load: UiTagLoad,
       render: function(use){
         if( Url.valid(use) || UiApp.api.isPath(use) )
-          return this.load(use,model=>this.render());
+          return this.load(use);
         if( Dom.typeOf(use)=='object' )
           this.model= use;
         return this;
@@ -75,10 +75,10 @@ module.exports= Tag;
           var self=this;//@alias[this]
           //=async get json from url 
           if( Url.valid(use) || UiApp.api.isPath(use) ) 
-            return self.load( use, json=>self.render() );
+            return self.load(use);
           //=parse json from att str 
           if( strJSON(use) ) 
-            ( self.model=JSON.parse(use) ) && self.render(); //self.model= JSON.parse(use);
+            self.model= JSON.parse(use);
           else 
             self.data(...arguments);
           return self.model;

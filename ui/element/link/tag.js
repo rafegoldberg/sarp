@@ -2,9 +2,10 @@ var
 tag= {
 	lifecycle: {
 		created(){
-			var//@alias[this]
-				self= this;
-			$(self).on('click',function(e){ UiApp.api.go(self.href) });
+			/*=MOVED TO EVENTS->
+				var self=this;//@alias[this]
+				$(self).on('click',function(e){ UiApp.api.go(self.href) });
+			 */
 			}
 		},
 	extends: 'a',
@@ -25,13 +26,12 @@ tag= {
 				}
 			}
 		},
-	// events: {
-	// 	click: function(){
-	// 		event.preventDefault();
-	// 		// UiApp.page.route(this.href);
-	// 		Log.log('ui-link:click',this.href);
-	// 		}
-	// 	},
+	events: {
+		click(){
+			event.preventDefault();
+			UiApp.api.go(this.href);
+			}
+		},
 	};
 
 module.exports= new Tag(tag);
