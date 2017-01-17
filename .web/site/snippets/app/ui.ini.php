@@ -6,7 +6,6 @@
  |-->
   <!--fonts-->
   <!--xtrnl-->
-   <?=css('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')?>
 <?#UI->INI
   snippet('app/Ui');#import the Ui class
   Ui::ini(array(    #set options + init
