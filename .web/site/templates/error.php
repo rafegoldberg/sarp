@@ -3,7 +3,9 @@
 	?>
 
 <ui-page>
-	<b style="color:#D9534F">ERROR!</b>
+	<header>
+		<h3 style="color:#D9534F">ERROR!</h3>
+	</header>
 </ui-page>
 
 <?#=UiApp:btm->

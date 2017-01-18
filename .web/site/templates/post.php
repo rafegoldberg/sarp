@@ -4,9 +4,8 @@
 
 <ui-page>
 	<header>
-		<h3><?=$page->title()->html()?></h3>
+		<h1><?=$page->title()->html()?></h1>
 	</header>
-	<hr>
 	<section><?=$page->text()->kt()?></section>
 </ui-page>
 

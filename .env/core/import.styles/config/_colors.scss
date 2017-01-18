@@ -1,0 +1,32 @@
+//=color scheme 
+  //defaults:
+  $ui-color: UiSet(color,(
+    blue:  #7DF9FF,
+    green: #07B4A7,
+    orange:#F8A60A,
+    red:   #F0433F,
+    yellow:#FFCD07,
+    faint: #FAFAFC,
+    ));
+  //custom:
+  $ui-color: UiXtd((
+     orange:#d94515,
+     beige: #efebe9,
+     slate: #171717,
+    ),color);
+
+//=grayscale    
+  $ui-grays: UiSet(grays,(
+    black:#1F1F1F,
+    dark: #373737,
+    gray: #AAAAAA,
+    edge: #DBDBDB,
+    lite: #EEEEEE,
+    ));
+//=translucency 
+  $ui-shade: UiSet(shade,(
+    .125,
+    .375,
+    .625,
+    .875
+    ));

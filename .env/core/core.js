@@ -51,16 +51,17 @@
     queue: {
       registerTags: function(){
         ø.each(UiModules,function(tag,key){
-          //tag module exports object
-          //key module kind/name path
+          /* @tag: export from ui/{kind}/{module}/tag.js
+           * @key: module path
+           */
+          Log.log('registerTags()',{'@tag':tag,'@key':key});
           if( !(tag instanceof Tag) )
             return;
           Log.txt(key);
-          //=parse ui-tag name from module path
-          var
+          var//get ui/{kind}/{name}
           tagKind= key.split('/')[0],
           tagName= key.split('/')[1];
-          Dom.register( `ui-${tagName}`, tag );
+          Dom.register( `ui-${tagName}`, tag );//xtag register as <ui-{tag}>
           });
         }
       },

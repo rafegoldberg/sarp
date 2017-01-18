@@ -5,24 +5,6 @@
 			"file_exclude_patterns":
 			[
 				".DS_Store",
-				".htaccess"
-			],
-			"name": "★ UI Modules",
-			"path": "ui"
-		},
-		{
-			"file_exclude_patterns":
-			[
-				".DS_Store",
-				".htaccess"
-			],
-			"name": "★ UI Icons",
-			"path": "icons"
-		},
-		{
-			"file_exclude_patterns":
-			[
-				".DS_Store",
 				".htaccess",
 				".yo-rc.json",
 				".bowerrc",
@@ -40,6 +22,24 @@
 			],
 			"name": "@root/",
 			"path": "."
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store",
+				".htaccess"
+			],
+			"name": "★ UI Modules",
+			"path": "ui"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store",
+				".htaccess"
+			],
+			"name": "★ UI Icons",
+			"path": "icons"
 		},
 		{
 			"file_exclude_patterns":
@@ -69,7 +69,7 @@
 			[
 				".DS_Store",
 				".htaccess",
-				"*.md",
+				"*.md"
 			],
 			"name": " └ core",
 			"path": ".env/core"

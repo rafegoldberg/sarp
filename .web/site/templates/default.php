@@ -3,16 +3,16 @@
 	?>
 
 <ui-page>
-	<h3><?=$page->title()->html()?></h3>
-	<hr>
-	<table><tbody>
-		<?foreach( $page->children()->visible() as $pg ):
-			?>
-		<tr><td>
+	<header>
+		<h3><?=$page->title()->html()?></h3>
+	</header>
+	<ol>
+	<?foreach( $page->children()->visible() as $pg ):
+		?>
+		<li>
 			<a is=ui-link href="<?=$pg->uri()?>"><?=$pg->title()->html()?></a>
-		</td></tr>
-		<?endforeach#pages?>
-	</tbody></table>
+		</li>
+	<?endforeach#pages?></ol>
 </ui-page>
 
 <?#=UiApp:btm->

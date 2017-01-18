@@ -1,35 +1,21 @@
-
-//=Global Constants
+/*\ PARTIALS SOURCE ORDER
+-------------------------
+ 1. core
+ 2. config
+ 3. base
+ 4. generic
+ 5. layout
+ 6. extends.pre
+ 7. {ui modules}
+ 8. extends.sup
+\*/
+ //global constants
   $__TRANSPARENT__: #{'rgba(255,255,255,0)'};
-//=Dev Stage Area  
+ //dev stage area  
   .container {
+    display: block;
+    margin: 0 auto;
     max-width: 45em;
-    }
-  app-main nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(255,255,255,.95);
-    border-bottom: 1px solid rgba(127,127,127,.25);
-    padding: 1em 0;
-    margin: 3.5em 0 1em 0;
-
-    font-weight: 300;
-    text-transform: lowercase;
-    > a {
-      & + :before{
-        content: '/ ';
-        pointer-events:none;
-        }
-      }
-    :first-child {
-      font-weight: bold;
-      }
-    }
-  a {
-    &:link {
-      text-decoration: none;
-      }
     }
   img {
     max-width: 100%;
@@ -49,8 +35,8 @@
       margin: 0 auto;
       }
     }
-//=Ui Sass Utility 
+ //ui sass utility 
  @import 'ui.sass.util/import';
-//=Third-Party Libs
+ //third-party libs
  @import 'modular-scale/stylesheets/modular-scale';
  @import 'breakpoint-sass/stylesheets/breakpoint';

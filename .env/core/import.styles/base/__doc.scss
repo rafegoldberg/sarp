@@ -1,7 +1,7 @@
 html {
-	font: normal normal 14px/1;
-	background-color: Ui(theme,$ui-theme,matte);
-	color: Ui(theme,$ui-theme,text);
+	font: normal normal Ui(scale,root)#{'/1.5'} Ui(theme,$ui-theme,fonts,mono);
+	background-color: Ui(theme,$ui-theme,color,matte);
+	color: Ui(theme,$ui-theme,color,text);
 	}
 body {
 	font-size: 100%;

@@ -1,3 +1,4 @@
 <app-page>{{{khtm}}}</app-page>
 
-{{UiSetActive this.hash}}
+{{!-- update nav --}}
+{{UiNavUpdate this.hash}}

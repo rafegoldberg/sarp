@@ -1,0 +1,11 @@
+//=config options
+// 
+	$ds-scale: UiSet(scale,(
+		root:  12pt,
+		base:  1em,
+		ratio: 1.618 1.25,
+		));
+//=plugin setup
+// 
+	$ms-base: Ui(scale,base);
+	$ms-ratio: Ui(scale,ratio);

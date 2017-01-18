@@ -6,6 +6,7 @@
 	#-panel   
 		c::set('panel.install',true);
 	#-routes  
+		//=quick functions
 		c::set('routes',[
 			[ pattern=>'api/site',
 				action=>  function(){
@@ -22,12 +23,15 @@
 					
 					$khtm= kirby::render($page);
 
+					$ctrl_wo_tpl= page('UiNav') ? page('UiNav')->toArray() : 'eff this';
+
 					if( kirby::request()->ajax() )
 						return response::json([
 							mdl=> array_merge($page->toArray(),[khtm=>$khtm]),
 							ttl=> $page->title()->value(),
 							url=> $page->url(),
 							uri=> '/'.$page->uri(),
+							TST=> $ctrl_wo_tpl
 							]);
 					else 
 						return array($path,[]);

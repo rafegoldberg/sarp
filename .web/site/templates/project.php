@@ -3,9 +3,10 @@
 	?>
 
 <ui-page>
-	<h3><?=$page->title()->html()?></h3>
-	<hr>
-	<section>
+	<header>
+		<h1><?=$page->title()->html()?></h1>
+	</header>
+ 	<section>
 		<?foreach($page->images() as $img):
 			?>
 			<figure is=ui-figure data-model="<?=Ui::att($img->toArray())?>"></figure>

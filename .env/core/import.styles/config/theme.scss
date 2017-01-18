@@ -1,0 +1,39 @@
+//=THEMES
+//-default
+  $ui-theme-default:(
+    fonts: Ui(fonts),
+    color: (
+      matte:Ui(color,faint),
+      edge: Ui(grays,edge),
+      text: Ui(grays,black),
+      mark: Ui(color,yellow),
+      link: Ui(color,blue),
+      )
+    );
+  $ui-theme: UiSet(theme,(default:$ui-theme-default));
+//-custom 
+  $ui-theme-custom:(
+     invert:(
+       fonts: Ui(fonts),
+       color: (
+         matte:Ui(grays,black),
+         edge: invert(Ui(grays,edge)),
+         text: Ui(color,faint),
+         mark: Ui(color,yellow),
+         link: Ui(color,blue),
+         ),
+       ),
+     sarp:(
+       fonts: Ui(fonts),
+       color: (
+         matte:Ui(color,beige),
+         edge: Ui(grays,edge),
+         text: Ui(grays,black),
+         mark: Ui(color,yellow),
+         link: Ui(color,blue),
+         ),
+       ),
+    );
+  $ui-theme:UiXtd($ui-theme-custom,theme);
+
+$ui-theme: invert !global;
