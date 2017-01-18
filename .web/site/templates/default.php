@@ -4,7 +4,7 @@
 
 <ui-page>
 	<header>
-		<h3><?=$page->title()->html()?></h3>
+		<h1 class="[ heading heading--2 ]"><?=$page->title()->html()?></h1>
 	</header>
 	<ol>
 	<?foreach( $page->children()->visible() as $pg ):

@@ -15,4 +15,8 @@
       // Log.log('History.getState().data',History.getState().data);
       });
 
+    var
+    nav= $('ui-nav')[0];
+    nav.render();
+
 	})(jQuery)

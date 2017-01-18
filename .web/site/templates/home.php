@@ -5,7 +5,7 @@
 <ui-page>
 	<article>
 		<header>
-			<h3><?=$page->title()->html()?></h3>
+			<h1 class="[ heading heading--2 ]"><?=$page->title()->html()?></h1>
 		</header>
 		<section><?=$page->text()->kt()?></section>
 	</article>

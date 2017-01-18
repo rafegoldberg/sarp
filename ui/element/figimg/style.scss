@@ -1,0 +1,17 @@
+[is=ui-figure] {
+	display: block;
+	.loading {
+		@extend %loading !optional;//@from[core/core.scss]
+		img {
+			height: 12.5em;
+			opacity: 0;
+			}
+		}
+	&:not(.loading) {
+	 	background: transparent;
+		}
+	img {
+		max-width: 100%;
+		width: auto;
+		}
+	}

@@ -1,15 +1,16 @@
 /*=Ui Env
  */
-  //=polyfill
+  //=Polyfills 
     require('babel-polyfill');
     require('webcomponents.js');
-  var//=utilities
-    ø= window.ø =require('underscore'),
-    $= window.$ =require('jquery');
-    window.jQuery=$;
-  //=plugins
-    require('jquery-lazyload');
-    
+  //=Libraries 
+    var//Underscore
+     ø =window.ø= require('underscore');
+    var//jQuery
+     $ =window.$= require('jquery');
+     window.jQuery=$;//@alias
+  //=Plugins   
+    require('jquery-lazyload');//@dep[jQuery]
     require('mdnzr.js');
     require('modularscale-js');
 /*=Ui Core
@@ -17,7 +18,7 @@
   var
   Log= window.Log= require('Log.js'),
   Url= window.Url= require('Url.js'),
-  Tag= window.Tag= require('Tag.js');//@window[handlebars,xtag,]
+  Tag= window.Tag= require('Tag.js');//#win[handlebars,xtag,]
 /*=Ui Modules
  */
   UiModules= window.UiModules =require('../../ui/*/*/*.js',{
@@ -65,6 +66,7 @@
           });
         }
       },
-    //@refactor:⬆FROM/TO⬇
-    api:require('./UiApp/api.js')
+  //@refactor:⬆FROM/TO⬇
+    api:require('./UiApp/api.js'),
+    bem:require('purebem').create('--','=')//#lib[@billogram/purebem]
     };

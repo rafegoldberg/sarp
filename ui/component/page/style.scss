@@ -1,6 +1,6 @@
 .page {
 	display: block;
-	transition: opacity .2s .125s ease, transform .25s 0s ease;
+	transition: opacity .25s 0s ease, transform .25s .125s ease;
 	&\=loading {
 		transform: scale(.875);
 		transform-origin: top;
@@ -8,9 +8,8 @@
 		}
 	&\=loaded {
 		transform: scale(1);
-		transition: opacity .2s .175s ease, transform 0s ease;
+		transition: opacity .25s .125s ease, transform 0s ease;
 		opacity: 1;
-		// transition-delay: 0s;
 		}
 	}
 .page app-page {

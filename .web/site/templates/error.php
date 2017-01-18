@@ -4,7 +4,7 @@
 
 <ui-page>
 	<header>
-		<h3 style="color:#D9534F">ERROR!</h3>
+		<h1 class="[ heading heading--1 ]" style="color:#D9534F">ERROR!</h1>
 	</header>
 </ui-page>
 
