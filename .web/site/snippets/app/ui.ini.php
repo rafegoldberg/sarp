@@ -12,7 +12,7 @@
     ajaxBase=> r(url::host()!='0.0.0.0','/','').url::path( $kirby->urls()->index() ).'/api',
     localUrl=> [
       uiBase=> '/'.url::path( $kirby->urls()->assets() ).'/ui',
-      reload=> false,
+      reload=> 'http://localhost:35729'
       ],
     minified=> array(
       js=> url::host()!='0.0.0.0',

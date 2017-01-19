@@ -1,5 +1,22 @@
+var
+tpl= require('./template.bar'),
+def= {
+  methods:{
+    render(){
+      Log.log('<ui-nav/>.render()',{
+        mdl: this.model,
+        tpl: this.template,
+        });
+      this.model &&
+        $(this).html( this.template(this.model) );
+      }
+     }
+  };
+
+module.exports= new Tag(tpl,def);
+
 Bar.registerHelper({
-  'UiNavUpdate': function(arg){
+  UiNavUpdate: function(arg){
   	var//get page->hash from [@arg[obj|str]|@this]
   	hash=Dom.typeOf(arg)=='object'  && ('hash' in arg ) && arg.hash
 	  	|| Dom.typeOf(arg)=='string'  &&  arg
@@ -12,5 +29,3 @@ Bar.registerHelper({
   	 .removeClass(active_class);
     }
   });
-
-module.exports = new Tag(require('./template.bar'),{});

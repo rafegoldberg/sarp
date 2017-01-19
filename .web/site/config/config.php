@@ -20,19 +20,21 @@
 
 					$page= page($path);
 					$page= page ? $page : page('error');
-					
-					$khtm= kirby::render($page);
 
-					$ctrl_wo_tpl= page('UiNav') ? page('UiNav')->toArray() : 'eff this';
 
-					if( kirby::request()->ajax() )
+					if( kirby::request()->ajax() ){
+
+						site()->visit($page,'en');
+						$khtm= kirby::render($page);
+
 						return response::json([
 							mdl=> array_merge($page->toArray(),[khtm=>$khtm]),
 							ttl=> $page->title()->value(),
 							url=> $page->url(),
 							uri=> '/'.$page->uri(),
-							TST=> $ctrl_wo_tpl
+							nav=> site()->pages()->toArray()
 							]);
+						}//ajax
 					else 
 						return array($path,[]);
 					}],

@@ -4,8 +4,8 @@ tag= {
 	extends: 'figure',
 	lifecycle: {
 		created: function(){
+			$(this).addClass('loading');
 			this.render();
-			$(this).addClass('ui-figure loading');
 			},
 		inserted: function(){
 			var//@alias[this]
@@ -21,6 +21,9 @@ tag= {
 						}
 					});
 			},
+		},
+	methods: {
+		get bemRoot(){ return 'figimg' },
 		}
 	};
 module.exports= new Tag(tpl,tag);

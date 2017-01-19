@@ -76,6 +76,9 @@
 			<?endif;
 		}
 	private static function uiScript(){
+	?><script>console.log(<?=json_encode('uiScript()')?>);
+		</script><?
+
 		if( !self::wasRun(__FUNCTION__) ):
 			$f= ['ui','min','js'];
 			if( !self::$uiOpts[minified][js] )
@@ -89,10 +92,15 @@
 		if( !self::wasRun(__FUNCTION__) && self::$uiOpts[localUrl][reload] ):
 			$url= self::$uiOpts['localUrl']['reload'].'/livereload.js';
 			?>
+			<script>Log.log('uiReload()',<?=json_encode(self::$uiOpts[localUrl])?>);
+				</script>
 			<script id="ui@reload" src="<?=$url?>"></script>
 			<?endif;
 		}
 	public  static function   uiInit(){
+	?><script>console.log(<?=json_encode('uiInit()')?>);
+		</script><?
+
 		if( !self::wasRun(__FUNCTION__) ):
 			$base= self::$uiOpts['iconBase'];
 			$icns= array_map('self::link',array(

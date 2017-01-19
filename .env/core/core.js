@@ -55,7 +55,7 @@
           /* @tag: export from ui/{kind}/{module}/tag.js
            * @key: module path
            */
-          Log.log('registerTags()',{'@tag':tag,'@key':key});
+          // Log.log('registerTags()',{'@tag':tag,'@key':key});
           if( !(tag instanceof Tag) )
             return;
           Log.txt(key);
@@ -68,5 +68,5 @@
       },
   //@refactor:⬆FROM/TO⬇
     api:require('./UiApp/api.js'),
-    bem:require('purebem').create('--','=')//#lib[@billogram/purebem]
+    bem:require('./UiApp/bem.js')
     };

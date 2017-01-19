@@ -4,11 +4,11 @@
   z-index: 10;
 	background-color: rgba( Ui(theme,$ui-theme,color,matte), nth(Ui(shade),-1) );
   padding: 1em 0;
-  margin: 3.5em 0 0;
+  margin: 0;//3.5em 0 0;
 
   word-spacing: 1em;
   font-weight: 300;
-  text-align: right;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: .15em;
 

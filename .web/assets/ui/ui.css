@@ -90,6 +90,9 @@ body {
   font-size: 100%;
   margin: 0; }
 
+app-page {
+  display: block; }
+
 figure {
   margin: 0 auto; }
 
@@ -137,10 +140,10 @@ p {
   z-index: 10;
   background-color: rgba(239, 235, 233, 0.875);
   padding: 1em 0;
-  margin: 3.5em 0 0;
+  margin: 0;
   word-spacing: 1em;
   font-weight: 300;
-  text-align: right;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: .15em;
   font-family: "Cormorant Garamond"; }
@@ -158,6 +161,20 @@ p {
     transform: scale(1);
     transition: opacity .25s .125s ease, transform 0s ease;
     opacity: 1; }
+
+.pull {
+  height: calc(100vh - 3.5rem);
+  margin: 0 auto;
+  background-color: red;
+  background-image: url(http://0.0.0.0:8000/content/1-works/2-substitutes/subs-02.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  max-height: 45vmax; }
 
 [is=ui-figure] {
   display: block; }

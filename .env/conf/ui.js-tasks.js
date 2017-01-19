@@ -24,13 +24,12 @@ module.exports= {
       '<%=ƒ.js.mini%>': ['<%=ƒ.js.dist%>']
       },
     //-PROD->
-    options: { sourceMap:true }
     //-DEV->
-    // options: {
-    //   sourceMap: false,
-    //   compress: false,
-    //   mangle: false,
-    //   } 
+    options: {
+      compress: false,
+      mangle: false,
+      sourceMap: true,
+      } 
     },
   clean: [
     '<%=ƒ.dist%>/*.js{,.map}',

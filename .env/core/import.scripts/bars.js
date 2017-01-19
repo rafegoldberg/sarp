@@ -16,16 +16,16 @@ var Bar= require("hbsfy/runtime");
 //=Assemble Helpers
 // github@assemble/handlebars-helpers
 // 
-  var helpers= window.hlprDebug =require('handlebars-helpers')();
+  var helpers=window.helpers= require('handlebars-helpers')();
   Bar.registerHelper(helpers);
   //Bar.registerHelper( 'moment', require('helper-moment') );
 
 //=Ui Custom Helpers
 // 
   Bar.registerHelper({
-    ifel: function(test,If,El=''){
+    ifel: function(test,ifval,elval=''){
       if( arguments.length<2 )
         console.warn('{{ifel}} requires at least two paramaters')
-      return test?If:El;
+      return test ? ifval : elval;
       },
     });
