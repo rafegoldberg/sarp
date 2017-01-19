@@ -18,14 +18,17 @@ module.exports= {
   //methods
   go(path='/'){
     event && event.preventDefault();
-    this.get(path,(mdl,ttl,url)=>{
-      History.pushState(mdl,ttl,url);
+    this.get(path,route=>{
+      if( route.mdl && route.ttl && route.url ){
+        route.mdl['UiAjaxResponse']= ø.omit(route,'mdl');//give tpl.bar access
+        History.pushState(route.mdl,route.ttl,route.url);
+        }
       });
     },
   get(path='/',ƒn=false){
-    $.getJSON( this.path(path), obj=>{
-      console.log('%capi::%c%s\n%O','font-weight:bold;color:cyan','font-weight:normal;color:magenta',obj.url,obj)
-      ƒn && ƒn.call(UiApp.page,...Object.values(obj));
+    $.getJSON( this.path(path), route=>{
+      console.log('%capi::%c%s\n%O','font-weight:bold;color:cyan','font-weight:normal;color:magenta',route.url,route)
+      ƒn && ƒn.call(UiApp.page,route);
       } );
     },
   }

@@ -35,7 +35,6 @@ def= {
 				self.model.khtm= self.htmstr(self.model.khtm,'#page');
 			//=REPLACE HTML 
 				$(self).html( self.template(self.model) );
-			return self;
 			},
 		}
 	};

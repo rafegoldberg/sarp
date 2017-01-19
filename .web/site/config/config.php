@@ -32,7 +32,7 @@
 							ttl=> $page->title()->value(),
 							url=> $page->url(),
 							uri=> '/'.$page->uri(),
-							nav=> site()->pages()->toArray()
+							nav=> site()->pages()->visible()->map(function($p){ return $p->toArray(); })
 							]);
 						}//ajax
 					else 

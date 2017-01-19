@@ -76,9 +76,6 @@
 			<?endif;
 		}
 	private static function uiScript(){
-	?><script>console.log(<?=json_encode('uiScript()')?>);
-		</script><?
-
 		if( !self::wasRun(__FUNCTION__) ):
 			$f= ['ui','min','js'];
 			if( !self::$uiOpts[minified][js] )
@@ -98,9 +95,6 @@
 			<?endif;
 		}
 	public  static function   uiInit(){
-	?><script>console.log(<?=json_encode('uiInit()')?>);
-		</script><?
-
 		if( !self::wasRun(__FUNCTION__) ):
 			$base= self::$uiOpts['iconBase'];
 			$icns= array_map('self::link',array(

@@ -1,5 +1,16 @@
-
-  
+/*=SAVED SNIPPETS
+  //data att was changed->
+   Dom.mixins.dataAttRender= {
+     lifecycle: {
+       attributeChanged: function(att,pre,set){
+         if( att.indexOf('data-')==0 )
+           this.render();
+         }
+       }
+     };
+ */
+/*=MODULE
+ */
 module.exports= Tag;
 //=require
 // 
@@ -27,14 +38,6 @@ module.exports= Tag;
     this.modelSrc= url;//store model urls
     return xhr;
     }
-  Dom.mixins.dataAttRender= {
-    lifecycle: {
-      attributeChanged: function(att,pre,set){
-        if( att.indexOf('data-')==0 )
-          this.render();
-        }
-      }
-    };
 //=options
 // 
   var
@@ -52,8 +55,8 @@ module.exports= Tag;
         if( Url.valid(use) || UiApp.api.isPath(use) )
           return this.load(use);
         if( Dom.typeOf(use)=='object' )
-          this.model= use;
-        return this;
+          this.model= use;        
+        // return this;
         },
       data: function(){
         var $$= $(this);
@@ -104,7 +107,6 @@ module.exports= Tag;
           template: tpl,
           render: function(use){
             $(this).html( this.template(this.model) );
-            //$(this).trigger('rendered.ui',this.model);//@hook:event
             return this;
             },
           };
