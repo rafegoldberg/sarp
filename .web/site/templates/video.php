@@ -7,7 +7,6 @@
 		<header>
 			<h1 class="[ heading heading--1 ]"><?=$page->title()->html()?></h1>
 		</header>
-		<hr>
 		<section>
 		<?if( ($vurl=$page->vidurl()) && $vurl->isNotEmpty() ):
 			$opt= [ $vurl, 560, 315, null ];

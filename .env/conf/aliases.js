@@ -35,11 +35,11 @@ tasks= {
     'ui.css': [
       'sass_globbing:ui.css',
       'sass:ui.css',
-      'postcss:ui.css',
+      'postcss:ui.css',//=skip w/flag `--not-mini`
       ],
     'ui.js': [
       'browserify:ui.js',
-      'uglify:ui.js',
+      'uglify:ui.js'//=skip w/flag `--not-ugly`
       ],
     'ui.icn': [
       'clean:ui.icn',
@@ -66,12 +66,14 @@ module.exports= function( grunt, options ){
 
   /*dont minify js build
    */
-  if( grunt.option('no-min') )
+  if( grunt.option('not-mini') )
+    tasks['ui.css'].pop();
+  if( grunt.option('not-ugly') )
     tasks['ui.js'].pop();
 
   /*dont generate icons
    */
-  if( grunt.option('no-icn') )
+  if( grunt.option('no-icn') || grunt.option('no-icon') )
     tasks['ui.build'].pop();
 
   /*dont clean before builds

@@ -8,4 +8,9 @@ fields:
     type:  text
   cover:
     label: Cover Image
-    type: image
+    type:  selector
+    mode:  single
+    size: 5
+    autoselect: first
+    types:
+        - image

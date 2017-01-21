@@ -14,28 +14,53 @@
 					$data= $site->content();
 					return response::json($data->toArray());
 					}],
-			[ pattern=> 'api/(:all)',
+			[ pattern=>'api/ui/coverImg/(:any)',
+				action=>  function($parent_page){
+					page($parent_page)
+						->children()
+						->visible()
+						->filterBy('cover','!=','')
+						->map(function($pg){
+							if( $pg->hasImages() )
+								$fi= $pg->cover()->toFile()->toArray();
+							else $fi= false;
+							return $fi;
+							});
+					return response::json($data->toArray());
+					}],
+			[ pattern=> ['api/(:all)','(:all)'],
 				action=>  function(){
-					$path= join(func_get_args());
-
-					$page= page($path);
-					$page= page ? $page : page('error');
-
-
+					//=get path 
+					 $path= join(func_get_args());
+					//=get page 
+					 $page= page($path);
+					 $page= page($path) ? $page : page('error');
+					//=DEVTESTS
+						//=visit page 
 					if( kirby::request()->ajax() ){
-
-						site()->visit($page,'en');
-						$khtm= kirby::render($page);
-
-						return response::json([
-							mdl=> array_merge($page->toArray(),[khtm=>$khtm]),
-							ttl=> $page->title()->value(),
-							url=> $page->url(),
-							uri=> '/'.$page->uri(),
-							nav=> site()->pages()->visible()->map(function($p){ return $p->toArray(); })
-							]);
-						}//ajax
-					else 
-						return array($path,[]);
+						 site()->visit($page,'en');
+						//=render tpl 
+						 $khtm= kirby::render($page);
+						//=nav pages
+						 $knav= site()->pages()->visible()->map(function($p){
+							 return $p->toArray();
+							 });
+						//=build json 
+						 $respond= [
+							 ttl=> $page->title()->value(),
+							 url=> $page->url(),
+							 uri=> '/'.$page->uri(),
+							 mdl=> array_merge($page->toArray(),[API=>[
+								 htm=> $khtm,
+								 nav=> $knav
+								 ]]),
+							 ];
+						#-------------#
+						return response::json($respond);
+						}#=ajax
+					else {
+						return array($path,array(api=>'test'));
+						// go($page);
+						}#!ajax
 					}],
 			]);

@@ -5,8 +5,8 @@
 		ajaxBase=> './ajax/',
 		iconBase=> 'icons',
 		minified=> array(
-			js=> true,
-			css=>true,
+			js=>  true,
+			css=> true,
 			),
 		localUrl=> array(
 			uiBase=> 'http://localhost:9000/lib/dsUi',
@@ -16,8 +16,13 @@
 /*=INSTANTIATE
  */
 	static function ini($user=[]){
-		//=merge default, user opts
-		self::$uiOpts= array_merge(self::$uiOpts,$user);
+		/*=OPTIONS
+		 */
+		//=merge defaults+usr args
+			self::$uiOpts= array_merge(self::$uiOpts,$user);
+		//=checkset url parameters
+			self::$uiOpts[minified][css]= self::onoff('mini-css',self::$uiOpts[minified][css]);
+			?><script>console.log('?opts->',<?=json_encode(self::$uiOpts[minified])?>)</script><?
 		//=link main ui stylesheet
 		self::uiCss();
 		}
@@ -37,6 +42,13 @@
 		}
 /*=UTILITIES
  */
+	static function onoff($key,$alt=null){
+		//=parse boolval from a url param
+		// [on/off|true/false|yes/no|0/1]
+		if( is_string($key) && isset($_REQUEST[$key]) )
+			return filter_var($_REQUEST[$key],FILTER_VALIDATE_BOOLEAN);
+		return $alt;
+		}
 	static function link($path){
 		$base= self::$uiOpts['localUrl']['uiBase'];
 		return "$base/$path";
@@ -63,16 +75,34 @@
  */
 	private static function  uiStyle(){
 		if( !self::wasRun(__FUNCTION__) ):
-			$url= self::link('ui.min.css');
+			// $url= self::link('ui.min.css');
+			$f= ['ui','min','css'];
+			if( !self::$uiOpts[minified][css] )
+				unset($f[1]);
+			$url= self::link(implode('.',$f));
 			?>
-			<link id="ui@style" rel="stylesheet" href="<?=$url?>">
+			<link id="ui@stylesheet=css" rel="stylesheet" href="<?=$url?>">
+			<script id="ui@addLoadEvent=js">
+				var UiApp= {
+					onload(fn){
+					  var
+					  oldonload= window.onload;
+					  if( typeof(window.onload)!='function' )
+					    window.onload= fn;
+					  else
+					  	window.onload= ()=>oldonload && oldonload() || fn();
+						//^usage->
+						//	UiApp.onload(ƒn=>{ log(hello) })
+						}
+					}
+				</script>
 			<?endif;
 		}
 	private static function  uiIcons(){
 		if( !self::wasRun(__FUNCTION__) ):
 			$url= self::link(self::$uiOpts['iconBase'].'/grunticon.loader.js');
 			?>
-			<script id="ui@icons" src="<?=$url?>"></script>
+			<script id="ui@icons=js" src="<?=$url?>"></script>
 			<?endif;
 		}
 	private static function uiScript(){
@@ -82,7 +112,7 @@
 				unset($f[1]);
 			$url= self::link(implode('.',$f));
 			?>
-			<script id="ui@script" src="<?=$url?>"></script>
+			<script id="ui@script=js" src="<?=$url?>"></script>
 			<?endif;
 		}
 	private static function uiReload(){
@@ -91,7 +121,7 @@
 			?>
 			<script>Log.log('uiReload()',<?=json_encode(self::$uiOpts[localUrl])?>);
 				</script>
-			<script id="ui@reload" src="<?=$url?>"></script>
+			<script id="ui@reload=js" src="<?=$url?>"></script>
 			<?endif;
 		}
 	public  static function   uiInit(){
@@ -103,7 +133,7 @@
 				"$base/icons.fallback.css"
 				));
 			?>
-			<script id="ui@init">
+			<script id="ui@init=js">
 			(function(){
 				UiApp.init(<?=json_encode(self::$uiOpts)?>);
 				grunticon(<?=json_encode($icns)?>,grunticon.svgLoadedCORSCallback);

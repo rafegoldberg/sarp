@@ -3,12 +3,9 @@
 	?>
 
 <ui-page>
-	<article>
-		<header>
-			<h1 class="[ heading heading--2 ]"><?=$page->title()->html()?></h1>
-		</header>
-		<section><?=$page->text()->kt()?></section>
-	</article>
+	<header is="ui-pull">
+		<h1 class="[ heading heading--2 ]"><?=$page->title()->html()?></h1>
+	</header>
 </ui-page>
 
 <?#=UiApp:btm->

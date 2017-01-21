@@ -30,3 +30,70 @@
     .625,
     .875
     ));
+
+//=palette
+  //vanilla css version:
+    // .autumn {
+    //   --maple:  rgb(184, 128, 93);
+    //   --slate:  rgb(52, 73, 66);
+    //   --pink:   rgb(243, 207, 195);
+    //   --robins: rgb(174, 217, 205);
+    //   --orange: rgb(242, 111, 81);
+    //   }
+    // .bluprint {
+    //   --blu:   rgb(55, 120, 255);
+    //   --matte: rgb(245, 244, 239);
+    //   --shade: rgb(205, 218, 242);
+    //   }
+    // .constantinople {
+    //   --eggshell:    rgb(253,250,221);
+    //   --matte:       rgb(210,212,207);
+    //   --midnight:    rgb(5,31,65);
+    //   --blue:        rgb(16,151,171);
+    //   --royal:       rgb(69,53,98);
+    //   --purple:      rgb(170,75,127);
+    //   --salmon_pink: rgb(241,113,135);
+    //   }
+    // .beigey {
+    //   --ocean:   rgb(27, 45, 51);
+    //   --blue:    rgb(37, 62, 68);
+    //   --emerald: rgb(36, 96, 89);
+    //   --brown:   rgb(86, 86, 71);
+    //   --army:    rgb(119, 119, 98);
+    //   --orange:  rgb(241, 111, 50);
+    //   --beige:   rgb(219, 210, 167);
+    //   --faint:   rgb(238, 231, 198);
+    //   }
+  $ui-palette: UiSet(palette,(
+    autumn: (
+      'maple':  #b8805d,
+      'slate':  #344942,
+      'pink':   #f3cfc3,
+      'robins': #aed9cd,
+      'orange': #f26f51,
+      ),
+    bluprint: (
+      'blu':   #3778ff,
+      'matte': #f5f4ef,
+      'shade': #cddaf2,
+      ),
+    constantinople: (
+      'eggshell': #fdfadd,
+      'matte':    #d2d4cf,
+      'midnight': #051f41,
+      'blue':     #1097ab,
+      'royal':    #453562,
+      'purple':   #aa4b7f,
+      'salmon':   #f17187,
+      ),
+    beigey: (
+      'ocean':   #1b2d33,
+      'blue':    #253e44,
+      'emerald': #246059,
+      'brown':   #565647,
+      'army':    #777762,
+      'orange':  #f16f32,
+      'beige':   #dbd2a7,
+      'faint':   #eee7c6,
+      ),
+    ));
