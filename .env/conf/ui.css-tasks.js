@@ -13,7 +13,7 @@ tasks= {
       },
     options: {
       useSingleQuotes: true,
-      signature: '//=dsUi.styles'
+      signature: '//=Ui Core + Module Styles'
       }
     },
 	sass: {
@@ -29,7 +29,10 @@ tasks= {
 		options: {
 			map: true,
 			processors: [
-				require('autoprefixer')({browsers: '>0%'}),
+				require('autoprefixer')({
+					browsers:'>0%',
+					zindex:false//dont normalize z indicies
+					}),
 				require('cssnano')()
 				]
 			},

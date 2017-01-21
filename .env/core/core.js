@@ -34,6 +34,11 @@
 /*=Ui App
  */
   UiApp= window.UiApp ={
+  //@refactor[⬆FROM/TO⬇][localize global refs]
+    api:require('./UiApp/api.js'),
+    bem:require('./UiApp/bem.js'),
+    utl:require('./UiApp/utl.js'),
+  //@refactor[⬆TO/FROM⬇][extract apps methods]
     get page(){
       return $('ui-page')[0]
       },
@@ -62,11 +67,9 @@
           var//get ui/{kind}/{name}
           tagKind= key.split('/')[0],
           tagName= key.split('/')[1];
+          console.log({camelCase:tagName,'uncamel-case':UiApp.utl.case.un.camel(tagName)});
           Dom.register( `ui-${tagName}`, tag );//xtag register as <ui-{tag}>
           });
         }
       },
-  //@refactor:⬆FROM/TO⬇
-    api:require('./UiApp/api.js'),
-    bem:require('./UiApp/bem.js')
     };

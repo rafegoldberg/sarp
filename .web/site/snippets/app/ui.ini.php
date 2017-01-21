@@ -36,4 +36,7 @@
    <meta name="apple-mobile-web-app-status-bar-style" content="white">
    <meta name="apple-mobile-web-app-status-bar-style" content="lightContent">
 </head>
-<body>
+<body data-initial-state='<?=Ui::att([
+  route=>$route,
+  args=>$args,
+  ])?>'>

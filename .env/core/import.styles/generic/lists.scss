@@ -1,0 +1,33 @@
+ul,ol {
+	counter-reset: list;
+	list-style-type: none;
+	li {
+		position: relative;
+		padding: .5em 1em;
+		}
+	}
+
+ol {
+	$opt: (
+		offset: -.125em .125em
+		);
+	li {
+		&:before {
+			counter-increment: list;
+			content: counters(list,".") " ";
+
+			position: absolute;
+			top: 50%;
+		  left: 0;
+		  transform: translateY(-50%);
+		  margin: nth(Ui($opt,offset),1) 0 0 nth(Ui($opt,offset),2);
+
+		  font-size: 4em;
+		  font-weight: 600;
+		  font-family: serif;
+
+		  color: Ui(theme,$ui-theme,color,mark);
+		  opacity: nth(Ui(shade),1);
+		}
+	}
+}

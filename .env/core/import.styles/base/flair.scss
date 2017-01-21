@@ -1,0 +1,14 @@
+body {
+	&:before,
+	&:after{
+		position: absolute;
+		top: 0;
+		pointer-events: none;
+		transition: .2s ease;
+		}
+	&:before{
+		// background-color:
+		}
+	&:after {
+		}
+	}

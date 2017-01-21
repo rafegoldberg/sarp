@@ -1,0 +1,8 @@
+<ol>
+{{#iterate data}}
+	<li>
+	{{bold "%s->%O" @key this}}
+	<a is=ui-link href={{@key}}>{{capitalize (stem @key)}}</a>
+	</li>
+{{/iterate}}
+</ol>

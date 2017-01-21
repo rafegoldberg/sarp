@@ -27,7 +27,7 @@ module.exports= {
     },
   get(path='/',ƒn=false){
     $.getJSON( this.path(path), route=>{
-      console.log('%capi::%c%s\n%O','font-weight:bold;color:cyan','font-weight:normal;color:magenta',route.url,route)
+      console.log('%capi::%c%s\n%O','font-weight:bold;color:#079CB4','font-weight:normal;color:#B600B6',route.url,route)
       ƒn && ƒn.call(UiApp.page,route);
       } );
     },

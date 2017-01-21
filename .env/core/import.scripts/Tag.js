@@ -1,17 +1,7 @@
-/*=SAVED SNIPPETS
-  //data att was changed->
-   Dom.mixins.dataAttRender= {
-     lifecycle: {
-       attributeChanged: function(att,pre,set){
-         if( att.indexOf('data-')==0 )
-           this.render();
-         }
-       }
-     };
- */
-/*=MODULE
- */
-module.exports= Tag;
+//=exports
+// 
+  module.exports= Tag;
+
 //=require
 // 
   var//env  
@@ -21,8 +11,14 @@ module.exports= Tag;
   var//util 
     Lo=  require('lodash');
   var//libs 
-    Url= require('Url.js'),
+    Url= require('Url.js'),//@question[is this already req'd() somewhere?]
     strJSON= require('is-json');
+
+//=mixins
+// 
+  require('./tag/mix.datamodel.js').register(Dom);
+    //^passing register() the Xtag environment var
+
 //=staging
 // 
   var
@@ -38,59 +34,31 @@ module.exports= Tag;
     this.modelSrc= url;//store model urls
     return xhr;
     }
-//=options
+
+//=base tag
 // 
   var
   base= {
-    lifecycle: {
+    lifecycle:{
       created:  function(){
         this.htm= $(this).html();
         },
       inserted: function(){},
       removed:  function(){},
       },
-    methods: {
+    mixins:['datamodel'],
+    methods:{
       load: UiTagLoad,
       render: function(use){
         if( Url.valid(use) || UiApp.api.isPath(use) )
           return this.load(use);
         if( Dom.typeOf(use)=='object' )
-          this.model= use;        
-        // return this;
-        },
-      data: function(){
-        var $$= $(this);
-        $$.data(...arguments);
-        return $$.data();
+          this.model= use;
         },
       },
-    accessors: {
-      model: {
-        attribute: {
-          name: 'data-model'
-          },
-        get: function(){
-          var model= this.data();
-          delete model.model;
-          return model;
-          },
-        set: function( use ){
-          var self=this;//@alias[this]
-          //=async get json from url 
-          if( Url.valid(use) || UiApp.api.isPath(use) ) 
-            return self.load(use);
-          //=parse json from att str 
-          if( strJSON(use) ) 
-            self.model= JSON.parse(use);
-          else 
-            self.data(...arguments);
-          return self.model;
-          }
-        }
-      },
-    events: {}
     },
   base= Dom.register('ui-base',base);
+
 //=tag proto
 // 
   function Tag(tpl,tag={}){
