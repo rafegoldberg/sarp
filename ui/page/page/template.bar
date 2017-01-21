@@ -1,4 +1,4 @@
-<app-page>{{{khtm}}}</app-page>
+<main>{{{khtm}}}</main>
 
 {{!-- update nav --}}
 {{UiNavUpdate}}

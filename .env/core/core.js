@@ -67,6 +67,7 @@
           var//get ui/{kind}/{name}
           tagKind= key.split('/')[0],
           tagName= key.split('/')[1];
+          tagName= UiApp.utl.case.un.camel(tagName);
           console.log({camelCase:tagName,'uncamel-case':UiApp.utl.case.un.camel(tagName)});
           Dom.register( `ui-${tagName}`, tag );//xtag register as <ui-{tag}>
           });

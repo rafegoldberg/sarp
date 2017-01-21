@@ -164,13 +164,14 @@ p {
 
 [is=ui-figure] {
   display: block; }
-  [is=ui-figure] .loading img {
-    height: 12.5em;
-    opacity: 0; }
+  [is=ui-figure] .loading {
+    min-height: 12.5em; }
+    [is=ui-figure] .loading img {
+      opacity: 0; }
   [is=ui-figure]:not(.loading) {
     background: transparent; }
   [is=ui-figure] img {
-    max-width: 100%;
+    max-width: 100vw;
     width: auto; }
 
 ui-nav {
@@ -210,15 +211,14 @@ ui-nav {
   min-height: calc(100vh - 4rem);
   max-width: 55em;
   margin: 0 auto;
-  text-align: center;
-  transition: opacity .25s 0s ease, transform .25s .125s ease; }
-  .page\=loading {
-    transform: scale(0.875);
-    transform-origin: top;
+  transition: opacity .375s ease, transform .5s ease; }
+  .page_loading {
+    transform-origin: bottom;
+    transform: scale(0.75) translateY(15%);
     opacity: 0; }
-  .page\=loaded {
-    transform: scale(1);
-    transition: opacity .25s .125s ease, transform 0s ease;
+  .page_loaded {
+    transform: scale(1) translateY(0);
+    transition: opacity .375s ease, transform .5s ease;
     opacity: 1; }
 
 /*# sourceMappingURL=ui.css.map */

@@ -1,4 +1,8 @@
-.page {
+.page{
+	//=settings
+	// 
+	$base:#{&};//get the bem root class
+
   display: flex;
   flex-flow: wrap column;
   justify-content: center;
@@ -8,19 +12,15 @@
   max-width: 55em;
   margin: 0 auto;
 
-  text-align: center;
-
-	transition: opacity .25s 0s ease, transform .25s .125s ease;
-	&\=loading {
-		transform: scale(.875);
-		transform-origin: top;
+	transition: opacity .375s ease, transform .5s ease;
+	&_loading {
+		transform-origin: bottom;
+		transform: scale(.75) translateY(15%);
 		opacity: 0;
 		}
-	&\=loaded {
-		transform: scale(1);
-		transition: opacity .25s .125s ease, transform 0s ease;
+	&_loaded {
+		transform: scale(1) translateY(0);
+		transition: opacity .375s ease, transform .5s ease;
 		opacity: 1;
 		}
-	}
-.page app-page {
 	}

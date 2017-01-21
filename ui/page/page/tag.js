@@ -3,8 +3,11 @@ tpl= require('./template.bar'),
 def= {
 	lifecycle: {
 		created: function(){
-			this.bem= {base:'page'};
-			$(this).addClass(this.bem.base);
+			this.bem= {root:'page'};                   //=BEM->base class
+			this.bem.make= UiApp.bem.it(this.bem.root);//     >generator
+			},
+		inserted: function(){
+			$(this).addClass(this.bem.make());
 			},
 		},
 	methods: {
@@ -21,14 +24,12 @@ def= {
 		animateIn(){
 			$(document).trigger('rendering.ui');//@hook[render]
 			$(this)//@class[loaded]
-		    .addClass(`${this.bem.base}=loaded`)
-		    .removeClass(`${this.bem.base}=loading`);
+		    .attr('class',this.bem.make({loaded:true,loading:false}));
 			},
 		animateOut(ƒn=false){
 			$(document).trigger('rendered.ui');//@hook[rendered]
 	    $(this)//@class[loading]
-		    .removeClass(`${this.bem.base}=loaded`)
-		    .addClass(`${this.bem.base}=loading`);
+		    .attr('class',this.bem.make({loaded:false,loading:true}));
 			$('html,body').animate({scrollTop:0},400,ƒn||null);
 			},
 		render: function(use){

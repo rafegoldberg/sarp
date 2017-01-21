@@ -57,21 +57,23 @@ module.exports= function( grunt, options ){
 
   var Ck= require('chalk');
 
-  /*rebuild ui on env.start
+  /*rebuild ui
    */
-  if( grunt.option('rebuild') ){
-    console.log(Ck.bold.green('rebuilding...'))
-    tasks['env.start'].unshift('ui.build');
-    }
+  if( grunt.option('rebuild') )
+    [ 'env.start',
+      'env.ftp',
+    ].forEach(tsk=>{
+      tasks[tsk].unshift('ui.build');
+      });
 
-  /*dont minify js build
+  /*dont minify js
    */
   if( grunt.option('not-mini') )
     tasks['ui.css'].pop();
   if( grunt.option('not-ugly') )
     tasks['ui.js'].pop();
 
-  /*dont generate icons
+  /*dont build icons
    */
   if( grunt.option('no-icn') || grunt.option('no-icon') )
     tasks['ui.build'].pop();
