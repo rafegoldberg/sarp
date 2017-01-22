@@ -3,6 +3,9 @@
 	?>
 
 <ui-page>
+	<header is="ui-page-header">
+		<h1 class="heading heading--1"><?=$page->title()?></h1>
+	</header>
  	<section>
 		<?foreach($page->images() as $img):
 			?>

@@ -1,5 +1,5 @@
 <?#=UiApp:ini
 	snippet('app/ui.ini')
 	?>
-<app-main class="container" style="display:block">
+<app-main class="container">
 	<?snippet('nav')?>

@@ -1,0 +1,14 @@
+{{#iterate data}}
+<a
+	is="ui-link"
+	class="list--item"
+	href={{@key}}>
+	<span
+		class="list--item=text">
+		{{capitalize (stem @key)}}</span>
+	<img
+		src="{{url}}"
+		class="list--item=img"
+		alt="{{stem @key}}"/>
+</a>
+{{/iterate}}

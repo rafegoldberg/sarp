@@ -27,9 +27,9 @@
        fonts: Ui(fonts),
        color: (
          matte:Ui(color,beige),
-         edge: Ui(grays,edge),
+         edge: Ui(palette,bluprint,blu),
          text: Ui(grays,black),
-         mark: Ui(color,yellow),
+         mark: Ui(palette,autumn,robin),
          link: Ui(color,blue),
          ),
        ),
@@ -37,3 +37,4 @@
   $ui-theme:UiXtd($ui-theme-custom,theme);
 
 $ui-theme: invert !global;
+// $ui-theme: sarp   !global;

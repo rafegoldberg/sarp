@@ -105,6 +105,7 @@
 				"site/blueprints",
 				"site/templates",
 				"site/snippets",
+				"site/models",
 				"site/cache"
 			],
 			"name": " └ site",
@@ -118,6 +119,15 @@
 			],
 			"name": "    ├ control",
 			"path": ".web/site/controllers"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store",
+				".htaccess"
+			],
+			"name": "    ├ model",
+			"path": ".web/site/models"
 		},
 		{
 			"file_exclude_patterns":

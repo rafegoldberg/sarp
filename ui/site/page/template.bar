@@ -1,0 +1,6 @@
+<main class="page--select">
+{{!--RENDER KIRBY TPL--}}
+	{{{khtm}}}
+{{!--RUN SITE HELPERS--}}
+	{{UiNavUpdate}}
+</main>

@@ -1,6 +1,6 @@
 var
-tasks= {
-	sass_globbing: {
+tasks={
+	sass_globbing:{
     files: {
       '<%=ƒ.sass.temp%>': [
 	      '<%=ƒ.sass.main%>',
@@ -16,7 +16,7 @@ tasks= {
       signature: '//=Ui Core + Module Styles'
       }
     },
-	sass: {
+	sass:{
 		options: {
 			sourceMap: true,
 			includePaths: ['<%=ƒ.bower%>']
@@ -25,7 +25,7 @@ tasks= {
 			"<%=ƒ.sass.dist%>": "<%=ƒ.sass.temp%>"
 			}
 		},
-	postcss: {
+	postcss:{
 		options: {
 			map: true,
 			processors: [
@@ -40,11 +40,11 @@ tasks= {
 			'<%=ƒ.sass.mini%>': '<%=ƒ.sass.dist%>'
 			}
 		},
-	clean: [
+	clean:[
 		'<%=ƒ.dist%>/*.css{,.map}',
 		'<%=ƒ.bundl%>/*.css{,.map}'
 		],
-	copy:  {
+	copy:{
 		expand: true,
 		cwd: '<%=ƒ.dist%>',
 		dest: '<%=ƒ.bundl%>/',
