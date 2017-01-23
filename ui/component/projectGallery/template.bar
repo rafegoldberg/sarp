@@ -1,14 +1,15 @@
 {{#iterate data}}
 <a
 	is="ui-link"
-	class="list--item"
+	class="projectGallery--project" 
+	style="display:block;font-weight:900"
 	href={{@key}}>
-	<span
-		class="list--item=text">
-		{{capitalize (stem @key)}}</span>
+	<div
+		class="project--item=text">
+		{{capitalize (stem @key)}}</div>
 	<img
 		src="{{url}}"
-		class="list--item=img"
+		class="project--item=img"
 		alt="{{stem @key}}"/>
 </a>
 {{/iterate}}

@@ -12,9 +12,9 @@
 			  if( $prj->hasImages() && $prj->cover() ){
 				  $img= $prj->cover()->toFile();
 				  $img= thumb($img, array(
-						quality=>     50,
-						width=>      300,
-						height=>     300,
+						quality=>     80,
+						width=>      400,
+						height=>     400,
 						crop=>      true,
 						blur=>     false,
 						grayscale=>false,

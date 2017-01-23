@@ -2,12 +2,12 @@
 	snippet('app.top');
 	?>
 <ui-page>
-	<ol class="numericList">
+	<ol class="list list_bordered">
 	<?foreach( $page->children()->visible() as $pg ):
 		?>
 		<li><a
 			is=ui-link
-			class=numericList
+			class=list--item
 			href="<?=$pg->uri()?>"><?=$pg->title()->html()?>
 			</a></li>
 	<?endforeach#pages?>

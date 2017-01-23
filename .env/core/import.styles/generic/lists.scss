@@ -1,150 +1,28 @@
 %list,
-.list,
-ul,ol{
+.list{
 	counter-reset: list;
 	list-style-type: none;
-	&--item,li{
+	&--item{
 		position: relative;
+		display: block;
 		margin: .5em 0;
 		padding: .5em 1em;
 		}
 	}
 
-.list{
-	//properties
-		$root:#{&};
-	//bem-root
-	//bem-elem
-	//bem-modf
-		&_pre\=int {
-			$opt: (
-				offset: -.125em .125em
-				);
-			&{
-				position: relative;
-				&:after{
-					content:' ';
-					pointer-events:none;
-					z-index: Ui(z,btm,-1);
-
-					position: absolute;
-					top: 0;
-					left: 50%;
-					width: 1px;
-					height: 100%;
-
-					font-size: 0;
-					background-color: transparent;
-					border-left: 1px dashed Ui(theme,$ui-theme,color,text);
-
-					display: none !important;//@dev
-					}
-				}
-			#{$root}--item {
-				&{
-					display: flex;
-					flex-flow: wrap row;
-					justify-content: center;
-					align-items: center;
-
-					overflow: hidden;
-					height: ms(20);
-					width: ms(20);
-					max-width: 100%;
-					margin: 0;
-					padding: 0;
-					
-					text-align: center;
-					background-size: cover;
-					background-repeat: no-repeat;
-					background-position: center;
-					}
-				&\=text {
-					position: relative;
-					z-index: Ui(z,mid,1);
-					}
-				&\=img {
-					z-index: -1;
-					pointer-events: none;
-
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%,-50%);
-
-					width: 155%;
-					max-width: initial;
-					height: auto;
-
-					filter: saturate(0) brightness(.375) contrast(.625) blur(2px);
-					transition: filter .5s ease-in-out;
-					}
-				&:before {
-					content: ' ';
-
-					z-index: Ui(z,btm,2);
-					pointer-events: none;
-
-					position: absolute;
-					top: 0;
-					left: 0;
-
-					$cgrade: Ui(theme,$ui-theme,color,matte);
-					background-image:
-						linear-gradient(
-							to bottom right,
-							$cgrade 5%,
-							$__TRANSPARENT__,
-							$cgrade 95%
-							),
-						linear-gradient(
-							to bottom left,
-							$cgrade 5%,
-							$__TRANSPARENT__,
-							$cgrade 95%
-							),
-						linear-gradient(
-							0deg,
-							$cgrade,
-							$__TRANSPARENT__ 25%,
-							$__TRANSPARENT__ 75%,
-							$cgrade
-							),
-						linear-gradient(
-							-90deg,
-							$cgrade,
-							$__TRANSPARENT__,
-							$cgrade
-							);
-
-					display: flex;
-					width: 100%;
-					height: 100%;
-					}
-				&:after {
-					counter-increment: list;
-					content: counter(list) "";
-
-					z-index: Ui(z,btm,3);
-					pointer-events: none;
-
-					position: absolute;
-					top:  50%;
-					left: 50%;
-					transform: translate(-50%,-50%);
-
-					font-size: ms(6);
-					font-size: ms(12);
-					font-weight: 600;
-					line-height: 1;
-
-					opacity: Ui(shade,1);
-					}
-				&:hover {
-					& #{$root}--item\=img {
-						filter: saturate(1) brightness(.5) contrast(.75) blur(0);
-						}
-					}
-				}//item
-			}//--pre=int
-	}//.list
+.list {
+	$root: #{&};
+	&_bordered {
+		$elem: '#{$root}--item';
+		>:not(:first-child) {
+			border-top: 1px dotted Ui(theme,$ui-theme,color,edge);
+			}
+		>:only-child {
+			border: dotted Ui(theme,$ui-theme,color,edge);
+			border-width: 1px 0;
+			}
+		#{$root}--item:hover {
+			background-color: lighten(Ui(theme,$ui-theme,color,matte),5%);
+			}
+		}
+	}

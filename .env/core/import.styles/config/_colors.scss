@@ -14,7 +14,6 @@
      beige: #efebe9,
      slate: #171717,
     ),color);
-
 //=grayscale    
   $ui-grays: UiSet(grays,(
     black:#1F1F1F,
@@ -25,13 +24,15 @@
     ));
 //=translucency 
   $ui-shade: UiSet(shade,(
-    .125,
-    .375,
-    .625,
-    .875
+    .125,//nth( 1 )
+    .250,//nth( 2 )
+    .375,//nth( 3 )
+    .500,//nth( 4 )
+    .625,//nth( 5 )
+    .750,//nth( 6 )
+    .875 //nth( 7 )
     ));
-
-//=palette
+//=palette      
   //vanilla css version:
     // .autumn {
     //   --maple:  rgb(184, 128, 93);

@@ -1,6 +1,3 @@
-var
-Scale= require('modularscale-js'),
-msBases=  [1],
-msRatios= [1.5];
-
-module.exports= Scale;
+window.msBases= [1];
+window.msRatios=[1.618,1.25];
+window.scale= require('modularscale-js');

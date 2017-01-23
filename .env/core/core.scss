@@ -17,13 +17,6 @@
   //   margin: 0 auto;
   //   max-width: 45em;
   //   }
-  img {
-    max-width: 100%;
-    figure & {
-      display: block;
-      margin: 0 auto;
-      }
-    }
   .video {
     @extend %loading;
     >iframe {

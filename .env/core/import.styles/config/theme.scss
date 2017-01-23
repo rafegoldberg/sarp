@@ -26,15 +26,15 @@
      sarp:(
        fonts: Ui(fonts),
        color: (
-         matte:Ui(color,beige),
+         matte:Ui(palette,bluprint,matte),
          edge: Ui(palette,bluprint,blu),
-         text: Ui(grays,black),
-         mark: Ui(palette,autumn,robin),
-         link: Ui(color,blue),
+         text: Ui(palette,bluprint,blu),
+         mark: rgba(Ui(palette,bluprint,blu),Ui(shade,1)),
+         link: Ui(palette,bluprint,blu),
          ),
        ),
     );
   $ui-theme:UiXtd($ui-theme-custom,theme);
 
-$ui-theme: invert !global;
-// $ui-theme: sarp   !global;
+// $ui-theme: invert !global;
+$ui-theme: sarp !global;

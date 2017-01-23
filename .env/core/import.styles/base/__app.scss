@@ -1,10 +1,25 @@
-app-main{
-	display: flex;
-	flex-flow: wrap row;
-	justify-content: space-between;
-	align-items: center;
-	>*{
-		flex: 0 100%;
-		margin: 0 auto;
+app{
+	&-main{
+	  display: flex;
+	  flex-flow: wrap row;
+	  justify-content: space-between;
+	  align-items: baseline;
+
+	  box-sizing: border-box;
+	  min-height: 100vh;
 		}
+	&-menu{
+	  flex: 1 0 auto;
+	  align-self: stretch;
+
+	  display: flex;
+	  flex-flow: wrap column;
+	  justify-content: baseline;
+	  align-items: center;
+
+	  text-align: center;
+
+	  color: Ui(theme,$ui-theme,color,matte);
+	  background-color: Ui(theme,$ui-theme,color,text);
+	  }
 	}

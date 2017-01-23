@@ -5,7 +5,7 @@ $path: theme,$ui-theme,fonts,scale;
 	font-family: Ui(fonts,head);
 	font-weight: bold;
 	letter-spacing: -.05em;
-	line-height: 1;
+	line-height: 1.5;
 	margin: 0 auto ms(1,1rem);
 	@each $ms in UiSet(append($path,$scale)...) {
 		$i: index(Ui($path...),$ms);//index

@@ -48,4 +48,12 @@ def= {
 			},//^render
 		}
 	};
+
 module.exports= new Tag(tpl,def);
+
+
+Bar.registerHelper({
+  UiPageUpdate(args){
+  	console.log({args,self:this});
+    }
+  });

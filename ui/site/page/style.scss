@@ -3,13 +3,23 @@
 		$root: page;//get the bem root class
 	//=layout
 	&{
-		display:         flex;
-	  flex-flow:       wrap column;
-	  justify-content: center;
-	  align-items:     center;
-	  min-height:      calc(100vh - #{$uiNav-height});
-	  max-width:       55em;
-	  margin:          0 auto;
+		flex: 1 0 auto;
+		align-self: center;
+
+		box-sizing: border-box;
+		// overflow: scroll;
+		
+		width: 40em;
+		max-width: 100%;
+		// max-height: 100vh;
+		margin:          0 auto;
+		padding: ms(2);
+		// display:         flex;
+		// flex-flow:       wrap column;
+		// justify-content: center;
+		// align-items:     center;
+		// min-height:      calc(100vh - #{$uiNav-height});
+		// max-width:       55em;
 		}
 	//=animation
 		&{//default
@@ -19,12 +29,12 @@
 			}
 		&_loading {
 			opacity: 0;
-			transform: scale(.75) translateY(15%);
+			// transform: scale(.75) translateY(15%);
 			transform-origin: bottom;
 			}
 		&_loaded  {
 			opacity: 1;
-			transform: scale(1) translateY(0);
+			// transform: scale(1) translateY(0);
 			transition:
 				opacity   0.375s ease,
 				transform 0.5s   ease;

@@ -1,7 +1,27 @@
+var
+tpl= require('./template.bar'),
+tag= {
+  lifecycle:{
+    created(){
+      $(this).addClass('nav');
+      },
+    inserted(){
+      this.model && this.render();
+      },
+    },
+  methods:{
+    render(){
+      this.model &&
+        $(this).html( this.template(this.model) );
+      }
+     }
+  };
+
+module.exports= new Tag(tpl,tag);
 
 Bar.registerHelper({
   UiNavUpdate(arg){
-    //=SET ACTIVE LINK BY RERENDER
+    //= RERENDER (sets active link)
     var nav= UiApp.$.nav;
     nav.model= Object.values(this.API.nav.data);
     nav.render();
@@ -23,24 +43,3 @@ Bar.registerHelper({
     \*/
     }
   });
-
-var
-tpl= require('./template.bar'),
-tag= {
-  lifecycle:{
-    created(){
-      $(this).addClass('nav');
-      },
-    inserted(){
-      this.model && this.render();
-      },
-    },
-  methods:{
-    render(){
-      this.model &&
-        $(this).html( this.template(this.model) );
-      }
-     }
-  };
-
-module.exports= new Tag(tpl,tag);

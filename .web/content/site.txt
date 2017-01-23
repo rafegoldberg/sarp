@@ -14,4 +14,4 @@ Copyright: ©2009–(date: Year)
 
 ----
 
-Shorttitle: sarp/pics
+Shorttitle: sarp

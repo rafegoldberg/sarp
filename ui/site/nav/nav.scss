@@ -1,19 +1,20 @@
-ui-nav{  
-  $uiNav-height: 4rem !global;
+.nav {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: center;
+
   position: sticky;
   z-index: Ui(z,top,-1);
   top: 0;
-  display: flex;
-  flex-flow: nowrap row;
-  justify-content: center;
-  align-items: center;
+
+  $uiNav-height: 4rem !global;
   box-sizing: border-box;
   height: $uiNav-height;
-  background-color: rgba( Ui(theme,$ui-theme,color,matte), nth(Ui(shade),-1) );
-  }
-.nav {
-  margin: ms(6) 0 ms(2);
-  padding: 1em 0;
+
+  margin: 0 auto;
+  white-space: nowrap;
+
   font-family: Ui(theme,$ui-theme,fonts,serif);
   font-weight: 300;
   text-align: center;
@@ -28,7 +29,7 @@ ui-nav{
             0 0 0 0.0em $__TRANSPARENT__;
     transition: box-shadow .2s ease;
     &:active {
-      $pop-color: rgba(Ui(theme,$ui-theme,color,mark),nth(Ui(shade),3));
+      $pop-color: rgba(Ui(theme,$ui-theme,color,matte),nth(Ui(shade),3));
       box-shadow:
         inset 0 0 0 1.0em $pop-color,
               0 0 0 0.5em $pop-color;
