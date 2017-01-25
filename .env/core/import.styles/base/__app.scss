@@ -1,25 +1,35 @@
 app{
-	&-main{
-	  display: flex;
-	  flex-flow: wrap row;
-	  justify-content: space-between;
-	  align-items: baseline;
-
-	  box-sizing: border-box;
-	  min-height: 100vh;
+&-main{
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
+	min-height: 100vh;
+	}
+	&-page {
+		//-bodyfix
+			// max-height: 100vh;
+			// overflow: scroll;
+		@extend %contain;
 		}
 	&-menu{
-	  flex: 1 0 auto;
-	  align-self: stretch;
+		flex: 0 auto;
+		align-self: stretch;
 
-	  display: flex;
-	  flex-flow: wrap column;
-	  justify-content: baseline;
-	  align-items: center;
+		display: flex;
+		flex-flow: wrap column;
+		justify-content: center;
+		align-items: center;
 
-	  text-align: center;
+		box-sizing: border-box;
+		height: 100vh;
+		padding: ms(0);
 
-	  color: Ui(theme,$ui-theme,color,matte);
-	  background-color: Ui(theme,$ui-theme,color,text);
-	  }
+		text-align: center;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+		}
 	}

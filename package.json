@@ -52,7 +52,7 @@
     "load-grunt-config": "^0.19.2",
     "load-grunt-tasks": "^3.5.2",
     "lodash": "^4.17.2",
-    "modularscale-js": "github:modularscale/modularscale-js#master",
+    "modularscale-js": "git+https://github.com/rafegoldberg/modularscale-js.git",
     "object-path": "^0.11.2",
     "purebem": "^1.0.0",
     "remapify": "^2.1.0",

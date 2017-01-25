@@ -2,25 +2,7 @@
 	//=properties
 		$root: page;//get the bem root class
 	//=layout
-	&{
-		flex: 1 0 auto;
-		align-self: center;
-
-		box-sizing: border-box;
-		// overflow: scroll;
-		
-		width: 40em;
-		max-width: 100%;
-		// max-height: 100vh;
-		// margin:          0 auto;
-		// padding: ms(2);
-		// display:         flex;
-		// flex-flow:       wrap column;
-		// justify-content: center;
-		// align-items:     center;
-		// min-height:      calc(100vh - #{$uiNav-height});
-		// max-width:       55em;
-		}
+		display: block;
 	//=animation
 		&{//default
 			transition:

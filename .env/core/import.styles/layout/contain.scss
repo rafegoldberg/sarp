@@ -1,13 +1,11 @@
-/*=properties
- @refactor[standalone partial for layout vars]
- */
-
 /*=styles
  */
-$contain: 55rem;
+%contain,
 .contain {
+
+  width: Ui(layout,contain);
+  
   box-sizing: border-box;
-  width: $contain;
   max-width: 100%;
   margin: 0 auto;
   }

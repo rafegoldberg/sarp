@@ -1,17 +1,20 @@
-/*=properties
+.grid {
+/*=settings
+ */
+  $grid-column: Ui(layout,grid,column);
+  $grid-gutter: Ui(layout,grid,gutter);
+/*=defaults
  @refactor[standalone partial for layout vars]
- */
-$columns: 12 !default;
-$gutter: 1rem !default;
-$max-width: 1170px;
-
-/*=styles
+ */
+  $grid-column: 12 !default;
+  $grid-gutter: ms(1) !default;
+/*=styles  
  @refactor[convert grid to ƒn]
  */
-.grid {
-  width: 100%;
-  
-  &--row {
+ &{//root
+    width: 100%;
+    }
+  &--row {//elem
     width: 100%;
     display: flex;
     flex-flow: wrap row;
@@ -26,8 +29,9 @@ $max-width: 1170px;
         }
       }
     }
-  .box {
-    padding: $gutter/2;
+  &--span {
+    padding-left: $grid-gutter/2;
+    padding-right: $grid-gutter/2;
     &_grow {
       flex-grow: 1 }
     &_push{
@@ -42,9 +46,9 @@ $max-width: 1170px;
         margin-right: auto;
         }
       }
-    @for $i from 1 to $columns+1 {
+    @for $i from 1 to $grid-column+1 {
       &_#{$i} {
-        $box-w: percentage($i/$columns);
+        $box-w: percentage($i/$grid-column);
         &{
           width: $box-w;
           box-sizing: border-box;

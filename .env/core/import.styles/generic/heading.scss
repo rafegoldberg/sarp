@@ -3,8 +3,6 @@ $path: theme,$ui-theme,fonts,scale;
 
 .heading {
 	font-family: Ui(fonts,head);
-	font-weight: bold;
-	letter-spacing: -.05em;
 	line-height: 1.5;
 	margin: 0 auto ms(1,1rem);
 	@each $ms in UiSet(append($path,$scale)...) {
@@ -12,5 +10,15 @@ $path: theme,$ui-theme,fonts,scale;
 		&--#{$i} {
 			font-size: ms($ms);
 			}
+		}
+	}
+.heading {
+	font-weight: 900;
+	font-style: italic;
+	&_thin {
+		font-weight: 200;
+		font-style: normal;
+		letter-spacing: .05em;
+		text-transform: uppercase;
 		}
 	}
