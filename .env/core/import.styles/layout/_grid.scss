@@ -1,0 +1,68 @@
+/*=properties
+ @refactor[standalone partial for layout vars]
+ */
+$columns: 12 !default;
+$gutter: 1rem !default;
+$max-width: 1170px;
+
+/*=styles
+ @refactor[convert grid to ƒn]
+ */
+.grid {
+  width: 100%;
+  
+  &--row {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    &_space {
+      justify-content: space-around;
+      &\=edge {
+        justify-content: space-between;
+        }
+      &\=even {
+        justify-content: space-around;
+        }
+      }
+    }
+  .box {
+    padding: $gutter/2;
+    &_grow {
+      flex-grow: 1 }
+    &_push{
+      &\=c {
+        margin-left: auto;
+        margin-right: auto;
+        }
+      &\=l  {
+        margin-left: auto;
+        }
+      &\=r {
+        margin-right: auto;
+        }
+      }
+    @for $i from 1 to $columns+1 {
+      &_#{$i} {
+        $box-w: percentage($i/$columns);
+        &{
+          width: $box-w;
+          box-sizing: border-box;
+          }
+        &.box_shov{
+          &\=c {
+            $push: calc((100% - #{$box-w})/2);
+            margin-left: $push;
+            margin-right: $push;
+            }
+          &\=l {
+            margin-right: calc(100% - #{$box-w});
+            }
+          &\=r {
+            margin-left: calc(100% - #{$box-w});
+            }
+          }
+        }
+      }
+    }
+  }

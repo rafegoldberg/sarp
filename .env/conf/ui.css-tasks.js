@@ -4,13 +4,13 @@ tasks={
 		files: {
 			'<%=ƒ.sass.temp%>':[
 				'<%=ƒ.sass.main%>',
-				'<%=ƒ.sass.core%>/config/*.scss',
-				'<%=ƒ.sass.core%>/base/*.scss',
-				'<%=ƒ.sass.core%>/generic/*.scss',
-				'<%=ƒ.sass.core%>/layout/*.scss',
-				// '<%=ƒ.sass.core%>/{base,generic,layout}/*.scss',
-				'<%=ƒ.sass.core%>/extends/*.scss',
+				'<%=ƒ.sass.core%>/{,0-}config/*.scss',
+				'<%=ƒ.sass.core%>/{,1-}base/*.scss',
+				'<%=ƒ.sass.core%>/{,2-}generic/*.scss',
+				'<%=ƒ.sass.core%>/{,3-}layout/*.scss',
+				'<%=ƒ.sass.core%>/{,4-}extras/*.scss',
 				'<%=ƒ.sass.atom%>',
+				'<%=ƒ.sass.core%>/{,5-}extend/*.scss',
 				],
 			/*\
 			 @refactor[individual glob exports]
