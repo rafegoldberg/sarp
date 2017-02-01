@@ -15,7 +15,7 @@
 /*=Ui Core
  */
   var
-  Mds= window.Mds= require('Scale.js');
+  // Mds= window.Mds= require('Scale.js');
   Log= window.Log= require('Log.js'),
   Url= window.Url= require('Url.js'),
   Tag= window.Tag= require('Tag.js');//#win[handlebars,xtag,]
@@ -70,6 +70,6 @@
           tagName= UiApp.utl.case.un.camel(tagName);
           Dom.register( `ui-${tagName}`, tag );//xtag register as <ui-{tag}>
           });
-        }
+        },
       },
     };

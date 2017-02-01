@@ -8,10 +8,9 @@ app{
 	min-height: 100vh;
 	}
 	&-page {
-		//-bodyfix
-			// max-height: 100vh;
-			// overflow: scroll;
 		@extend %contain;
+		padding-top: Ui(layout,grid,gutter);
+		padding-bottom: Ui(layout,grid,gutter);
 		}
 	&-menu{
 		flex: 0 auto;
@@ -31,5 +30,94 @@ app{
 		position: fixed;
 		top: 0;
 		left: 0;
+		.app-title {
+			display: block;
+			margin: 0;
+			writing-mode: vertical-lr;
+		  border-bottom: 1px solid;
+		  border-bottom-color: $__TRANSPARENT__;
+			transition:
+				letter-spacing .5s ease,
+				border-bottom-color .375s ease,
+				padding .375s ease;/*opening*/
+		  body:not(.app-menu\=closed) &{
+				letter-spacing: .5em;
+			  border-bottom-color: Ui(theme,$ui-theme,color,edge);
+			  padding: 0 .25em;
+				transition:
+					letter-spacing .375s .5s ease,
+					border-bottom-color .375s .75s ease,
+					padding .375s .75s ease;/*closing*/
+				}
+			}
+		}
+	}
+
+app { //@site=state[app-menu=closed]
+&-main {
+	flex-flow: nowrap row;
+	&:before {
+		content: 'pseudo-nav';
+
+		/*{ %app-menu-width }*/
+			min-width: 12.5em !important;
+			width: 12.5vw;
+			max-width: 100%;
+
+		color: cyan;
+		outline: 1px dotted;
+
+		height: 100vh;
+		pointer-events: none;
+		z-index: -1;
+		opacity: 0;
+	  transition: .375s ease;/*opening*/
+		body.app-menu\=closed & {
+		  width: 0;
+		  min-width: 0 !important;
+		  transition: .375s .1875s ease;/*closing*/
+		  }
+		}
+	}//app-main
+	&-menu {
+		//opened
+		//{ %app-menu-width }
+			min-width: 12.5em !important;
+			width: 12.5vw;
+			max-width: 100%;
+		transition: transform .375s ease;//opening
+		body.app-menu\=closed & {
+			//closed
+			transform: translateX(-100%);
+			transition: transform .375s .1875s ease;//closing
+			}
+		&>*{
+			//opened
+			transform: scale(1);
+			opacity: 1;
+			transition: all .375s .1875s ease;//opening
+			body.app-menu\=closed & {
+				//closed
+				transform: scale(.825);
+				opacity: 0;
+				transition: all .375s 0s ease;//closing
+				}
+			}
+		}//app-menu
+	&-page {
+		opacity: 1;
+		filter: blur(0);
+		transition: .375s ease;//opening
+		body:not(.app-menu\=closed) & {
+			opacity: .25;
+			filter: blur(5px);
+			transition: .375s .1875s ease;//closing
+			&>*{
+				pointer-events: none;
+				}
+			}
+		}//app-menu
+	@at-root body:not(.app-menu\=closed) {
+		overflow: hidden;
 		}
 	}

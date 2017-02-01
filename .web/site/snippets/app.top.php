@@ -5,7 +5,7 @@
 	<app-menu>
 		<h1><a
 			is="ui-link" 
-			class="heading heading_thin heading--1"
+			class="[ app-title ][ heading heading_thin heading_1 ]"
 			href="home">
 			<?=$site->title()->html()?></a></h1>
 		<?snippet('nav')?>

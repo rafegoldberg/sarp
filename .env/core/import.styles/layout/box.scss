@@ -1,0 +1,31 @@
+.box{
+	&{//root
+	  display: flex;
+	  flex-flow: wrap row;
+	  justify-content: flex-start;
+	  align-items: flex-start;
+	  padding: Ui(layout,grid,gutter);
+		}
+	&_z\={//justify
+		&middle{
+			justify-content: center;
+			}
+		&right{
+			justify-content: flex-end;
+			}
+		&left{
+			justify-content: flex-start;
+			}
+		}
+	&_v\={//align
+		&center{
+			align-items: center;
+			}
+		&bottom{
+			align-items: flex-end;
+			}
+		&top{
+			align-items: flex-start;
+			}
+		}
+	}

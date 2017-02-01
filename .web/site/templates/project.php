@@ -4,7 +4,7 @@
 
 <ui-page>
 	<header is="ui-page-header">
-		<h1 class="heading heading--1"><?=$page->title()?></h1>
+		<h2 class="heading heading_3"><?=$page->title()?></h2>
 	</header>
  	<section>
 		<?foreach($page->images() as $img):

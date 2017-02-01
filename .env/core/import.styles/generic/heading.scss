@@ -1,24 +1,29 @@
 $scale:6 4 3 2 1 0;
 $path: theme,$ui-theme,fonts,scale;
 
-.heading {
+.heading{
 	font-family: Ui(fonts,head);
 	line-height: 1.5;
-	margin: 0 auto ms(1,1rem);
-	@each $ms in UiSet(append($path,$scale)...) {
-		$i: index(Ui($path...),$ms);//index
-		&--#{$i} {
-			font-size: ms($ms);
+	margin-bottom: ms(1,1rem);
+	//scale 
+		@each $ms in UiSet(append($path,$scale)...) {
+			$i: index(Ui($path...),$ms);//index
+			&_#{$i} {
+				font-size: ms($ms);
+				}
 			}
-		}
-	}
-.heading {
-	font-weight: 900;
-	font-style: italic;
-	&_thin {
-		font-weight: 200;
-		font-style: normal;
-		letter-spacing: .05em;
-		text-transform: uppercase;
-		}
+	//style 
+		&{
+			font-weight: 900;
+			font-style: italic;
+			}
+		&_thin,&_light{
+			font-weight: 200;
+			font-style: normal;
+			letter-spacing: .05em;
+			text-transform: uppercase;
+			}
+		&_thin{
+			font-weight: 100;
+			}
 	}

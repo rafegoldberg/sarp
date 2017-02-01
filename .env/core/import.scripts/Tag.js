@@ -17,7 +17,7 @@
 //=mixins
 // 
   require('./tag/mix.datamodel.js').register(Dom);
-    //^passing register() the Xtag environment var
+    //pass register ƒn the xtag environment var^
 
 //=staging
 // 
@@ -64,7 +64,7 @@
   function Tag(tpl,tag={}){
     if( typeof tpl!=='function' ){
       if( !arguments.length || Dom.typeOf(arguments[0])!=='object' )
-        return console.error('Tag() requires a Handlebars template and/or a xtag configuration obj');
+        return console.error('Tag() requires a Handlebars template and/or an xtag configuration obj');
       tag= arguments[0];
       }
     else {

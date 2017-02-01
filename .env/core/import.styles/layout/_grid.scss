@@ -51,6 +51,7 @@
         $box-w: percentage($i/$grid-column);
         &{
           width: $box-w;
+          max-width: 100%;
           box-sizing: border-box;
           }
         &.box_shov{

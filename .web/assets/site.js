@@ -13,8 +13,19 @@ $(document).ready(function() {
       $('head>title').text(),
       window.location.href
       );
-  /*global event ƒn()
+  /*=
+<APP-PAGE/>
    */ 
+    //=menu closed/open
+    //@todo[find a better place for this]
+      $('app-page').on({
+        mouseleave(){
+          $('body').removeClass('app-menu=closed');
+          },
+        mouseenter(){
+          $('body').addClass('app-menu=closed');
+          }
+        });
    //=history change
     History.Adapter.bind(window,'statechange',function(){
       UiApp.page.animateOut(function(){

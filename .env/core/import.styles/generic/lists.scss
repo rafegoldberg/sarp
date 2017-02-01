@@ -15,10 +15,10 @@
 	&_bordered {
 		$elem: '#{$root}--item';
 		>:not(:first-child) {
-			border-top: 1px dotted Ui(theme,$ui-theme,color,edge);
+			border-top: 1px solid Ui(theme,$ui-theme,color,edge);
 			}
 		>:only-child {
-			border: dotted Ui(theme,$ui-theme,color,edge);
+			border: solid Ui(theme,$ui-theme,color,edge);
 			border-width: 1px 0;
 			}
 		#{$root}--item:hover {

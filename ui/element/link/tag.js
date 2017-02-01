@@ -20,6 +20,7 @@ tag= {
 		click(){
 			event.preventDefault();
 			UiApp.api.go(this.href);
+			$('body').addClass('app-menu=closed');
 			}
 		},
 	};

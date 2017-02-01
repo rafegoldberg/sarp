@@ -1,15 +1,16 @@
 {{#iterate data}}
 <a
 	is="ui-link"
-	class="projectGallery--project" 
-	style="display:block;font-weight:900"
+	class="[ grid--row ][ projectGallery--project ]" 
 	href={{@key}}>
-	<div
-		class="project--item=text">
-		{{capitalize (stem @key)}}</div>
-	<img
-		src="{{url}}"
-		class="project--item=img"
-		alt="{{stem @key}}"/>
+	<div class="[ grid--span grid--span_grow ][ box box_v=center box_z=right ]" class-fixwidth="grid--span_4">
+		<h3 class="[ project--item=text ][ heading heading_1 ]">{{capitalize (stem @key)}}</h3>
+	 </div>
+	<div class="[ grid--span ][ box ]">
+		<img
+			src="{{url}}"
+			class="project--item=img"
+			alt="{{stem @key}}"/>
+	</div>
 </a>
 {{/iterate}}
