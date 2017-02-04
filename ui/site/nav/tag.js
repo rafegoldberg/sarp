@@ -22,7 +22,7 @@ module.exports= new Tag(tpl,tag);
 Bar.registerHelper({
   UiNavUpdate(arg){
     //= RERENDER (sets active link)
-    var nav= UiApp.$.nav;
+    var nav= $('ui-nav')[0];
     nav.model= Object.values(this.API.nav.data);
     nav.render();
     /*\ SET ACTIVE LINK BY HASH

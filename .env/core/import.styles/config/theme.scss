@@ -27,7 +27,7 @@
        fonts: Ui(fonts),
        color: (
          matte:Ui(palette,bluprint,matte),
-         edge: Ui(palette,bluprint,blu),
+         edge: mix(Ui(palette,bluprint,matte),Ui(palette,bluprint,blu),75%),
          text: Ui(palette,bluprint,blu),
          mark: rgba(Ui(palette,bluprint,blu),Ui(shade,1)),
          link: Ui(palette,bluprint,blu),
