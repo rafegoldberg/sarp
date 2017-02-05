@@ -1,6 +1,8 @@
 <?#=UiApp:ini
-	snippet('app/ui.ini')
+	snippet('app/ui.ini');
 	?>
+
+<?snippet('app.stg')?>
 <app-main class="container">
 	<app-menu>
 		<h1><a
