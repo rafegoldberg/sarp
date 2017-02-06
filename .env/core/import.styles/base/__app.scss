@@ -108,16 +108,16 @@ app { //@site=state[app-menu=closed]
 		opacity: 1;
 		filter: blur(0);
 		transition: .375s ease;//opening
-		body:not(.app-menu\=closed) & {
-			opacity: .25;
-			filter: blur(5px);
-			transition: .375s .1875s ease;//closing
-			&>*{
-				pointer-events: none;
-				}
-			}
+		// body:not(.app-menu\=closed) & {
+		// 	opacity: .25;
+		// 	filter: blur(5px);
+		// 	transition: .375s .1875s ease;//closing
+		// 	&>*{
+		// 		pointer-events: none;
+		// 		}
+		// 	}
 		}//app-menu
-	@at-root body:not(.app-menu\=closed) {
-		overflow: hidden;
-		}
+	// @at-root body:not(.app-menu\=closed) {
+	// 	overflow: hidden;
+	// 	}
 	}

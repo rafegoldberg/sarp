@@ -4,41 +4,48 @@
     require('babel-polyfill');
     require('webcomponents.js');
   //=Libraries 
-    var//Underscore
-     ø =window.ø= require('underscore');
-    var//jQuery
-     $ =window.$= require('jquery');
-     window.jQuery=$;//@alias
-  //=Plugins   
-    require('jquery-lazyload');//@dep[jQuery]
-    require('mdnzr.js');
+    var
+    //@lib[Underscore]
+      ø=window.ø= require('underscore'),
+    //@lib[jQuery    ]
+      $=window.$= require('jquery');
+    //@alias
+     window.jQuery=$;
+
+/*=Globals
+ */
+  require('jquery-lazyload');//@dep[jQuery]@use[$(imgs).lazyload({})]
+  require('mdnzr.js');
+  require('swiper');//@use[new Swiper]
+
 /*=Ui Core
  */
   var
-  // Mds= window.Mds= require('Scale.js');
   Log= window.Log= require('Log.js'),
   Url= window.Url= require('Url.js'),
   Tag= window.Tag= require('Tag.js');//#win[handlebars,xtag,]
+
 /*=Ui Modules
  */
-  UiModules= window.UiModules =require('../../ui/*/*/*.js',{
+  UiModules= window.UiModules= require('../../ui/*/*/*.js',{
     mode:'hash',
     resolve:['reduce']
     });
   UiModules= Object.keys(UiModules).reduce((map,key,i)=>{
-    var val= UiModules[key],
-        key= key.split('/').slice(0,2).join('/');
+    var val= UiModules[key];
+    key= key.split('/').slice(0,2).join('/');
     map[key]= val;
     return map;
     },{});
+
 /*=Ui App
  */
   UiApp= window.UiApp ={
-  //@refactor[⬆FROM/TO⬇][localize global refs]
+  //@refactor[⬆encapsulate global refs within app obj]
     api:require('./UiApp/api.js'),
     bem:require('./UiApp/bem.js'),
     utl:require('./UiApp/utl.js'),
-  //@refactor[⬆TO/FROM⬇][extract apps methods]
+  //@refactor[⬇extract inline methods to core/imports]
     get page(){
       return $('ui-page')[0]
       },

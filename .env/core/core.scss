@@ -1,35 +1,31 @@
-/*\ PARTIALS SOURCE ORDER
--------------------------
- 1. core
- 2. config
- 3. base
- 4. generic
- 5. layout
- 6. extends.pre
- 7. {ui modules}
- 8. extends.sup
-\*/
- //global constants
+/*=PARTIALS SOURCE ORDER
+ ---
+ 1 core
+ 2 config
+ 3 base
+ 4 generic
+ 5 layout
+ 6 extras
+ 7 {modules}
+ 8 extend
+ */
+
+//constants
   $__TRANSPARENT__: #{'rgba(255,255,255,0)'};
- //dev stage area  
-  // .container {
-  //   display: block;
-  //   margin: 0 auto;
-  //   max-width: 45em;
+//devstage 
+  // .video {
+  //   @extend %loading;
+  //   >iframe {
+  //     display: block;
+  //     width: 45em;
+  //     max-width: 100%;
+  //     min-height: 12.5em;
+  //     max-height: 30vmax;
+  //     margin: 0 auto;
+  //     }
   //   }
-  .video {
-    @extend %loading;
-    >iframe {
-      display: block;
-      width: 45em;
-      max-width: 100%;
-      min-height: 12.5em;
-      max-height: 30vmax;
-      margin: 0 auto;
-      }
-    }
- //ui sass utility 
- @import 'ui.sass.util/import';
- //third-party libs
- @import 'modular-scale/stylesheets/modular-scale';
- @import 'breakpoint-sass/stylesheets/breakpoint';
+//sass util
+  @import 'ui.sass.util/import';
+//deps+libs
+  @import 'modular-scale/stylesheets/modular-scale';
+  @import 'breakpoint-sass/stylesheets/breakpoint';

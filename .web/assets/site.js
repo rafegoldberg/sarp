@@ -24,4 +24,12 @@ $(document).ready(function(){
     $('body')
       .toggleClass('app-menu=closed');
     });
+
+//=DEVDELETE
+// window.setTimeout(function(){
+//   runTest_swiper();
+//   alert('ran test:swiper!');
+//   },1000);
+//#DEVDELETE
+
 });///ready

@@ -1,20 +1,44 @@
 var
 tag= {
 	lifecycle:{
+		created(){
+			//tidy dom
+			$('app-stage').remove();
+			//configure
+			$(this)
+			.addClass('swiper-container');
+			},
 		inserted(){
-			this.bem={root: 'list'};
-			this.bem.make= UiApp.bem.it(this.bem.root);
-			
-			$(this).addClass(this.bem.make({'pre=int':true}));
 			this.render();
 			}
 		},
 	mixins: ['datamodel'],
   methods:{
-		template:require('./template.bar'),//=Ui module .bar file
+  	defs:{
+			direction:'vertical',
+			freeMode:true,
+				freeModeSticky:true,
+				freeModeMomentumRatio:1.0625,
+				freeModeMomentumVelocityRatio:.9375,
+			mousewheelControl:true,
+				mousewheelSensitivity:2,
+				mousewheelReleaseOnEdges:true,
+			keyboardControl:true,
+			pagination: 'swpr-nav',
+			paginationType:'bullets',
+			},
+		template:require('./template.bar'),
     render(){
-      this.model && this.template//if both:
-	      $(this).html( this.template(this.model) );//render + replace html
+      if( this.model && this.template ){
+      	//=[render tpl html w mdl data]->
+	      	var
+	      	rendered= this.template(this.model);
+	      //=[inject html in to the tag ]->
+		      $(this).html(rendered);
+				//=[initialize swiper instance]->
+					// console.warn('will init Swiper now');
+					return new Swiper(this,this.defs);
+	      }
       }
      }
   };
