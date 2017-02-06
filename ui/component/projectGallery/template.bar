@@ -1,12 +1,19 @@
 <div class="swiper-wrapper">
 	{{#iterate data}}
-	<div class="swiper-slide">
-		<a is="ui-link" href={{@key}} class>
-			{{capitalize (stem @key)}}</a>
+	<a is="ui-link"
+	 href={{@key}}
+	 class="swiper-slide">
+		<div 
+		 class="parallax-bg" 
+		 style="background-image:url({{url}})"
+		 data-swiper-parallax="-38%"
+		 ></div>
+		<h1 class="[ heading heading_1 ]">
+		 {{capitalize (stem @key)}}</h1>
 		{{!--img-->
 			<img src="{{url}}" class="project--item=img" alt="{{stem @key}}"/>
 			!--}}
-	</div>
+	</a>
 	{{/iterate}}
 </div>
 <swpr-nav></swpr-nav>

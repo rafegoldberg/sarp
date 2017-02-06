@@ -17,10 +17,10 @@
        fonts: Ui(fonts),
        color: (
          matte:Ui(grays,black),
-         edge: black,
-         text: Ui(grays,lite),
+         edge: rgba(Ui(grays,lite),Ui(shade,4)),
+         text: Ui(grays,lite),//Ui(palette,bluprint,blu),
          mark: black,
-         link: Ui(color,blue),
+         link: Ui(grays,lite),//Ui(palette,bluprint,blu),
          ),
        ),
      sarp:(
@@ -36,5 +36,5 @@
     );
   $ui-theme:UiXtd($ui-theme-custom,theme);
 
-// $ui-theme: invert !global;
-$ui-theme: sarp !global;
+$ui-theme: invert !global;
+// $ui-theme: sarp !global;

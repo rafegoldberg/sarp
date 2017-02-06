@@ -1,3 +1,4 @@
+
 app{
 &-main{
 	display: flex;
@@ -9,27 +10,31 @@ app{
 	}
 	&-page {
 		@extend %contain;
-		padding-top: Ui(layout,grid,gutter);
-		padding-bottom: Ui(layout,grid,gutter);
+		padding: 0 ms(2);
+		// padding-top: Ui(layout,grid,gutter);
+		// padding-bottom: Ui(layout,grid,gutter);
 		}
 	&-menu{
-		flex: 0 auto;
-		align-self: stretch;
+		&{//self
+			flex: 0 auto;
+			align-self: stretch;
 
-		display: flex;
-		flex-flow: wrap column;
-		justify-content: center;
-		align-items: center;
+			z-index: Ui(z,top,-1);
+			position: fixed;
+			top: 0;
+			left: 0;
 
-		box-sizing: border-box;
-		height: 100vh;
-		padding: ms(0);
+			display: flex;
+			flex-flow: wrap column;
+			justify-content: center;
+			align-items: center;
 
-		text-align: center;
+			box-sizing: border-box;
+			height: 100vh;
+			padding: ms(0);
 
-		position: fixed;
-		top: 0;
-		left: 0;
+			text-align: center;
+			}
 		.app-title {
 			display: block;
 			margin: 0;
@@ -77,19 +82,24 @@ app { //@site=state[app-menu=closed]
 		  min-width: 0 !important;
 		  transition: .375s .1875s ease;/*closing*/
 		  }
+		display: none;
 		}
 	}//app-main
 	&-menu {
-		//opened
-		//{ %app-menu-width }
+		transition: .375s ease;//opening
+		background-color: rgba(Ui(theme,$ui-theme,color,matte),Ui(shade,1));
+		//@opened
+		&{//self
 			min-width: 12.5em !important;
 			width: 12.5vw;
+			width: 100%;
 			max-width: 100%;
-		transition: transform .375s ease;//opening
-		body.app-menu\=closed & {
-			//closed
+			}
+		//@closed
+		body.app-menu\=closed &{
 			transform: translateX(-100%);
-			transition: transform .375s .1875s ease;//closing
+			background-color: transparent;
+			transition: .375s .1875s ease;//closing
 			}
 		&>*{
 			//opened
@@ -103,21 +113,41 @@ app { //@site=state[app-menu=closed]
 				transition: all .375s 0s ease;//closing
 				}
 			}
+		&-trigger{
+			position: absolute;
+			top: 50%;
+			right: 0px;
+			transform: translate(0,-50%) !important;
+			opacity: 1 !important;
+			width: 1.5em;
+			height: 1.5em;
+			padding: .5em .5em .5em 0;
+			cursor: pointer;
+			filter: invert(1);
+			background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/659794-200.png);
+			background-size: 1em;
+			background-position: .25em center;
+			background-repeat: no-repeat;
+			body.app-menu\=closed &{
+				transform: translate(100%,-50%) !important;
+				transition: transform .375s .1875s ease;//closing
+				}
+			}
 		}//app-menu
 	&-page {
 		opacity: 1;
 		filter: blur(0);
 		transition: .375s ease;//opening
-		// body:not(.app-menu\=closed) & {
-		// 	opacity: .25;
-		// 	filter: blur(5px);
-		// 	transition: .375s .1875s ease;//closing
-		// 	&>*{
-		// 		pointer-events: none;
-		// 		}
-		// 	}
+		body:not(.app-menu\=closed) & {
+			opacity: Ui(shade,1);
+			//filter: blur(5px);
+			transition: .375s .1875s ease;//closing
+			&>*{
+				pointer-events: none;
+				}
+			}
 		}//app-menu
-	// @at-root body:not(.app-menu\=closed) {
-	// 	overflow: hidden;
-	// 	}
+	@at-root body:not(.app-menu\=closed) {
+		overflow: hidden;
+		}
 	}

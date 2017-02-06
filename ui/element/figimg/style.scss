@@ -1,5 +1,6 @@
-[is=ui-figure] {
+[is=ui-figimg] {
 	display: block;
+	max-width: 100%;
 	.loading {
 		@extend %loading !optional;//@from[core/core.scss]
 		min-height: 12.5em;
@@ -7,11 +8,14 @@
 			opacity: 0;
 			}
 		}
+	&+&{
+		margin-top: ms(2);
+		}
 	&:not(.loading) {
 	 	background: transparent;
 		}
 	img {
-		max-width: 100vw;
+		max-width: 100%;
 		width: auto;
 		}
 	}

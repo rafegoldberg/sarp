@@ -37,11 +37,11 @@ tasks={
         '<%=ƒ.ftp.from%>/panel',
         '<%=ƒ.ftp.from%>/thumbs',
       //=Kirby site
-        // '<%=ƒ.ftp.from%>/content',
+        '<%=ƒ.ftp.from%>/content',
         '<%=ƒ.ftp.from%>/site/accounts',
         '<%=ƒ.ftp.from%>/assets/avatars',
       //=Ui assets 
-        // '<%=ƒ.ftp.from%>/assets/ui/icons',
+        '<%=ƒ.ftp.from%>/assets/ui/icons',
         // '<%=ƒ.ftp.from%>/assets/ui/ui.js',
         // '<%=ƒ.ftp.from%>/assets/ui/ui.css{,.map}',
       ],

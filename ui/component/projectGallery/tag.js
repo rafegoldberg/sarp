@@ -16,6 +16,7 @@ tag= {
   methods:{
   	defs:{
 			direction:'vertical',
+			parallax:true,
 			freeMode:true,
 				freeModeSticky:true,
 				freeModeMomentumRatio:1.0625,
@@ -26,6 +27,7 @@ tag= {
 			keyboardControl:true,
 			pagination: 'swpr-nav',
 			paginationType:'bullets',
+			spaceBetween:0,
 			},
 		template:require('./template.bar'),
     render(){

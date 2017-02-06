@@ -2,13 +2,14 @@
 	snippet('app/ui.ini');
 	?>
 
-<?snippet('app.stg')?>
+<?#snippet('app.stg')?>
 <app-main class="container">
 	<app-menu>
 		<h1><a
 			is="ui-link" 
 			class="[ app-title ][ heading heading_thin heading_1 ]"
-			href="home">
+			href="home"
+			style="margin:0 auto">
 			<?=$site->title()->html()?></a></h1>
 		<?snippet('nav')?>
 	</app-menu>

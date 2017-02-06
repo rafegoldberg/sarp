@@ -1,68 +1,115 @@
 /*=Ui Overrides
- */
+ @breaking[everything]
 	app-page{
 	  padding:0;
 	  }
 	ui-page{
 	  min-height:100vh;
+	  box-sizing: border-box;
 	  }
+ */
 /*=Swiper Styles
  */
-/*-wrapper->*/
-	.swiper-container{
-		display: block;
+.swiper{
+	//=scoped conf obj
+	$conf:(swiper:(
+		bullets:(
+			width:12px,
+			color:Ui(theme,$ui-theme,color,text),
+			),
+		));
+	&{//self
+	  min-height:100vh;
 	  box-sizing: border-box;
+		}
+
+/*-wrapper->*/
+	&-container{
+		display: block;
+	  // box-sizing: border-box;
 		height: 100vh;
 		max-height: 100%;
-	  width: 33em;
+	  width: 60em;
 	  max-width: 100%;
+	  margin-top: -1*ms(2);
+	  margin-left: -1*ms(2);
+	  margin-right: -1*ms(2);
+	  padding: ms(2) ms(2) 0;
 	  }
-/*-slides-->*/
-	.swiper-slide{
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  box-sizing: border-box;
-	  max-height: 100%;
-	  max-width: 100%;
+/*-slides-->*/	
+	&-slide{
+		&{//self
+		  display: flex;
+		  justify-content: flex-start;
+			&:nth-child(even){ justify-content:flex-end }
+		  align-items: center;
+		  box-sizing: border-box;
+		  height: 100%;
+		  max-height: 100%;
+		  max-width: 100%;
+			}
+		&-active{}
+		.heading{
+			display: inline-block;
+			text-shadow: 1px 1px 0.5em rgba(Ui(grays,dark),.75);
+			padding: 0;
+			letter-spacing: 0;
+			}
 	  }
-	.swiper-slide-active{}
+/*-parallax->*/
+	@at-root .parallax-bg{
+	  position: absolute;
+	  top: 15%;
+	  left: 5%;
+	  width: 90%;
+	  height: 70%;
+	  background-size: cover;
+	  background-position: center;
+	  z-index: -1;
+	  box-shadow: .375em .375em .5em .0375em rgba(black,.25);
+		}
 /*-pagenav->*/
-	.swiper-pagination-bullets{
-	  z-index:9;
-	  position:fixed;
-	  right: 0;
-	  top: 0;
-	  display:flex;
-	  flex-flow:nowrap column;
-	  justify-content: space-between;
-	  align-items: center;
-	  height:100vh;
-	  width:.38em;
+	&-pagination-bullet{
+		&s{//wrapper
+		  z-index:9;
+		  position:fixed;
+		  right: 0 !important;
+		  top: 0;
+		  margin: 0;
+		  display:flex;
+		  flex-flow:nowrap column;
+		  justify-content: space-between;
+		  align-items: flex-start;
+		  // background-color: rgba(Ui($conf,swiper,bullets,color),Ui(shade,2));
+		  // min-height:100vh;
+		  width: Ui($conf,swiper,bullets,width);
+		  }
+		&{//self
+		  flex: 1 auto;
+		  opacity:1;
+		  box-sizing:border-box;
+		  width: Ui($conf,swiper,bullets,width);
+		  height: 0;
+		  margin: 3px 0!important;
+		  background-color:$__TRANSPARENT__;
+		  border-radius:0;
+		  border-top: 1px solid Ui($conf,swiper,bullets,color);
+		  transition: .25s 0s ease-in, background-color .4s ease;
+		  box-shadow: inset 0px -1*(Ui($conf,swiper,bullets,width)) 0px -(Ui($conf,swiper,bullets,width)) Ui($conf,swiper,bullets,color);
+			}
+		+.swiper-pagination-bullet{
+		  // margin-top:2px!important;
+		  }
+		&-active,&:hover{
+		  box-shadow: 
+		  	inset 0px -1*(Ui($conf,swiper,bullets,width)) 0px 0px Ui($conf,swiper,bullets,color);
+		  transition:
+			  .25s .0625s ease,
+			  background-color .4s ease;
+		  }
+		&-active{
+		  height: Ui($conf,swiper,bullets,width);
+			margin: 6px 0 !important;
+		  }
 	  }
-	.swiper-pagination-bullet{
-	  flex: 1 auto;
-	  opacity:1;
-	  box-sizing:border-box;
-	  width:0px;
-	  width:.38em;
-	  margin: 0 auto !important;
-	  background-color:rgba(255,255,255,.125);
-	  border-radius:0;
-	  border-right: 1px dashed currentColor;
-	  transition: .25s 0s ease-in;
-	  }
-	.swiper-pagination-bullet+.swiper-pagination-bullet{
-	  margin-top:2px!important;
-	  }
-	.swiper-pagination-bullet-active,
-	.swiper-pagination-bullet:hover{
-	  background-color: currentColor;
-	  transition: .25s .125s ease;
-	  }
-	.swiper-pagination-bullet:hover{
-	  opacity:.375;
-	  }
-	.swiper-pagination-bullet-active{
-	  opacity:1!important;
-	  }
+	}
