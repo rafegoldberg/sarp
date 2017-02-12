@@ -1,9 +1,6 @@
-<?#=UiApp:top->
-	snippet('app.top');
+<?#=UiApp:ini->
+	snippet('app/ui.ini');
 	?>
-<ui-page>
-	<?=$page->text()->kt()?>
- </ui-page>
-<?#=UiApp:btm->
-	snippet('app.btm');
+<?#=UiApp:end->
+	snippet('app/ui.end');
 	?>

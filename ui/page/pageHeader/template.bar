@@ -1,7 +1,0 @@
-{{#iterate this}}
-	<a
-	 is="ui-link"
-	 ui-hash="{{this.hash}}"
-	 class="nav--link {{ifel this.isOpen 'nav--link=active' ''}}"
-	href="{{this.uri}}">{{this.title}}</a>
-{{/iterate}}

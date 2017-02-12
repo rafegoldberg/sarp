@@ -1,7 +1,0 @@
-{{!--RENDER KIRBY TPL--}}
-<div class="contain grid">
-	{{{khtm}}}
-</div>
-{{!--RUN SITE HELPERS--}}
-{{UiNavUpdate}}
-{{UiPageUpdate}}
