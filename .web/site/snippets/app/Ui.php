@@ -22,7 +22,7 @@
 			self::$uiOpts= array_merge(self::$uiOpts,$user);
 		//=checkset url parameters
 			self::$uiOpts[minified][css]= self::onoff('mini-css',self::$uiOpts[minified][css]);
-			?><script>console.log('?opts->',<?=json_encode(self::$uiOpts[minified])?>)</script><?
+			/*?><script>console.log('?opts->',<?=json_encode(self::$uiOpts[minified])?>)</script><?*/
 		//=link main ui stylesheet
 		self::uiCss();
 		}
@@ -119,8 +119,6 @@
 		if( !self::wasRun(__FUNCTION__) && self::$uiOpts[localUrl][reload] ):
 			$url= self::$uiOpts['localUrl']['reload'].'/livereload.js';
 			?>
-			<script>Log.log('uiReload()',<?=json_encode(self::$uiOpts[localUrl])?>);
-				</script>
 			<script id="ui@reload=js" src="<?=$url?>"></script>
 			<?endif;
 		}

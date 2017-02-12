@@ -1,19 +1,7 @@
 html {
-	font: normal normal Ui(scale,root)#{'/1.5'} Ui(theme,$ui-theme,fonts,mono);
-	background-color: Ui(theme,$ui-theme,color,matte);
-	color: Ui(theme,$ui-theme,color,text);
+	font: normal normal Ui(scale,root)#{'/1.5'} Ui(fonts,base);
 	}
 body {
 	font-size: 100%;
 	margin: 0;
 	}
-
-// body {
-// 	position: fixed;
-// 	top: 0;
-// 	left: 0;
-
-// 	width: 100vw;
-// 	height: 100vh;
-// 	overflow: hidden;
-// 	}

@@ -1,19 +1,25 @@
+
+//=CONSTANTS
+// ---
+  $__TRANSPARENT__: #{'rgba(255,255,255,0)'};
+
+//=SASS UTIL
+// --- 
+  @import 'ui.sass.util/import';
+
+//=DEPS+LIBS
+// ---
+  @import 'modular-scale/stylesheets/modular-scale';
+  @import 'breakpoint-sass/stylesheets/breakpoint';
+
 /*=PARTIALS SOURCE ORDER
- ---
- 1 core
+   ---
+ 1 core ^
  2 config
  3 base
  4 generic
  5 layout
  6 extras
- 7 {modules}
+ 7 modules
  8 extend
  */
-
-//constants
-  $__TRANSPARENT__: #{'rgba(255,255,255,0)'};
-//sass util
-  @import 'ui.sass.util/import';
-//deps+libs
-  @import 'modular-scale/stylesheets/modular-scale';
-  @import 'breakpoint-sass/stylesheets/breakpoint';
