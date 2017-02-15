@@ -8,7 +8,12 @@ module.exports= {
         ],
       browserifyOptions: {
         debug: true,
-        paths: ['node_modules','ui','<%=ƒ.js.core%>'],
+        paths: [
+          'node_modules',
+          'ui',
+          '<%=ƒ.js.core%>',
+          '<%=ƒ.bower%>',
+          ],
         noParse: ['jquery','underscore']
         },
       },

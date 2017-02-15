@@ -1,18 +1,9 @@
 
 //=Color
-//->defaults
+//
 $ui-color:UiSet(color,(
-  blue:  #7DF9FF,
-  green: #07B4A7,
-  orange:#D94515,
-  red:   #F0433F,
-  yellow:#FFCD07,
-  faint: #FAFAFC,
+  base:#7DF9FF,
   ));
-//->custom
-$ui-color:UiXtd((
-  slate: #171717,
-  ),color);
 
 //=Grays
 // 

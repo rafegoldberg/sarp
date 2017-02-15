@@ -1,7 +1,14 @@
 html {
-	font: normal normal Ui(scale,root)#{'/1.5'} Ui(fonts,base);
+	font:
+		normal
+		normal
+		#{Ui(scale,root)}/#{Ui(scale,line)}
+		Ui(fonts,base);
 	}
 body {
-	font-size: 100%;
+	position: relative;
+	min-height: 100vh;
 	margin: 0;
+	padding: Ui(layout,gutter);
+	font-size: Ui(scale,body);
 	}

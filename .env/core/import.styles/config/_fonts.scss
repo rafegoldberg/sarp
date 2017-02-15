@@ -1,11 +1,11 @@
 @import url(#{gfont('Fira Sans',(
-	100,200,
+//100,200,
 	400,400i,
 	900,900i,
 	))});
 
 //=Ui@fonts#register
-$ds-fonts: UiSet(fonts,(
-	base: (Helvetica Neue,sans-serif),
-	head: (Fira Sans,Arial,sans-serif),
+$ui-fonts:UiSet(fonts,(
+	base:(Helvetica Neue,sans-serif),
+	head:(Fira Sans,Arial,sans-serif),
 	));

@@ -10,17 +10,21 @@
  7 modules
  8 extend
  */
-@import url(//fonts.googleapis.com/css?family=Fira+Sans:100,200,400,400i,900,900i);
+@import url(//fonts.googleapis.com/css?family=Fira+Sans:400,400i,900,900i);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css);
 * {
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent; }
 
 html {
-  font: normal normal 12pt /1.5 Helvetica Neue, sans-serif; }
+  font: normal normal 14px/1 Helvetica Neue, sans-serif; }
 
 body {
-  font-size: 100%;
-  margin: 0; }
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1em;
+  font-size: 100%; }
 
 img {
   max-width: 100%; }

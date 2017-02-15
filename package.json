@@ -1,9 +1,6 @@
 {
   "name": "dsui-env",
   "version": "0.0.2",
-  "scripts": {
-    "postinstall": "sudo grunt notify:dependencies && bower install -S --allow-root && sudo grunt env.setup"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/rafegoldberg/ui.ds.git",
@@ -13,6 +10,7 @@
   "description": "build modular UI components",
   "main": ".env/spec/app.js",
   "devDependencies": {
+    "@emmetio/expand-abbreviation": "^0.4.0",
     "autoprefixer": "^6.5.1",
     "babel-plugin-transform-es2015-newtarget": "git://github.com/vbarbarosh/babel_plugin_transform_es2015_newtarget.git",
     "babel-polyfill": "^6.20.0",
@@ -49,6 +47,7 @@
     "is-url": "github:segmentio/is-url",
     "jquery": "^3.1.1",
     "jquery-lazyload": "^1.9.7",
+    "jquery-mockjax": "^2.2.1",
     "load-grunt-config": "^0.19.2",
     "load-grunt-tasks": "^3.5.2",
     "lodash": "^4.17.2",
