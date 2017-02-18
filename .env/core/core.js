@@ -2,11 +2,11 @@
  */
   //=Polyfills 
   require('babel-polyfill');
-  require('webcomponents.js');
   //=Libraries
   var
-  $= window.$ =require('jquery'),
-  ø= window.ø =require('underscore');
+  $=  window.$  =require('jquery'),
+  Bb= window.Bb =require('backbone'),
+  Uc= window.Uc =require('underscore');
 
 /*Ui Magic
  */

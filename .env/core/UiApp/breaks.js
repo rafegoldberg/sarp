@@ -1,5 +1,3 @@
-var ø=require('underscore');
-
 module.exports= {
 	enquire:require('enquire'),
 	list:{},

@@ -18,13 +18,13 @@ $(document).ready(function(){
 		};
 
 	$.mockjax({//@match[projects.slug]
-		url: /^\/projects\/([\w-]+)$/,
+		url: /^\/projects(\/[\w-]+)?$/,
 		urlParams: ['project'],
 		response(opt){
 		  var
-		  project= ø(DB.projects).where({slug:opt.urlParams.project});
+		  project= Uc(DB.projects).where({slug:opt.urlParams.project});
 		  if( !project.length ){
-		  	console.warn('no projects found');
+		  	console.warn('no projects found; returning full collection');
 		  	return (this.responseText=DB.projects);
 			  }
 		  return (this.responseText=project);
