@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	var DB= {//[underscore object]
-		projects:ø([
+		projects:[
 			{ slug:'match',
 				title:'Match',
 				text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nisi quo natus corporis exercitationem sapiente nobis commodi tenetur illo, corrupti a officia iste, rem velit perspiciatis officiis distinctio provident, itaque?'
@@ -14,18 +14,18 @@ $(document).ready(function(){
 				title:'Substitutes for my Father',
 				text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nisi quo natus corporis exercitationem sapiente nobis commodi tenetur illo, corrupti a officia iste, rem velit perspiciatis officiis distinctio provident, itaque?'
 				}
-			]),//projects
+			],//projects
 		};
 
 	$.mockjax({//@match[projects.slug]
-		url: /^\/project\/([\w-]+)$/,
+		url: /^\/projects\/([\w-]+)$/,
 		urlParams: ['project'],
 		response(opt){
 		  var
-		  project= DB.projects.where({slug:opt.urlParams.project});
+		  project= ø(DB.projects).where({slug:opt.urlParams.project});
 		  if( !project.length ){
 		  	console.warn('no projects found');
-		  	return (this.responseText=[]);
+		  	return (this.responseText=DB.projects);
 			  }
 		  return (this.responseText=project);
 		  }
