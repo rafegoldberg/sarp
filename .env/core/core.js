@@ -16,7 +16,7 @@
  */
   UiApp= window.UiApp ={
     init(opts={}){
-      // console.log('UiApp.init()');
+      
       },
     plug:require('./UiApp/plugins/*.js',{mode:'hash'}),
     core:require('./UiApp/*.js',{mode:'hash'}),

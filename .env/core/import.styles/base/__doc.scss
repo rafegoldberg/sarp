@@ -8,7 +8,11 @@ html {
 body {
 	position: relative;
 	min-height: 100vh;
+	height: 100%;
 	margin: 0;
 	padding: Ui(layout,gutter);
 	font-size: Ui(scale,body);
+	
+  display: flex;
+  align-items: center;
 	}
