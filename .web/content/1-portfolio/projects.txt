@@ -1,0 +1,13 @@
+Title: Photo
+
+----
+
+Text: 
+
+----
+
+Active: 
+
+----
+
+Activepage: 1

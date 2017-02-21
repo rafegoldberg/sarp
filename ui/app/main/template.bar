@@ -1,0 +1,6 @@
+{{#each this}}
+<div class="swiper-slide">
+	<h3>👋🌍</h3>
+	{{log this}}
+</div>
+{{/each}}

@@ -1,5 +1,0 @@
-<div class="swiper-wrapper">
-	{{#each this}}
-	<div class="swiper-slide">{{title}}</div>
-	{{/each}}
-</div>

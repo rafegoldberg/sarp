@@ -1,10 +1,9 @@
 <?#=UiApp:ini->
 	snippet('app/ui.ini');
 	?>
-	
-<div id="main">
-</div><?#main?>
-
+<ui-main>
+	<ui-page></ui-page>
+</ui-main>
 <?#=UiApp:end->
 	snippet('app/ui.end');
 	echo js('assets/site.js');

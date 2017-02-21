@@ -50,10 +50,9 @@
 							 ttl=> $page->title()->value(),
 							 url=> $page->url(),
 							 uri=> '/'.$page->uri(),
-							 mdl=> array_merge($page->toArray(),[API=>[
-								 htm=> $khtm,
-								 nav=> $knav
-								 ]]),
+							 htm=> $khtm,
+							 nav=> $knav->data,
+							 mdl=> $page->toArray(),//array_merge($page->toArray(),[])
 							 ];
 						#-------------#
 						return response::json($respond);
