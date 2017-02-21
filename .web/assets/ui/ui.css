@@ -27,6 +27,8 @@ body {
   padding: 1em;
   font-size: 100%;
   display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
   align-items: center; }
 
 .swiper-container {
