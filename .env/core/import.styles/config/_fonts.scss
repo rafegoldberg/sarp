@@ -1,15 +1,28 @@
-@import url(#{gfont('Fira Sans',(
-	400,400i,
-	900,900i,
-	))});
-@import url(#{gfont('Ubuntu Mono',(
-	400,400i,
-	700,700i,
-	))});
-
-//=Ui@fonts#register
-$ui-fonts:UiSet(fonts,(
-	base:(Helvetica Neue,sans-serif),
-	head:(Fira Sans,Arial,sans-serif),
-	mono:(Ubuntu Mono,monospace),
-	));
+//=ui@fonts#import[google font specs]
+	@import url(#{gfont('Fira Sans',(
+		400,400i,
+		900,900i,
+		))});
+	@import url(#{gfont('Ubuntu Mono',(
+		400,400i,
+		700,700i,
+		))});
+//=ui@fonts#register
+	$ui-fonts:UiSet(fonts,(
+		base:(Helvetica Neue,sans-serif),
+		head:(Fira Sans,Arial,sans-serif),
+		mono:(Ubuntu Mono,monospace),
+		));
+//=mixins
+//
+	@mixin fontSmoothing( $set:'' ){
+		@if $set!=hard and $set!=soft {
+			$set:soft
+			}//if(set)
+		$use:(
+			hard: (wbk:antialiased,          moz:grayscale),
+			soft: (wbk:subpixel-antialiased, moz:unset    ),
+			);//$use
+		-webkit-font-smoothing: Ui($use,$set,wbk);
+		-moz-osx-font-smoothing:Ui($use,$set,moz);
+		}

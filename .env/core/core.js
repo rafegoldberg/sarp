@@ -8,7 +8,8 @@
   var
   $=  window.$  =require('jquery'),
   Uc= window.Uc =require('underscore');
-
+  //alias
+   window._= Uc;
 /*=Ui App
  */
   UiApp= window.UiApp ={

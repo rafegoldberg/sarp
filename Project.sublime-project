@@ -18,7 +18,8 @@
 				".env",
 				".build",
 				"data/.*",
-				"ui"
+				"ui",
+				".bin",
 			],
 			"name": "@root/",
 			"path": "."

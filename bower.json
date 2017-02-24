@@ -12,6 +12,7 @@
     "breakpoint-sass": "^2.7.0",
     "ui.sass.util": "https://github.com/rafegoldberg/ui.sass.util.git#master",
     "sassline": "^2.1.2",
-    "enquire": "^2.1.2"
+    "enquire": "^2.1.2",
+    "swiper": "^3.4.1"
   }
 }

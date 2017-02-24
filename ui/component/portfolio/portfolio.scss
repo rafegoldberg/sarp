@@ -2,19 +2,35 @@
 %swiper-portfolio{
 	$conf: ( bgc:#F6F6F6 );
 	//self
-		min-width: 50vmin;
-		width: 40em;
-		max-width: 100%;
-		height: 40em;
-		max-height: calc(100vh - #{Ui(layout,gutter)*2});
+		//dimensions
+	  min-width: 40em;
+	  width: 45vw;
+	  max-width: calc(100vw - #{Ui(layout,gutter)*2});
+	  @media( max-width:40em ){
+	  	min-width: initial;
+		  }
+	  min-height: 45vh;
+	  height: 40em;
+  	max-height: calc(100vh - #{Ui(layout,gutter)*2});
+	  @media( max-width:80em ){
+	  	min-height: initial;
+	  	height: calc(50vh - #{Ui(layout,gutter)});
+	  	max-height: calc(50vh - #{Ui(layout,gutter)});
+		  }
+		//layout
+		flex: 1 0 30em;
 		overflow: hidden;
 		margin-left: 0;
 		margin-right: 0;
+		//theme
 		background: Ui($conf,bgc);
 	&--txt{
+		height: 100%;
+		text-align: center;
 		writing-mode: vertical-rl;
 		font-family: Ui(fonts,head);
     font-size: 10vh;
+
 	    @media( max-height: 700px ){
 				font-size: 4em;
 				}
@@ -25,42 +41,80 @@
 	  top: -0.075em;
 	  left: -0.175em;
 	  color: #fff;
-		}
+		}//txt
 	&--ttl{
 		width: 100%;
-		text-transform: lowercase;
+		font-size: ms(4);
 		font-family: Ui(fonts,mono);
-		font-size: ms(2);
 		font-style: italic;
-		text-rendering: antialiased;
-		}
+		text-transform: lowercase;
+		@include fontSmoothing(hard);
+		}//ttl
 	&--lnk{
 		position: absolute;
 		bottom: Ui(layout,gutter);
 		right: Ui(layout,gutter);
 		opacity: 0;
-		transition: all .875s .2s ease;
+		transition: all .5s 0s ease;
 		.swiper-slide-active &{
 			opacity: 1;
-			transition-delay: .75s;
+			transition: all .5s 1s ease;
 			}
-		}
-	.swiper-slide{
-		box-sizing: Ui(layout,gutter);
-		padding: Ui(layout,gutter);
-		}
-	.swiper-paged{
-	  z-index: 10;
-	  position: absolute;
-	  left: Ui(layout,gutter);
-		right: initial;
-		top: initial;
-	  bottom: Ui(layout,gutter);
-	  width: initial;
-	  transform: none;
-	  letter-spacing: -.075em;
-	  >*{ font-size:.75em }
-	  >:first-child { vertical-align:super }
-  	>:last-child { vertical-align:sub }
-		}
+		}//lnk
+	.swiper{
+		&-slide{
+			align-items: center;
+			box-sizing: border-box;
+			padding: Ui(layout,gutter);
+			&-active{
+				}
+			}
+		&-nav{
+			&{//self
+			  z-index: 10;
+			  position: absolute;
+			  left: Ui(layout,gutter);
+				right: initial;
+				top: initial;
+			  bottom: Ui(layout,gutter);
+			  display: inline-flex;
+			  justify-content: space-between;
+			  align-items: center;
+			  width: initial;
+			  transform: none;
+		  	color: rgba(0,0,0,.5);
+
+			  margin: 0 0 -.25em -.25em;//@ref[next|prev padding]
+				}
+			>*+*{ margin-left: .5em; }
+		  &--adj{
+		  	display: inline-block;
+		  	padding: .5em .25em;
+		  	transform: scale(1);
+		  	transition: all .2s ease;
+		  	cursor: pointer;
+		  	&:hover{
+			  	transform: scale(1.25);
+			  	color: initial;
+			  	}
+			  &__next{
+			  	transform-origin:left center;
+			  	
+				  }
+			  &__prev{
+			  	transform-origin:right center;
+			  	
+				  }
+			  }
+			&--page{
+			  letter-spacing: -.075em;
+			  >*{
+			  	font-size:.75em;
+					font-family: Ui(fonts,mono);
+				  }
+			  >:first-child { vertical-align:super }
+		  	>:last-child { vertical-align:sub }
+				}
+			}
+		}//swiper
 	}

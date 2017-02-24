@@ -2,23 +2,32 @@ module.exports= UiApp.core.tag.new({
 	prototype: 'swiper',
 	lifecycle:{
 		created( opts={} ){
-			// this.$.addClass(this.class.root);
 			this.fetch();
-			this.klass={
+			this.cls={
 				root: 'swiper-portfolio',
 				};
 			this.opts={
-			  observer:true,
-			  spaceBetween:0,
-			  direction:'vertical',
-			  mousewheelControl:true,
-			  freeMode: true,
-			  freeModeSticky:true,
-			  parallax:true,
-			  watchSlidesProgress:true,
-			  watchSlidesVisibility:true,
-			  pagination:'.swiper-paged',
-			  paginationType:'fraction',
+				//layout
+				spaceBetween:0,
+				direction:'vertical',
+				//control
+				mousewheelControl:true,
+				freeMode: true,
+				freeModeSticky:true,
+				//effects
+				parallax:true,
+				speed:500,
+				//navigation
+				nextButton:'.swiper-nav--adj__next',
+				prevButton:'.swiper-nav--adj__prev',
+				pagination:'.swiper-nav--page',
+				paginationType:'fraction',
+				//progress
+				watchSlidesProgress:true,
+				watchSlidesVisibility:true,
+				//statechange
+				hashnav:true,
+				observer:true,
 				};
 			return this;
 			},

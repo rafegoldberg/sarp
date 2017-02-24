@@ -1,6 +1,6 @@
 <div class="swiper-wrapper">
 	{{#each this}}
-	<div class="swiper-slide">
+	<div class="swiper-slide" data-hash={{hash}}>
 		<aside
 			 class=swiper-portfolio--txt
 			 data-swiper-parallax
@@ -9,14 +9,18 @@
 		<h3
 			 class=swiper-portfolio--ttl
 			 data-swiper-parallax
-			 data-swiper-parallax-y="200%">
+			 data-swiper-parallax-y="150%">
 		 {{ttl}}</h3>
 		<a
 			 class=swiper-portfolio--lnk
 			 href="{{url}}"
 			 is="ui-link">
-			<small style="vertical-align:top">view </small>→</a>
+			<small>view</small></a>
 	</div>
 	{{/each}}
 </div>
-<div class="swiper-paged"></div>
+<div class="swiper-nav">
+	<div class="swiper-nav--adj swiper-nav--adj__prev">←</div>
+	<div class="swiper-nav--page"></div>
+	<div class="swiper-nav--adj swiper-nav--adj__next">→</div>
+</div>

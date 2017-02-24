@@ -2,25 +2,28 @@ module.exports= UiApp.core.tag.new({
 	prototype: 'swiper',
 	lifecycle:{
 		created( opts={} ){
-			// this.$.addClass(this.class.root);
 			this.fetch();
-			this.klass={
+			this.cls={
 				root: 'swiper-gallery',
 				};
 			this.opts={
-			  observer:true,
+				//layout
 			  spaceBetween:0,
 			  direction:'horizontal',
+			  //control
 			  mousewheelControl:true,
-			  // mousewheelForceToAxis:true,
-			  // mousewheelInvert:true,
 			  freeMode: true,
 			  freeModeSticky:true,
-			  parallax:true,
-			  effect:'fade',
-			  fade:{crossfade:true},
+			  //effects
+				  // effect:'fade',
+				  // fade:{crossfade:true},
+				  // parallax:true,
+			  //loading
 			  preloadImages:false,
 			  lazyLoading:true,
+			  //statechange
+			  hashnav:true,
+			  observer:true,
 				};
 			return this;
 			},
