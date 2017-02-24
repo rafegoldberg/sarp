@@ -1,0 +1,22 @@
+<div class="swiper-wrapper">
+	{{#each this}}
+	<div class="swiper-slide">
+		<aside
+			 class=swiper-portfolio--txt
+			 data-swiper-parallax
+			 data-swiper-parallax-y="-62.5%">
+		 {{txt}}</aside>
+		<h3
+			 class=swiper-portfolio--ttl
+			 data-swiper-parallax
+			 data-swiper-parallax-y="200%">
+		 {{ttl}}</h3>
+		<a
+			 class=swiper-portfolio--lnk
+			 href="{{url}}"
+			 is="ui-link">
+			<small style="vertical-align:top">view </small>→</a>
+	</div>
+	{{/each}}
+</div>
+<div class="swiper-paged"></div>

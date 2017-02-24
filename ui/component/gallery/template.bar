@@ -1,0 +1,10 @@
+<div class="swiper-wrapper">
+	{{#each this}}
+	<div class="swiper-slide">
+    <div
+	     class=swiper-gallery--bgi
+	     data-swiper-parallax="-25%"
+	     style="background-image:url({{img}})"></div>
+	</div>
+	{{/each}}
+</div>

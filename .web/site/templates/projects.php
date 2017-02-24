@@ -1,11 +1,8 @@
-<?#=UiApp:top->
-	snippet('app.top');
+<?#=UiApp:ini->
+	snippet('app/ui.ini');
 	?>
-<ui-page>
-	<ui-project-gallery
-		data-model="<?=Ui::att($page->gallery())?>">
-		</ui-project-gallery>
-</ui-page>
-<?#=UiApp:btm->
-	snippet('app.btm');
+<ui-main></ui-main>
+<?#=UiApp:end->
+	snippet('app/ui.end');
+	echo js('assets/site.js');
 	?>
